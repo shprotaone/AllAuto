@@ -1,0 +1,1392 @@
+2024-01-12 08:45:43.8087|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 08:45:43.8192|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 08:45:43.8192|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 08:45:43.8192|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 08:45:43.8192|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 08:45:48.8298|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 08:45:48.8717|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 08:46:23.3825|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 08:48:21.7717|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 08:48:33.2048|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 08:48:37.5421|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 08:52:15.5084|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 08:52:15.5164|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 08:52:15.5164|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 08:52:15.5164|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 08:52:15.5164|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 08:52:17.8696|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 08:52:17.9081|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 08:52:36.7077|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 08:53:54.7715|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 08:54:14.4637|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (11ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:14.4779|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:14.5189|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:18.7528|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:18.7528|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:18.7910|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:27.2085|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (10ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:27.2085|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:54:27.2429|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:4f2c76a2-c320-4c58-aef2-ae66cd7b508d
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:55:32.1926|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 08:55:32.1926|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 08:55:32.1926|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 08:55:32.1926|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 08:55:32.1926|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 08:55:37.9569|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 08:55:37.9933|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 08:55:56.8970|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 08:56:03.8668|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (7ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:56:03.8768|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5e92e52b-59cf-4b9d-97cf-b19f00d244f7
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5e92e52b-59cf-4b9d-97cf-b19f00d244f7
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:56:03.9144|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:5e92e52b-59cf-4b9d-97cf-b19f00d244f7
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:56:13.1886|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (3ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:56:13.1886|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5e92e52b-59cf-4b9d-97cf-b19f00d244f7
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5e92e52b-59cf-4b9d-97cf-b19f00d244f7
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:56:13.2279|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:5e92e52b-59cf-4b9d-97cf-b19f00d244f7
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 08:58:54.9528|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 08:58:54.9636|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 08:58:54.9636|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 08:58:54.9636|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 08:58:54.9636|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 08:59:00.7677|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 08:59:00.8061|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:02:47.3300|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:02:47.3300|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:02:47.3300|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:02:47.3300|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:02:47.3300|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:02:53.0283|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 09:02:53.0650|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:03:05.3913|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 2 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 09:03:08.1127|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.DeleteUser] пользователь удален |url: https://localhost/User/DeleteUser/2|action: DeleteUser
+2024-01-12 09:03:08.1255|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 09:03:12.3354|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (7ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:12.3451|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:12.3935|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:19.1569|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 09:03:27.2857|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (5ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:27.2857|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:27.3180|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:36.2866|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (3ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:36.2980|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:36.3323|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:39.4291|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (11ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:39.4291|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:39.4759|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:44.4159|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 09:03:57.4586|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (3ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:57.4586|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:03:57.4986|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:04:04.2538|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (10ms) [Parameters=[@__username_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Age], [u].[Name] AS [UserName]
+FROM [Profiles] AS [p]
+INNER JOIN [Users] AS [u] ON [p].[UserId1] = [u].[Id]
+WHERE [u].[Name] = @__username_0 |url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:04:04.2538|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16 Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:04:04.2884|0|ERROR|AllAuto.Service.Implementations.ProfileService|[UserService.GetUsers] error Недопустимое имя столбца "UserId1". Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at AllAuto.Service.Implementations.ProfileService.GetProfile(String username) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\ProfileService.cs:line 27
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16|url: https://localhost/Profile/Detail|action: Detail
+2024-01-12 09:04:33.3771|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[@p0='?' (Size = 250), @p1='?' (DbType = Byte), @p2='?' (DbType = Int64), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Profiles] ([Address], [Age], [UserId], [UserId1])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Profiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:04:33.3948|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:04:33.4750|0|ERROR|AllAuto.Service.Implementations.AccountService|[Register]: An error occurred while saving the entity changes. See the inner exception for details. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at AllAuto.DAL.Repositories.ProfileRepository.Create(Profile entity) in C:\Code\С#\AllAuto\AllAuto.DAL\Repositories\ProfileRepository.cs:line 18
+   at AllAuto.Service.Implementations.AccountService.Register(RegisterViewModel model) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\AccountService.cs:line 54|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:08:14.4467|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (20ms) [Parameters=[@p0='?' (Size = 250), @p1='?' (DbType = Byte), @p2='?' (DbType = Int64), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Profiles] ([Address], [Age], [UserId], [UserId1])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Profiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:08:14.4467|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:08:39.7701|0|ERROR|AllAuto.Service.Implementations.AccountService|[Register]: An error occurred while saving the entity changes. See the inner exception for details. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:d1892104-eaaa-4105-8766-24e3e6937616
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at AllAuto.DAL.Repositories.ProfileRepository.Create(Profile entity) in C:\Code\С#\AllAuto\AllAuto.DAL\Repositories\ProfileRepository.cs:line 18
+   at AllAuto.Service.Implementations.AccountService.Register(RegisterViewModel model) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\AccountService.cs:line 54|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:09:52.1571|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:09:52.1571|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:09:52.1571|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:09:52.1571|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:09:52.1571|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:09:54.6845|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 09:09:54.7339|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:11:05.1164|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (22ms) [Parameters=[@p0='?' (Size = 250), @p1='?' (DbType = Byte), @p2='?' (DbType = Int64), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Profiles] ([Address], [Age], [UserId], [UserId1])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Profiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:11:05.1304|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a0d43ac7-30c1-4886-9cbb-6b1418bb5b9f
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Недопустимое имя столбца "UserId1".
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a0d43ac7-30c1-4886-9cbb-6b1418bb5b9f
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:13:05.8727|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:13:05.8792|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:13:05.8792|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:13:05.8792|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:13:05.8792|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:13:11.7263|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:13:45.2706|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:13:45.2813|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:13:45.2813|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:13:45.2813|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:13:45.2813|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:13:47.7915|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:13:51.5272|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:14:43.1022|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (23ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 250), @p2='?' (DbType = Byte), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Profiles] ([Id], [Address], [Age], [UserId])
+VALUES (@p0, @p1, @p2, @p3); |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:14:43.1170|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Невозможно вставить явное значение для столбца идентификаторов в таблице "Profiles", когда параметр IDENTITY_INSERT имеет значение OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a67cf5db-cf6a-47e7-9185-b91d8153aad0
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Невозможно вставить явное значение для столбца идентификаторов в таблице "Profiles", когда параметр IDENTITY_INSERT имеет значение OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a67cf5db-cf6a-47e7-9185-b91d8153aad0
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:16:07.9602|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:16:07.9602|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:16:07.9602|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:16:07.9602|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:16:07.9602|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:16:13.9914|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:16:14.7232|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:16:49.6917|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (104ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [AllAutoCars]; |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:17:38.2360|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:17:38.2360|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:17:38.2360|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:17:38.2360|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:17:38.2360|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:17:44.5149|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:17:45.2205|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:18:57.5177|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (25ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 250), @p2='?' (DbType = Byte), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Profiles] ([Id], [Address], [Age], [UserId])
+VALUES (@p0, @p1, @p2, @p3); |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:18:57.5322|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Невозможно вставить явное значение для столбца идентификаторов в таблице "Profiles", когда параметр IDENTITY_INSERT имеет значение OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a65388ba-f38d-4d3d-b59a-cdafd7a7368e
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Невозможно вставить явное значение для столбца идентификаторов в таблице "Profiles", когда параметр IDENTITY_INSERT имеет значение OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a65388ba-f38d-4d3d-b59a-cdafd7a7368e
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:20:23.6753|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:20:23.6753|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:20:23.6753|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:20:23.6753|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:20:23.6753|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:20:26.0965|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:21:16.3662|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (25ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 250), @p2='?' (DbType = Byte), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Profiles] ([Id], [Address], [Age], [UserId])
+VALUES (@p0, @p1, @p2, @p3); |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:21:16.3827|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Невозможно вставить явное значение для столбца идентификаторов в таблице "Profiles", когда параметр IDENTITY_INSERT имеет значение OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:4bdbccaf-c96b-435b-aea6-836ae321f67a
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Невозможно вставить явное значение для столбца идентификаторов в таблице "Profiles", когда параметр IDENTITY_INSERT имеет значение OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:4bdbccaf-c96b-435b-aea6-836ae321f67a
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:21:59.3214|0|ERROR|AllAuto.Service.Implementations.AccountService|[Register]: An error occurred while saving the entity changes. See the inner exception for details. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Невозможно вставить явное значение для столбца идентификаторов в таблице "Profiles", когда параметр IDENTITY_INSERT имеет значение OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:4bdbccaf-c96b-435b-aea6-836ae321f67a
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at AllAuto.DAL.Repositories.ProfileRepository.Create(Profile entity) in C:\Code\С#\AllAuto\AllAuto.DAL\Repositories\ProfileRepository.cs:line 18
+   at AllAuto.Service.Implementations.AccountService.Register(RegisterViewModel model) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\AccountService.cs:line 54|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:24:40.9204|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:24:40.9284|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:24:40.9284|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:24:40.9284|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:24:40.9284|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:24:43.3854|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 09:24:43.4221|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:24:47.1259|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-12 09:24:47.1259|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:25:11.3204|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (24ms) [Parameters=[@p0='?' (Size = 250), @p1='?' (DbType = Byte), @p2='?' (DbType = Int64), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Profiles] ([Address], [Age], [UserId], [UserId1])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Profiles]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); |url: https://localhost/Account/Register|action: Register
+2024-01-12 09:25:11.3351|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Конфликт инструкции INSERT с ограничением FOREIGN KEY "FK_Profiles_Users_UserId1". Конфликт произошел в базе данных "AllAutoCars", таблица "dbo.Users", column 'Id'.
+Выполнение данной инструкции было прервано.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:3b1e7d0e-4eb3-41a8-b81d-3a1af6c761cb
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Конфликт инструкции INSERT с ограничением FOREIGN KEY "FK_Profiles_Users_UserId1". Конфликт произошел в базе данных "AllAutoCars", таблица "dbo.Users", column 'Id'.
+Выполнение данной инструкции было прервано.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:3b1e7d0e-4eb3-41a8-b81d-3a1af6c761cb
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:25:42.4565|0|ERROR|AllAuto.Service.Implementations.AccountService|[Register]: An error occurred while saving the entity changes. See the inner exception for details. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Конфликт инструкции INSERT с ограничением FOREIGN KEY "FK_Profiles_Users_UserId1". Конфликт произошел в базе данных "AllAutoCars", таблица "dbo.Users", column 'Id'.
+Выполнение данной инструкции было прервано.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:3b1e7d0e-4eb3-41a8-b81d-3a1af6c761cb
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at AllAuto.DAL.Repositories.ProfileRepository.Create(Profile entity) in C:\Code\С#\AllAuto\AllAuto.DAL\Repositories\ProfileRepository.cs:line 18
+   at AllAuto.Service.Implementations.AccountService.Register(RegisterViewModel model) in C:\Code\С#\AllAuto\AllAuto.Service\Implementations\AccountService.cs:line 54|url: https://localhost/Account/Register|action: Register
+2024-01-12 09:29:15.0988|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:29:15.0988|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:29:15.0988|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:29:15.0988|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:29:15.0988|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:36:28.5851|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:36:28.5851|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:36:28.5851|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:36:28.5851|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:36:28.5851|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:47:48.3933|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:47:48.3933|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:47:48.3933|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:47:48.3933|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:47:48.3933|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:49:02.6230|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:49:02.6302|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:49:02.6302|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:49:02.6302|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:49:02.6302|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:49:30.6181|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:49:45.6806|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 09:51:13.4153|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 09:59:09.5939|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 09:59:09.6022|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 09:59:09.6022|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 09:59:09.6022|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 09:59:09.6022|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 09:59:18.8361|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:02:11.1021|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 10:02:11.1021|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 10:02:11.1021|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 10:02:11.1100|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 10:02:11.1100|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 10:02:13.5324|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:03:39.2579|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 2 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:10:56.4222|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 10:10:56.4222|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 10:10:56.4222|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 10:10:56.4222|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 10:10:56.4222|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 10:10:59.0287|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:16:30.9664|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 10:16:30.9757|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 10:16:30.9757|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 10:16:30.9757|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 10:16:30.9757|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 10:16:37.2368|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:19:26.2790|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 10:19:26.2856|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 10:19:26.2856|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 10:19:26.2856|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 10:19:26.2856|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 10:19:28.6871|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:19:39.1728|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 2 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:19:53.1113|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.DeleteUser] пользователь удален |url: https://localhost/User/DeleteUser/2|action: DeleteUser
+2024-01-12 10:19:53.1113|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:26:38.7772|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 10:26:38.7846|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 10:26:38.7846|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 10:26:38.7846|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 10:26:38.7846|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 10:26:43.8569|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:26:51.3129|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:34:01.7358|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:34:01.7358|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:34:06.5495|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:34:09.8643|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:38:33.2990|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 10:38:33.2990|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 10:38:33.2990|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 10:38:33.2990|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 10:38:33.2990|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 10:38:38.7459|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:38:46.1723|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:40:15.0770|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 10:40:15.0843|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 10:40:15.0843|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 10:40:15.0843|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 10:40:15.0843|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 10:40:20.5817|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 10:40:29.2545|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 10:41:04.4381|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 2 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-12 14:32:14.9354|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 14:32:14.9425|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 14:32:14.9425|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 14:32:14.9425|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 14:32:14.9425|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 14:32:20.9998|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 14:37:22.0007|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 14:37:22.0089|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 14:37:22.0089|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 14:37:22.0089|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 14:37:22.0089|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 14:37:27.5989|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 14:38:31.0082|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 14:38:31.0163|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 14:38:31.0163|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 14:38:31.0163|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 14:38:31.0163|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 14:38:34.5521|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 14:42:07.5367|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 14:42:07.5367|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 14:42:07.5367|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 14:42:07.5367|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 14:42:07.5367|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 14:42:14.3775|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 14:53:12.6716|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 14:53:12.6791|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 14:53:12.6791|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 14:53:12.6791|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 14:53:12.6791|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 14:53:18.1349|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 14:55:13.0946|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 14:55:13.1104|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 14:55:13.1104|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 14:55:13.1104|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 14:55:13.1104|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 14:55:15.5328|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:00:25.9988|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:00:26.0058|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:00:26.0058|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:00:26.0058|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:00:26.0058|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:00:31.5057|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:02:31.9718|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:02:31.9718|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:02:31.9718|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:02:31.9718|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:02:31.9718|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:02:34.4402|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:07:10.0725|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:07:10.0793|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:07:10.0793|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:07:10.0793|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:07:10.0793|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:07:15.5259|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:08:57.0112|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:08:57.0207|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:08:57.0207|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:08:57.0207|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:08:57.0207|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:08:59.6039|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:11:25.0197|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:11:25.0197|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:11:25.0197|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:11:25.0197|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:11:25.0197|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:11:30.7931|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:15:40.2329|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:15:40.2395|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:15:40.2395|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:15:40.2395|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:15:40.2395|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:15:42.8098|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:16:08.7169|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:16:08.7247|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:16:08.7247|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:16:08.7247|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:16:08.7247|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:16:14.0294|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:16:56.4909|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:16:56.4909|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:16:56.4909|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:16:56.4909|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:16:56.4909|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:17:02.0422|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:17:23.9553|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:17:23.9693|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:17:23.9693|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:17:23.9693|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:17:23.9693|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:17:26.3478|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:19:25.2196|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:19:25.2196|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:19:25.2196|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:19:25.2196|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:19:25.2196|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:19:27.5821|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:20:05.9904|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:20:05.9904|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:20:05.9904|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:20:05.9904|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:20:05.9904|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:20:08.5893|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-12 15:22:35.5096|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-12 15:22:35.5168|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-12 15:22:35.5168|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-12 15:22:35.5168|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-12 15:22:35.5168|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-12 15:22:40.9565|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index

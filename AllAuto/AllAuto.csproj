@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\allauto-high-resolution-logo-black-transparent.png" />
+    <None Include="wwwroot\assets\allauto-high-resolution-logo-white-transparent.png" />
+    <None Include="wwwroot\assets\BrandBoard.pdf" />
+    <None Include="wwwroot\assets\fonts\Nunito Sans Regular.ttf" />
+    <None Include="wwwroot\assets\pdf\logo-black.pdf" />
+    <None Include="wwwroot\assets\pdf\logo-color.pdf" />
+    <None Include="wwwroot\assets\pdf\logo-no-background.pdf" />
+    <None Include="wwwroot\assets\pdf\logo-white.pdf" />
+    <None Include="wwwroot\assets\png\logo-black.png" />
+    <None Include="wwwroot\assets\png\logo-color.png" />
+    <None Include="wwwroot\assets\png\logo-no-background.png" />
+    <None Include="wwwroot\assets\png\logo-white.png" />
+    <None Include="wwwroot\assets\svg\logo-black.svg" />
+    <None Include="wwwroot\assets\svg\logo-color.svg" />
+    <None Include="wwwroot\assets\svg\logo-no-background.svg" />
+    <None Include="wwwroot\assets\svg\logo-white.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.8" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AllAuto.DAL\AllAuto.DAL.csproj" />
+    <ProjectReference Include="..\AllAuto.Domain\AllAuto.Domain.csproj" />
+    <ProjectReference Include="..\AllAuto.Service\AllAuto.Service.csproj" />
+  </ItemGroup>
+
+</Project>

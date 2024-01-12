@@ -1,0 +1,139 @@
+2024-01-11 17:29:00.5938|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 17:29:00.5938|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 17:29:00.5938|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 17:29:00.5938|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 17:29:00.5938|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 17:29:07.7589|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-11 17:29:09.4286|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:29:12.2819|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:32:41.8317|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 17:32:41.8317|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 17:32:41.8317|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 17:32:41.8317|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 17:32:41.8317|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 17:32:48.4553|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:32:50.1415|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:32:50.1577|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[AllAuto.Domain.ViewModels.User.UserViewModel]', but this ViewDataDictionary instance requires a model item of type 'System.Linq.IQueryable`1[AllAuto.Domain.ViewModels.User.UserViewModel]'.
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.EnsureCompatible(Object value)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary..ctor(ViewDataDictionary source, Object model, Type declaredModelType)
+   at lambda_method56(Closure , ViewDataDictionary )
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.CreateViewDataDictionary(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.Activate(Object page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPageActivator.Activate(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|8_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:33:07.0170|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:33:07.0170|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[AllAuto.Domain.ViewModels.User.UserViewModel]', but this ViewDataDictionary instance requires a model item of type 'System.Linq.IQueryable`1[AllAuto.Domain.ViewModels.User.UserViewModel]'.
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.EnsureCompatible(Object value)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary..ctor(ViewDataDictionary source, Object model, Type declaredModelType)
+   at lambda_method56(Closure , ViewDataDictionary )
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.CreateViewDataDictionary(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.Activate(Object page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPageActivator.Activate(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:35:04.9641|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 17:35:04.9750|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 17:35:04.9750|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 17:35:04.9750|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 17:35:04.9750|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 17:35:08.2071|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-11 17:35:26.1117|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:38:00.3868|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 17:38:00.3936|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 17:38:00.3936|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 17:38:00.3936|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 17:38:00.3936|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 17:38:03.8134|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:38:11.7368|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:38:13.5794|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:46:07.3045|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 17:46:07.3045|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 17:46:07.3045|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 17:46:07.3045|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 17:46:07.3045|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 17:46:14.1455|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:46:14.1936|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:46:15.7699|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:46:17.5190|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:49:05.4094|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 17:49:05.4094|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 17:49:05.4094|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 17:49:05.4094|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 17:49:05.4094|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 17:49:10.5651|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-11 17:49:10.6147|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-11 17:49:18.6182|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 17:49:35.2971|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 18:03:15.0598|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 18:03:15.0679|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 18:03:15.0679|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 18:03:15.0679|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 18:03:15.0679|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 18:03:16.9965|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-11 18:03:17.0411|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-11 18:03:20.7692|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 18:04:09.3604|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 18:04:54.2027|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 18:04:54.2116|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 18:04:54.2116|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 18:04:54.2116|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 18:04:54.2116|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 18:05:00.4379|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-11 18:05:00.4746|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-11 18:05:08.1902|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 18:05:17.5474|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 18:09:41.3667|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-11 18:09:41.3739|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-11 18:09:41.3739|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-11 18:09:41.3739|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-11 18:09:41.3739|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-11 18:09:42.8587|10625|WARN|Microsoft.EntityFrameworkCore.Model.Validation|The foreign key property 'Profile.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core. |url: https://localhost/|action: Index
+2024-01-11 18:09:42.9082|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'Car'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: https://localhost/|action: Index
+2024-01-11 18:10:00.3136|0|INFO|AllAuto.Service.Implementations.UserService|[UserService.GetUsers] получено элементов 1 |url: https://localhost/User/GetUsers|action: GetUsers
+2024-01-11 18:10:18.0380|0|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... |url: |action: 
