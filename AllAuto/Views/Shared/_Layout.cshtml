@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - ALLAuto</title>
+    <title>ALLAuto - запчасти для всех</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
     <link rel="stylesheet" href="~/css/backImage.css"/>
@@ -21,7 +21,7 @@
 <header>
     <nav class="navbar navbar-expand-lg" style="background-color: white;">
         <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                <img src="~/assets/svg/logo-no-background.svg" asp-append-version="true" style="height:100px">
+                <img src="~/assets/svg/logo-no-background.svg" asp-append-version="true" style="height:50px">
             </a>
         <button class="navbar-toggler badge-light" style="border-radius:10px;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -30,6 +30,7 @@
         </button>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
+
                 @if (!User.Identity.IsAuthenticated)
                 {
                     <li class="nav-item dropdown">
