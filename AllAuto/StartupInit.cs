@@ -14,6 +14,8 @@ namespace AllAuto
             services.AddScoped<IBaseRepository<Car>,CarRepository>();
             services.AddScoped<IBaseRepository<User>, UserRepository>();
             services.AddScoped<IBaseRepository<Profile>, ProfileRepository>();
+            services.AddScoped<IBaseRepository<Order>, OrderRepository>();
+            services.AddScoped<IBaseRepository<Basket>, BasketRepository>();
         }
 
         public static void InitializeServices(IServiceCollection services)
@@ -22,6 +24,8 @@ namespace AllAuto
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IProfileService, ProfileService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IBasketService, BasketService>();
         }
 
         public static void InitLogger(WebApplicationBuilder builder)

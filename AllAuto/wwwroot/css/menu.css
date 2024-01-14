@@ -1,8 +1,8 @@
-﻿.navbar .dropdown-menu div[class*="col"] {
+﻿/*.navbar .dropdown-menu div[class*="col"] {
     margin-bottom: 1rem;
 }
 
 .navbar .dropdown-menu {
     border: none;
-    background-color: black !important; /*Смена цвета #2C3539*/
-}
+    background-color: black !important;*/ /*Смена цвета #2C3539*/
+/*}*/

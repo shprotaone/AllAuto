@@ -1,4 +1,4 @@
-﻿@model List<AllAuto.Domain.ViewModels.Order.OrderViewModel>
+﻿@model IQueryable<AllAuto.Domain.ViewModels.Order.OrderViewModel>
 
 @{
     ViewBag.Title = "Корзина";
@@ -9,7 +9,7 @@
     var cardStyle = "col-md-12";
     if (Model != null)
     {
-        switch (Model.Count)
+        switch (Model.Count())
         {
             case 2:
                 cardStyle = "col-md-6";
@@ -20,7 +20,7 @@
         }
     }
 }
-@if (Model == null || Model.Count == 0)
+@if (Model == null || Model.Count() == 0)
 {
     <div style="padding:40px;"></div>
     <div class="card col-md-12">

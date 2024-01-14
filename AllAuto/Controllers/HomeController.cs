@@ -20,6 +20,11 @@ namespace AllAuto.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View("../About/AboutView");
+        }
+
         public IActionResult Privacy()
         {
             return View();

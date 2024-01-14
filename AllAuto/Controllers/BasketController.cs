@@ -14,6 +14,11 @@ namespace AllAuto.Controllers
 
         public async Task<IActionResult> Detail()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");    
+            }
+
             var response = await _basketService.GetItems(User.Identity.Name);
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
