@@ -28,6 +28,18 @@ namespace AllAuto.Controllers
             return RedirectToAction("Index","Home");
         }
 
+        public async Task<IActionResult> AddItem(long id, int Amount)
+        {
+            var response = await _basketService.AddItem(User.Identity.Name, id,Amount);
+            
+            if(response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Data);
+            }
+
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetItem(long id)
         {

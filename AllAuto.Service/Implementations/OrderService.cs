@@ -35,14 +35,18 @@ namespace AllAuto.Service.Implementations
                     };
                 }
 
-                Order order = new Order()
+                Order order = user.Basket.Orders.FirstOrDefault(x => x.IsClosed == false);
+                if(order == default)
                 {
-                    DateCreated = DateTime.Now,
-                    BasketId = user.Basket.Id,
-                    CardId = model.CarId,
-                    Address = user.Profile.Address
-
-                };
+                    order = new Order()
+                    {
+                        DateCreated = DateTime.Now,
+                        BasketId = user.Basket.Id,
+                        PartList = new List<SparePart>(),
+                        Address = user.Profile.Address
+                    };
+                }
+               
 
                 await _orderRepository.Create(order);
 

@@ -8,6 +8,6 @@
 
         public long UserId { get; set; } //Навигационное свойство
 
-        public List<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

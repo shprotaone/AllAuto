@@ -1,0 +1,102 @@
+﻿@using AllAuto.Domain.Enum
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALLAuto - запчасти для всех</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/backImage.css" />
+    <link rel="stylesheet" href="~/css/menu.css" />
+    <link rel="stylesheet" href="~/css/paragraph.css" />
+    <link rel="stylesheet" href="~/css/label.css" />
+    <link rel="stylesheet" href="~/css/footer.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/header.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+    <!--BootstrapRefs-->
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.ru/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js"></script>
+    <script src="~/js/modal.js"></script>
+
+</head>
+
+<body>
+    @* <header>
+
+    <a asp-controller="Profile" asp-action="Detail">
+    <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+    </svg>
+    </a>
+
+    <form method="post" asp-controller="Account" asp-action="Logout">
+    <input class="btn btn-danger rounded" style="font-family:'Comic Sans MS'; font-weight: bold; font-size:20px;" type="submit" value="Выход" />
+    </form>
+    }
+
+    @if (User.IsInRole("Admin"))
+    {
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle paragraphLayout active text-black" href="#" data-toggle="dropdown" style="font-family:'Comic Sans MS'; font-weight: bold;">
+    Админ
+    </a>
+    <div class="dropdown-menu">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <ul class="nav flex-column paragraphHome">
+    <li class="nav-item text-center">
+    <a class="nav-link active text-white" asp-controller="Car" asp-action="Save">
+    Добавление
+    </a>
+    </li>
+    <li class="nav-item text-center">
+    <a class="nav-link active text-white" asp-controller="User" asp-action="GetUsers">
+    Пользователи
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </li>
+    }
+
+    <li class="headerButton">
+    <a class="btn btn-secondary" role="button" asp-controller="Car" asp-action="GetCars">Список машин</a>
+    </li>
+    </ul>
+
+    </div>
+    </nav>
+    </header> *@
+    <div class="site_width">
+        <div class="container">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    @await RenderSectionAsync("pageScripts", required: false)
+
+</body>
+</html>
+

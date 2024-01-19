@@ -1,0 +1,169 @@
+﻿@model IQueryable<AllAuto.Domain.Entity.SparePart>
+@using AllAuto.Domain.Extensions
+
+@{
+    ViewBag.Title = "Список автомобилей";
+    Layout = "_Layout";
+}
+<head>
+    <link rel="stylesheet" href="~/css/card.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/site.css" type="text/css" />
+</head>
+
+
+<div class="site_width">
+    <div class="card-buttons-group">
+        @if (User.IsInRole("Admin"))
+        {
+            <button class='btn btn-success' id='addPartId'>Добавить</button>
+            <button class="btn btn-success" id="addPartsFromExcell">Добавить из файла</button>
+        }
+    </div>
+
+    @if (Model == null)
+    {
+       @*  <div class="card col-md-12">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://images.wallpaperscraft.ru/image/single/bmw_fary_podsvetka_137326_1280x720.jpg"
+                         class="img-fluid rounded-start rounded">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Список машин пуст :(</h5>
+                        <p class="card-text">
+                            Список пополниться позже, не расстраивайтесь
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding: 10px;"></div>
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div> *@
+    }
+    else
+    {
+        <br />
+            @foreach (var sparePart in Model)
+            {
+                <div class="row">
+                    <div class="col">
+                        <div class="icon icon-container">
+                            @{
+                                string base64 = sparePart.Avatar != Array.Empty<byte>()
+                                ? Convert.ToBase64String(sparePart.Avatar)
+                                : string.Empty;
+
+                                var imgSrc = $"data:image/jpeg;base64,{base64}";
+                                if (base64 == string.Empty)
+                                {
+                                    imgSrc = "../images/no-image.jpeg";
+                                }
+                            }
+
+                            <img src="@imgSrc"
+                                 alt="@sparePart.Name" style="height: inherit; width: inherit">
+                        </div>
+                    </div>
+
+                    <div class="col">
+                    <a  href="#" class="stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
+                        data-toggle="ajax-modal" data-target="Modal">
+                    @sparePart.Name
+                    </a>
+                    </div>
+
+                    <div class="col-3 align-self-center">
+                        <p class="card-text">@sparePart.Description</p>
+                    </div>
+
+                    <div class="col">
+                        Стоимость: @sparePart.Price ₽
+                    </div>
+
+                    <div class="col">
+                        @sparePart.TypeSparePart.GetDisplayName()
+                    </div>
+
+                    <div class="col">
+                        <div class="counter">
+                            <input asp-for=@sparePart.Amount name="count" value="1" data-step="1" data-min="1" data-max="100" />
+                        </div>
+                    </div>
+
+                <div class="col">
+                    <button class="add-position btn btn-light w-lg-100" 
+                        onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
+                            data-toggle="ajax-modal" data-target="Modal">Добавить
+                    </button>
+                </div>
+
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="col">
+                            <button asp-controller="SparePart" asp-action="Delete" asp-route-id="@sparePart.Id" class="btn btn-danger">Удалить</button>
+                        </div>
+                    }
+                </div>
+                <br />               
+            }
+    }
+</div>
+
+
+@section pageScripts{
+    <script src="~/js/modal.js"></script>
+    <script>
+        let modal = $('#modalWhButtons');
+
+        $('#compareBtnId').on('click', function () {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Compare")',
+                success: function (response) {
+                    $('.modal-dialog').addClass("modal-lg");
+                    modal.find(".modal-body").html(response);
+                    modal.modal('show')
+                }
+            });
+        });
+
+        $(".btn-close").click(function () {
+            modal.modal('hide');
+        });
+
+        $('#addPartId').on('click', function () {
+            $.ajax({
+                type: 'GET',
+                url: '/SparePart/Save',
+                success: function (response) {
+                    $('.modal-dialog').removeClass("modal-lg");
+                    modal.find(".modal-body").html(response);
+                    modal.modal('show')
+                },
+                failure: function () {
+                    modal.modal('hide')
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
+    </script>
+}

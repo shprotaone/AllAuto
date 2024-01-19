@@ -7,10 +7,23 @@
     </div>
     <div class="col-md-6">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Авто: @Model.CarName</li>
-            <li class="list-group-item">Модель: @Model.Model</li>
-            <li class="list-group-item">Скорость: @Model.MaxSpeed</li>
-            
+            <li class="list-group-item">Авто: @Model.PartList</li>
+            <li class="list-group-item">
+                <ul class="list-group">
+                    @{
+                        foreach (var part in Model.PartList)
+                        {
+                            <li class="list-group-item">
+                                <p>Наименование: part.Name</p>
+                                <p>Стоимость: part.Price</p>
+                                <p>Количество: part.Count</p>
+                            </li>
+                        }
+                    }
+                </ul>
+              
+
+            </li>            
         </ul>
     </div>
     <div class="col-md-6">

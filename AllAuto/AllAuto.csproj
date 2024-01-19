@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -40,6 +39,10 @@
     <ProjectReference Include="..\AllAuto.DAL\AllAuto.DAL.csproj" />
     <ProjectReference Include="..\AllAuto.Domain\AllAuto.Domain.csproj" />
     <ProjectReference Include="..\AllAuto.Service\AllAuto.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

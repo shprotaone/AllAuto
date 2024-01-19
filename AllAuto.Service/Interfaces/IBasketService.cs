@@ -6,8 +6,10 @@ namespace AllAuto.Service.Interfaces
 {
     public interface IBasketService
     {
-        Task<BaseResponse<OrderViewModel>> GetItem(string? name, long id);
+        Task<BaseResponse<OrderViewModel>> GetItem(string? userName, long id);
 
-        Task<BaseResponse<IEnumerable<OrderViewModel>>> GetItems(string name);
+        Task<BaseResponse<IEnumerable<OrderViewModel>>> GetItems(string userName);
+        Task<BaseResponse<OrderViewModel>> AddItem(string userName,long id, int Amount);
+
     }
 }

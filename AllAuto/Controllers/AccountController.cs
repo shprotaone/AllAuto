@@ -31,10 +31,9 @@ namespace AllAuto.Controllers
 
                     return RedirectToAction("Index","Home");
                 }
-                ModelState.AddModelError("", response.Description);
             }
 
-            return View(model);
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         [HttpGet]
@@ -54,11 +53,10 @@ namespace AllAuto.Controllers
 
                     return RedirectToAction("Index","Home");
                 }
-
-                ModelState.AddModelError("", response.Description);
+                
             }
 
-            return View(model);
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         [HttpPost]
@@ -77,6 +75,7 @@ namespace AllAuto.Controllers
         }
 
         [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

@@ -9,11 +9,12 @@ namespace AllAuto.DAL
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :
             base(options)
-        { 
+        {
+
             Database.EnsureCreated();
         }
 
-        public DbSet<Car> Car { get; set; }
+        public DbSet<SparePart> SpareParts { get; set; }
 
         public DbSet<User> Users { get; set; }
 

@@ -1,0 +1,136 @@
+﻿@model AllAuto.Domain.ViewModels.SparePart.SparePartOverviewViewModel
+
+
+<div class="overview=card card">
+
+    <div class="icon-card icon-container">
+        @{
+            string base64 = Model.Avatar != Array.Empty<byte>()
+            ? Convert.ToBase64String(Model.Avatar)
+            : string.Empty;
+
+            var imgSrc = $"data:image/jpeg;base64,{base64}";
+            if (base64 == string.Empty)
+            {
+                imgSrc = "../images/no-image.jpeg";
+            }
+        }
+
+        <img src="@imgSrc"
+             alt="@Model.Name" style="height: inherit; width: inherit">
+    </div>
+
+    <div class="card-body">
+        <div class="card-header border-0 px-0">
+            <label asp-for="@Model.Name"></label>
+            <h4>@Model.Name</h4>
+        </div>
+
+        <div class="card-text">
+            <label asp-for="@Model.Description"></label>
+            <p>@Model.Description</p>
+            <label asp-for="@Model.Price"></label>
+            <p>@Model.Price</p>
+            <label asp-for="@Model.Model"></label>
+            <p>@Model.Model</p>
+            <label asp-for="@Model.TypeSparePart"></label>
+            <p>@Model.TypeSparePart</p>
+            <label asp-for="@Model.DateCreate"></label>
+            <p>@Model.DateCreate</p>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*     <div class="row">
+        <div class="form-group col-md-4">
+            
+            <div type="text" class="form-control">@Model.Name</div>
+        </div>        
+        <div class="form-group col-md-4">
+            <label asp-for="@Model.Model" class="col-form-label"></label>
+            <input class="form-control" asp-for="@Model.Model" />
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="@Model.Price" class="col-form-label"></label>
+            <input type="text" class="form-control" asp-for="@Model.Price" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label asp-for="@Model.Description" class="col-form-label"></label>
+            <textarea type="text" class="form-control" asp-for="@Model.Description"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.TypeSparePart" class="col-form-label"></label>
+            <select class="form-control" id="carTypeId2">
+                <option value="@Model.TypeSparePart">@Model.TypeSparePart</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.DateCreate" class="col-form-label"></label>
+            <input class="form-control" asp-for="@Model.DateCreate" />
+        </div>
+    </div> *@
+
+<style>
+    label {
+        color: black;
+    }
+</style>
+
+<script src="~/lib/select2/js/select2.full.min.js"></script>
+<script>
+    $('#carTypeId2').select2({
+        placeholder: "Выберите тип",
+        minimumInputLength: 0,
+        allowClear: true,
+        ajax: {
+            type: "POST",
+            url: "@Url.Action("GetTypes", "Car")",
+            dataType: "json",
+            processResults: function (result) {
+                return {
+                    results: $.map(result, function (val, index) {
+                        return {
+                            id: index,
+                            text: val
+                        };
+                    }),
+                };
+            }
+        }
+    });
+</script>

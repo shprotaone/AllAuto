@@ -1,18 +1,76 @@
-﻿.row {
-    margin-right: 0;
-    margin-left: 0;
+﻿.card-buttons-group {
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
 }
 
-.card {
-    box-shadow: 4px 2px 2px 3px #c82333;
+.icon {
+    height:auto;
 }
 
-.card-title {
-    font-family: Impact, serif;
-    font-size: 25px;
+.icon-container {
+    float: left;
+    height: 3em;
+    width: 3em;
 }
 
-.card-buttons-group {
-    text-align: right;
-    padding: 10px;
+.icon-card {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    height: fit-content;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+input {
+    width: 70px;
+    height: 100%;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    display: block;
+    border: 1px solid #d6d6e4
+}
+
+.counter {
+    display: inline-block;
+    position:relative;
+    width: 68px;
+    height:50px;
+}
+
+.btn.btn-outline-secondary {
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #d6d6e4
+}
+.button-text {
+    font-size: 15px;
+    text-align: center;
+}
+
+/*.counter button[data-add="1"] {
+    top: 0;
+    height: 25px;
+    width: 30px;
+    border-radius: 0;
+}
+
+.counter button[data-add="-1"] {
+    bottom: 0;
+    height: 25px;
+    width: 30px;
+    border-radius: 0;
+}*/
+
+.col {
+    align-self: center;
+}
+
+.row {
+    min-height: 90px;
+    border: 0.5px solid #d6d6e4;
 }

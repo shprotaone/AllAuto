@@ -1,37 +1,37 @@
 ﻿@model AllAuto.Domain.ViewModels.Account.LoginViewModel
 
 @{
-    Layout = "_Layout";
+    Layout = "_LayoutNoHeader";
     ViewBag.Title = "Вход в аккаунт";
 }
-
-<div style="padding: 40px;"></div>
-
-<div class="container py-5">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <span class="anchor"></span>
                     <div class="card card-account card-outline-secondary border border-white">
-                        <div class="card-header">
-                            <h3 class="mb-0 text-center ParagraphHome">Вход в аккаунт</h3>
+                        <div class="card-header border-0">
+                            <h3 class="mb-0 text-center">Войти</h3>
                         </div>
                         <div class="card-body">
-                            <form autocomplete="on" method="post" asp-controller="Account" asp-action="Login">
+                            <form id="loginFormId">
                                 <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger text-center"></div>
                                 <div class="form-group">
                                     <input asp-for="Name" placeholder="Логин" class="form-control textbox-dg font-weight-bold text-center" type="text">
                                     <div class="form-text">Длина логина должна быть от 3 до 20 символов.</div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
                                 </div>
-                                <div class="d-grid gap-2 d-md-block float-right">
+                                <div class="d-grid gap-2 mx-auto">
                                     <a asp-controller="Account" asp-action="Register" class="btn btn-primary" type="button">Регистрация</a>
-                                    <button class="btn btn-success">Отправить</button>
+                                    <button class="btn btn-success" id="tryLoginId">Отправить</button>
                                 </div>
                             </form>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -39,3 +39,36 @@
         </div>
     </div>
 </div>
+
+@section pageScripts{   
+    <script>
+        $('#tryLoginId').on('click', function (e) {
+            e.preventDefault();
+            const model = $('#loginFormId').serialize();
+            $.ajax({
+                url: '@Url.Action("Login")',
+                type: 'POST',
+                data: model,
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Вы вошли',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей',
+                        willClose: function () {
+                            location.reload();
+                        }
+                    });
+                },
+                error: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации | Заполните все поля',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'                        
+                    })
+                }
+            })
+        });
+    </script>
+}

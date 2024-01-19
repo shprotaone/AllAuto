@@ -1,1 +1,26 @@
-﻿
+﻿.header-container {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.right-part {
+    color: red;
+    background-color: red;
+    padding:2px;
+}
+
+.left-part {
+    background-color: red;
+    
+}
+.basketIcon {
+    background-color: red;
+    align-self: center;
+}
+
+.basket-button {
+    align-self: center;
+    padding-inline-start:15px;
+}
