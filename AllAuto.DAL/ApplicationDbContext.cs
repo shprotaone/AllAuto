@@ -38,7 +38,6 @@ namespace AllAuto.DAL
             modelBuilder.Entity<Order>(modelBuilder =>
             {
                 modelBuilder.ToTable("Orders").HasKey(x => x.Id);
-
                 modelBuilder.HasOne(r => r.Basket)
                 .WithMany(t => t.Orders)
                 .HasForeignKey(r => r.BasketId);

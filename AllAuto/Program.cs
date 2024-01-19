@@ -6,7 +6,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
-// Add services to the container.
+
+
 services.AddControllersWithViews();
 services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(connection,ma => ma.MigrationsAssembly("AllAuto.DAL")));
@@ -33,7 +34,14 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    await DBInitializer.Initialize(context);
+
+}
+
+    app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();

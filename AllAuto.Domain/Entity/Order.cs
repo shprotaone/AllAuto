@@ -8,13 +8,15 @@
 
         public bool IsClosed { get; set; }
 
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         public long? BasketId { get; set; }    
 
         public virtual Basket Basket { get; set; } //virtual из за LazyLoad
 
-        public ICollection<SparePart> PartList { get; set; }
+        public int SparePartId { get; set; }
+
+        public SparePart SparePart { get; set; }
 
     }
 }

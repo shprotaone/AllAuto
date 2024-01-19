@@ -15,7 +15,8 @@ namespace AllAuto.Service.Implementations
         private readonly IBaseRepository<User> _userRepository;
         private readonly IBaseRepository<SparePart> _sparePartRepository;
 
-        public BasketService(IBaseRepository<User> userRepository, IBaseRepository<SparePart> sparePartRepository)
+        public BasketService(IBaseRepository<User> userRepository, 
+            IBaseRepository<SparePart> sparePartRepository)
         {
             _userRepository = userRepository;
             _sparePartRepository = sparePartRepository;
@@ -153,7 +154,6 @@ namespace AllAuto.Service.Implementations
             {
                 order = new Order()
                 {
-                    PartList = new List<SparePart>(),
                     DateCreated = DateTime.Now,
                 };
             }
@@ -164,7 +164,7 @@ namespace AllAuto.Service.Implementations
         private IEnumerable<OrderViewModel> FindOrders(User user)
         {
             List<OrderViewModel>? order = ConvertToOrderView(user.Basket?.Orders.ToList());
-            return order;
+                return order;
         }
 
         private async Task<Basket> FindBasket(User user)
@@ -172,36 +172,21 @@ namespace AllAuto.Service.Implementations
             return user.Basket;
         }
 
-        private List<SparePartViewModel> ConvertSparePartToOrderView(List<SparePart> spareParts)
-        {
-            List<SparePartViewModel> response = new List<SparePartViewModel>();
-            foreach (var sparePart in spareParts)
-            {
-                response.Add(new SparePartViewModel()
-                {
-                    Id = sparePart.Id,
-                    Name = sparePart.Name,
-                    Manufacture = sparePart.Model,
-                    ShortDesription = sparePart.Description,
-                    Price = sparePart.Price,
-                    Amount = sparePart.Amount,
-                    TypeSparePart = sparePart.TypeSparePart.ToString(),
-                });
-            }
-
-            return response;
-        }
-
         private List<OrderViewModel> ConvertToOrderView(List<Order> orders)
         {
             List<OrderViewModel> response = new List<OrderViewModel>();
             foreach (var order in orders)
             {
+                order.SparePart = _sparePartRepository.GetAll()
+                    .FirstOrDefault(x => x.Id == order.SparePartId);
+
                 response.Add(new OrderViewModel()
                 {
                     Id = order.Id,
-                    DateCreate = order.DateCreated.ToString(),
-                    PartList = ConvertSparePartToOrderView(order.PartList.ToList()),
+                    Name = order.SparePart.Name,
+                    Manufactor = order.SparePart.Model,
+                    Price = order.SparePart.Price,
+                    DateCreate = order.SparePart.DateCreate.ToString(),                    
                 });
             }
 

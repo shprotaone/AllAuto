@@ -14,6 +14,6 @@ namespace AllAuto.Domain.Entity
 
         public Profile Profile { get; set; }
 
-        public Basket Basket { get; set; }
+        public Basket? Basket { get; set; }
     }
 }

@@ -42,7 +42,6 @@ namespace AllAuto.Service.Implementations
                     {
                         DateCreated = DateTime.Now,
                         BasketId = user.Basket.Id,
-                        PartList = new List<SparePart>(),
                         Address = user.Profile.Address
                     };
                 }

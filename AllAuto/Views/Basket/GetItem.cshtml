@@ -1,13 +1,13 @@
 ﻿@model AllAuto.Domain.ViewModels.Order.OrderViewModel
 
 <div class="row">
-    <div class="col-md-12">
+   @*  <div class="col-md-12">
         <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model?.Image ?? Array.Empty<byte>())"
              class="img-fluid rounded-start rounded">
-    </div>
+    </div> *@
     <div class="col-md-6">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Авто: @Model.PartList</li>
+         @*    <li class="list-group-item">Авто: @Model.PartList</li>
             <li class="list-group-item">
                 <ul class="list-group">
                     @{
@@ -23,7 +23,7 @@
                 </ul>
               
 
-            </li>            
+            </li>             *@
         </ul>
     </div>
     <div class="col-md-6">

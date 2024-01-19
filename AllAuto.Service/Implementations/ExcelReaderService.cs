@@ -17,10 +17,10 @@ namespace AllAuto.Service.Implementations
             _sparePartRepository = sparePartRepository;
         }
 
-        public void ReadExcelFile()
+        public async Task ReadExcelFile()
         {
             List<SparePart> spareParts = Read(); //read data from excel<
-            AddStartParts(spareParts);
+            await AddStartParts(spareParts);
         }
 
         public List<SparePart> Read()

@@ -6,10 +6,12 @@ namespace AllAuto.Domain.ViewModels.Order
     {
         public long Id { get; set; }
 
-        public List<SparePartViewModel> PartList{ get; set; }
+        public string Name{ get; set; }
+
+        public string Manufactor { get; set; }
 
         public string DateCreate { get; set; }
 
-        public byte[]? Image { get; set; }
+        public decimal Price { get; set; }
     }
 }
