@@ -33,7 +33,6 @@ namespace AllAuto.Controllers
         public async Task<IActionResult> GetPartsToType(TypePart type)
         {
             var response = await _sparePartService.GetPartsToType(type);           
-            Console.WriteLine(type + " is called");
             if (response.StatusCode == Domain.Enum.StatusCode.OK)
             {
                 return View(response.Data);

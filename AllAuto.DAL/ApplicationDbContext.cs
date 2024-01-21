@@ -41,7 +41,9 @@ namespace AllAuto.DAL
                 modelBuilder.HasOne(r => r.Basket)
                 .WithMany(t => t.Orders)
                 .HasForeignKey(r => r.BasketId);
-            });
+
+                modelBuilder.Property(x => x.Id).ValueGeneratedOnAdd();
+            });           
         }
 
         private void BasketMapping(ModelBuilder modelBuilder)

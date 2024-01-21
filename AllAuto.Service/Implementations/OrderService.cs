@@ -3,6 +3,7 @@ using AllAuto.Domain.Entity;
 using AllAuto.Domain.Response;
 using AllAuto.Domain.ViewModels.Order;
 using AllAuto.Service.Interfaces;
+using IronXL.Styles;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllAuto.Service.Implementations
@@ -27,7 +28,7 @@ namespace AllAuto.Service.Implementations
                     .FirstOrDefaultAsync(x => x.Name == model.LoginId);
 
                 if(user == null)
-                {
+                { 
                     return new BaseResponse<Order>()
                     {
                         Description = "Пользователь не найден",
@@ -35,17 +36,14 @@ namespace AllAuto.Service.Implementations
                     };
                 }
 
-                Order order = user.Basket.Orders.FirstOrDefault(x => x.IsClosed == false);
-                if(order == default)
+                Order order = new Order()
                 {
-                    order = new Order()
-                    {
-                        DateCreated = DateTime.Now,
-                        BasketId = user.Basket.Id,
-                        Address = user.Profile.Address
-                    };
-                }
-               
+                    DateCreated = DateTime.Now,
+                    BasketId = user.Basket.Id,
+                    SparePartId = model.SparePartIdToAdd,        
+                    Quantity = model.Quantity
+                };
+
 
                 await _orderRepository.Create(order);
 

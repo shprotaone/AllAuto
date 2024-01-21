@@ -28,6 +28,7 @@ else
                         <th scope="col">Наименование</th>
                         <th scope="col">Производитель</th>
                         <th scope="col">Цена</th>
+                        <th scope="col">Количество</th>
                         <th scope="col">Удалить</th>
                     </tr>
                 </thead>
@@ -38,7 +39,8 @@ else
                         <tr>
                             <th scope="row"> @item.Name</th>
                             <td>@item.Manufactor</td>
-                            <td>@item.Price ₽</td>
+                            <td>@item.Sum ₽</td>
+                            <td>@item.Quantity</td>
                             <td><a asp-controller="Order" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Удалить</a></td>
                         </tr>
                     </tbody>
@@ -48,7 +50,7 @@ else
                     <tr>
                         <th scope="row">Итого</th>
                         <td></td>
-                        <td>@Model.Sum(x => x.Price) ₽</td>
+                        <td>@Model.Sum(x => x.Sum) ₽</td>
                         <td></td>
                     </tr>
                 </tbody>

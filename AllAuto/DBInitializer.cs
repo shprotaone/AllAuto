@@ -28,12 +28,12 @@ namespace AllAuto
         {
             var orders = new List<Order>()
             {
-                new Order{BasketId=1,SparePartId=9,IsClosed=false},
-                new Order{BasketId=1,SparePartId=10,IsClosed=false},
-                new Order{BasketId=1,SparePartId=11,IsClosed=false},
-                new Order{BasketId=2,SparePartId=1,IsClosed=false},
-                new Order{BasketId=2,SparePartId=2,IsClosed=false},
-                new Order{BasketId=2,SparePartId=3,IsClosed=false},
+                new Order{BasketId=1,SparePartId=9,IsClosed=false,Quantity=1},
+                new Order{BasketId=1,SparePartId=10,IsClosed=false,Quantity=1},
+                new Order{BasketId=1,SparePartId=11,IsClosed=false,Quantity = 1},
+                new Order{BasketId=2,SparePartId=1,IsClosed=false,Quantity=1},
+                new Order{BasketId=2,SparePartId=2,IsClosed=false,Quantity=1},
+                new Order{BasketId=2,SparePartId=3,IsClosed=false, Quantity = 1},
 
             };
             context.Orders.AddRange(orders);

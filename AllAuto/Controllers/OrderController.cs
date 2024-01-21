@@ -14,28 +14,24 @@ namespace AllAuto.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateOrder(long id)
+        public async Task<IActionResult> CreateOrder(long partId, int amountCount)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var orderModel = new CreateOrderViewModel()
             {
-                CarId = id,
+                SparePartIdToAdd = Convert.ToInt32(partId),
                 LoginId = User.Identity.Name,
-                Quantity = 0,
-            };
+                Quantity = amountCount,
+            };           
 
-            return View(orderModel);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateOrder(CreateOrderViewModel model)
-        {
-            if (ModelState.IsValid)
+            var response = await _orderService.Create(orderModel);
+            if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                var response = await _orderService.Create(model);
-                if(response.StatusCode == Domain.Enum.StatusCode.OK)
-                {
-                    return Json(new {description = response.Description});
-                }
+                return Json(new { description = response.Description });
             }
 
             return StatusCode(StatusCodes.Status500InternalServerError);

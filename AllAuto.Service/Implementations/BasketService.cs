@@ -118,7 +118,6 @@ namespace AllAuto.Service.Implementations
                 //взять экземпляр корзины
                 Basket basket = FindBasket(user).Result;
                 Order order = FindOrder(user);
-                //добавит указаный товар в корзину
 
             }
             catch (Exception ex)
@@ -185,8 +184,9 @@ namespace AllAuto.Service.Implementations
                     Id = order.Id,
                     Name = order.SparePart.Name,
                     Manufactor = order.SparePart.Model,
-                    Price = order.SparePart.Price,
-                    DateCreate = order.SparePart.DateCreate.ToString(),                    
+                    Sum = order.SparePart.Price * order.Quantity,
+                    DateCreate = order.SparePart.DateCreate.ToString(),
+                    Quantity = order.Quantity
                 });
             }
 

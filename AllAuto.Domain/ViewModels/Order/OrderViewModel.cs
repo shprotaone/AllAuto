@@ -12,6 +12,8 @@ namespace AllAuto.Domain.ViewModels.Order
 
         public string DateCreate { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal Sum { get; set; }
+
+        public int Quantity { get; set; }
     }
 }
