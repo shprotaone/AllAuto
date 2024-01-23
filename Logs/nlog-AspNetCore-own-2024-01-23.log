@@ -1,0 +1,564 @@
+2024-01-23 10:22:00.8221|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:22:01.9817|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:22:03.9540|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 10:22:03.9540|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 10:22:03.9540|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 10:22:03.9540|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 10:22:03.9540|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 10:40:25.9284|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:40:27.0503|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (19ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DECLARE @inserted0 TABLE ([Id] bigint, [_Position] [int]);
+MERGE [Baskets] USING (
+VALUES (@p0, 0),
+(@p1, 1),
+(@p2, 2),
+(@p3, 3),
+(@p4, 4)) AS i ([UserId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([UserId])
+VALUES (i.[UserId])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted0;
+
+SELECT [i].[Id] FROM @inserted0 i
+ORDER BY [i].[_Position]; |url: |action: 
+2024-01-23 10:40:27.1755|10000|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'AllAuto.DAL.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Не удается вставить повторяющуюся строку ключа в объект "dbo.Baskets" с уникальным индексом "IX_Baskets_UserId". Повторяющееся значение ключа: (2).
+Выполнение данной инструкции было прервано.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:2b14796e-021a-4f90-9c3f-a1be6fe6e374
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken) Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Не удается вставить повторяющуюся строку ключа в объект "dbo.Baskets" с уникальным индексом "IX_Baskets_UserId". Повторяющееся значение ключа: (2).
+Выполнение данной инструкции было прервано.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:2b14796e-021a-4f90-9c3f-a1be6fe6e374
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)|url: |action: 
+2024-01-23 10:41:04.1746|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:41:05.1421|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 10:41:05.1421|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 10:41:05.1421|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 10:41:05.1421|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 10:41:05.1421|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 10:43:36.4356|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:43:37.3724|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 10:43:37.3781|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 10:43:37.3781|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 10:43:37.3781|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 10:43:37.3781|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 10:46:23.0717|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:46:24.0122|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 10:46:24.0180|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 10:46:24.0180|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 10:46:24.0180|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 10:46:24.0180|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 10:47:30.3231|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:47:31.2566|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 10:47:31.2566|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 10:47:31.2566|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 10:47:31.2566|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 10:47:31.2566|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 10:55:44.0454|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 10:55:45.0035|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 10:55:45.0035|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 10:55:45.0035|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 10:55:45.0035|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 10:55:45.0035|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:10:53.0069|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:10:53.9676|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:10:53.9736|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:10:53.9736|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:10:53.9736|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:10:53.9736|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:16:04.6170|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:16:05.5926|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:16:05.5983|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:16:05.5983|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:16:05.5983|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:16:05.5983|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:17:17.8029|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:17:18.7583|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:17:18.7583|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:17:18.7583|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:17:18.7583|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:17:18.7583|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:20:27.1192|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:20:28.1435|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:20:28.1435|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:20:28.1435|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:20:28.1435|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:20:28.1435|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:23:13.0234|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:23:13.9721|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:23:13.9721|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:23:13.9721|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:23:13.9721|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:23:13.9721|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:25:44.9000|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:25:45.8590|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:25:45.8652|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:25:45.8652|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:25:45.8652|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:25:45.8652|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:28:39.1452|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:28:40.1489|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:28:40.1489|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:28:40.1567|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:28:40.1567|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:28:40.1567|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:29:57.4335|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:29:58.3949|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:29:58.3949|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:29:58.3949|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:29:58.3949|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:29:58.3949|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:33:33.3834|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:33:34.4082|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:33:34.4082|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:33:34.4082|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:33:34.4082|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:33:34.4082|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:33:52.7693|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[AllAuto.Domain.ViewModels.Order.OrderViewModel]', but this ViewDataDictionary instance requires a model item of type 'AllAuto.Domain.ViewModels.Profile.ProfileViewModel'.
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.EnsureCompatible(Object value)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary..ctor(ViewDataDictionary source, Object model, Type declaredModelType)
+   at lambda_method58(Closure , ViewDataDictionary )
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.CreateViewDataDictionary(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.Activate(Object page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPageActivator.Activate(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/Basket/Detail|action: Detail
+2024-01-23 11:34:15.0317|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The model item passed into the ViewDataDictionary is of type 'Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1[AllAuto.Domain.Entity.SparePart]', but this ViewDataDictionary instance requires a model item of type 'AllAuto.Domain.ViewModels.Profile.ProfileViewModel'.
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.EnsureCompatible(Object value)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary..ctor(ViewDataDictionary source, Object model, Type declaredModelType)
+   at lambda_method58(Closure , ViewDataDictionary )
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.CreateViewDataDictionary(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.Activate(Object page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPageActivator.Activate(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/SparePart/GetAllParts|action: GetAllParts
+2024-01-23 11:35:47.1660|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:35:48.1145|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:35:48.1145|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:35:48.1145|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:35:48.1145|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:35:48.1145|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:36:01.9237|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[AllAuto.Domain.ViewModels.Order.OrderViewModel]', but this ViewDataDictionary instance requires a model item of type 'AllAuto.Domain.ViewModels.Profile.ProfileViewModel'.
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.EnsureCompatible(Object value)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary..ctor(ViewDataDictionary source, Object model, Type declaredModelType)
+   at lambda_method58(Closure , ViewDataDictionary )
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.CreateViewDataDictionary(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.Activate(Object page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPageActivator.Activate(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/Basket/Detail|action: Detail
+2024-01-23 11:36:48.0704|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:36:49.0177|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:36:49.0177|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:36:49.0177|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:36:49.0177|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:36:49.0177|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:38:09.2392|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:38:10.2058|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:38:10.2058|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:38:10.2058|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:38:10.2058|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:38:10.2058|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:41:38.8779|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:41:39.8144|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:41:39.8144|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:41:39.8144|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:41:39.8144|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:41:39.8144|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:42:35.0465|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:42:36.0088|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:42:36.0088|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:42:36.0088|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:42:36.0088|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:42:36.0088|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:42:59.9829|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:43:00.9313|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:43:00.9313|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:43:00.9379|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:43:00.9379|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:43:00.9379|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:44:51.8541|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 11:44:52.9220|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 11:44:52.9220|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 11:44:52.9220|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 11:44:52.9220|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 11:44:52.9220|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 11:45:20.5782|3|ERROR|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view 'GetPartsToType' was not found. Searched locations: /Views/SparePart/GetPartsToType.cshtml, /Views/Shared/GetPartsToType.cshtml |url: https://localhost/SparePart/GetPartsToType|action: GetPartsToType
+2024-01-23 11:45:20.5782|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The view 'GetPartsToType' was not found. The following locations were searched:
+/Views/SparePart/GetPartsToType.cshtml
+/Views/Shared/GetPartsToType.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/SparePart/GetPartsToType|action: GetPartsToType
+2024-01-23 12:12:28.0088|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 12:12:29.0358|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 12:12:29.0358|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 12:12:29.0358|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 12:12:29.0358|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 12:12:29.0358|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 12:12:53.6664|3|ERROR|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view 'GetPartsToType' was not found. Searched locations: /Views/SparePart/GetPartsToType.cshtml, /Views/Shared/GetPartsToType.cshtml |url: https://localhost/SparePart/GetPartsToType|action: GetPartsToType
+2024-01-23 12:12:53.6888|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The view 'GetPartsToType' was not found. The following locations were searched:
+/Views/SparePart/GetPartsToType.cshtml
+/Views/Shared/GetPartsToType.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/SparePart/GetPartsToType|action: GetPartsToType
+2024-01-23 12:13:40.5415|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 12:13:41.5053|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 12:13:41.5053|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 12:13:41.5053|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 12:13:41.5053|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 12:13:41.5053|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 12:13:58.8080|3|ERROR|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view 'GetPartsToType' was not found. Searched locations: /Views/SparePart/GetPartsToType.cshtml, /Views/Shared/GetPartsToType.cshtml |url: https://localhost/SparePart/GetPartsToType|action: GetPartsToType
+2024-01-23 12:13:58.8285|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: The view 'GetPartsToType' was not found. The following locations were searched:
+/Views/SparePart/GetPartsToType.cshtml
+/Views/Shared/GetPartsToType.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultAsync>g__Logged|22_0(ResourceInvoker invoker, IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/SparePart/GetPartsToType|action: GetPartsToType
+2024-01-23 12:15:57.0779|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 12:15:58.0277|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 12:15:58.0342|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 12:15:58.0342|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 12:15:58.0342|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 12:15:58.0342|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 12:19:28.2772|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 12:19:29.2548|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 12:19:29.2548|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 12:19:29.2548|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 12:19:29.2548|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 12:19:29.2548|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 12:21:39.1487|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 12:21:40.1272|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 12:21:40.1272|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 12:21:40.1272|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 12:21:40.1272|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 12:21:40.1272|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:46:00.5323|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:46:01.5295|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:46:01.5354|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:46:01.5354|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:46:01.5354|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:46:01.5354|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:47:13.9104|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:47:15.0214|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:47:15.0273|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:47:15.0273|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:47:15.0273|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:47:15.0273|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:48:03.3875|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:48:04.4703|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:48:04.4703|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:48:04.4703|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:48:04.4703|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:48:04.4703|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:49:36.8565|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:49:37.8309|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:49:37.8367|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:49:37.8367|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:49:37.8367|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:49:37.8367|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:51:36.3903|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:51:37.3726|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:51:37.3784|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:51:37.3784|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:51:37.3784|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:51:37.3784|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:53:01.0769|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:53:02.0511|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:53:02.0511|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:53:02.0511|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:53:02.0511|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:53:02.0511|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:54:02.2102|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:54:03.2323|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:54:03.2323|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:54:03.2323|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:54:03.2323|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:54:03.2323|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 13:56:36.8047|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 13:56:37.7701|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 13:56:37.7701|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 13:56:37.7701|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 13:56:37.7701|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 13:56:37.7701|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:04:44.0638|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:04:45.0285|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:04:45.0343|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:04:45.0343|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:04:45.0343|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:04:45.0343|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:05:56.3923|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:05:57.3973|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:05:57.4033|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:05:57.4033|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:05:57.4033|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:05:57.4033|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:07:11.1675|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:07:12.1825|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:07:12.1825|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:07:12.1924|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:07:12.1924|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:07:12.1924|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:08:31.6956|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:08:32.6849|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:08:32.6909|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:08:32.6909|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:08:32.6909|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:08:32.6909|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:10:34.6845|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:10:35.6485|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:10:35.6543|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:10:35.6543|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:10:35.6543|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:10:35.6543|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:11:29.5087|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:11:30.4550|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:11:30.4550|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:11:30.4550|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:11:30.4550|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:11:30.4550|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:12:49.7795|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:12:50.7415|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:12:50.7415|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:12:50.7415|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:12:50.7415|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:12:50.7415|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:15:03.3490|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:15:04.2965|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:15:04.3026|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:15:04.3026|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:15:04.3026|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:15:04.3026|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:17:28.5090|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:17:29.6665|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:17:29.6765|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:17:29.6765|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:17:29.6765|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:17:29.6765|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:20:11.0899|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:20:12.0564|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:20:12.0624|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:20:12.0624|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:20:12.0624|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:20:12.0624|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:20:37.6834|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:20:38.6512|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:20:38.6571|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:20:38.6571|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:20:38.6571|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:20:38.6571|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:24:13.9582|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:24:14.9075|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:24:14.9075|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:24:14.9075|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:24:14.9075|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:24:14.9075|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:25:05.9161|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:25:06.8857|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:25:06.8915|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:25:06.8915|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:25:06.8915|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:25:06.8915|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:26:21.5656|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:26:22.5282|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:26:22.5339|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:26:22.5339|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:26:22.5339|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:26:22.5339|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:26:39.4495|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:26:40.4206|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:26:40.4264|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:26:40.4264|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:26:40.4264|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:26:40.4264|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:27:48.1209|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:27:49.2429|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:27:49.2522|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:27:49.2522|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:27:49.2522|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:27:49.2522|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:31:03.9358|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:31:05.0286|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:31:05.0347|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:31:05.0347|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:31:05.0347|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:31:05.0347|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:32:43.1428|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:32:44.1432|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:32:44.1432|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:32:44.1432|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:32:44.1432|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:32:44.1432|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 
+2024-01-23 14:33:16.2329|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-01-23 14:33:17.1775|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-01-23 14:33:17.1775|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-01-23 14:33:17.1775|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-01-23 14:33:17.1775|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-01-23 14:33:17.1775|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Code\С#\AllAuto\AllAuto\ |url: |action: 

@@ -33,12 +33,12 @@ namespace AllAuto.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPartsToType(TypePart type)
+        public async Task<IActionResult> GetPartsToType(int type)
         {
-            var response = await _sparePartService.GetPartsToType(type);           
+            var response = await _sparePartService.GetPartsToType((TypePart)type);           
             if (response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return View(response.Data);
+                return View("GetAllParts",response.Data);
             }
 
             return RedirectToAction("Error");
@@ -130,7 +130,7 @@ namespace AllAuto.Controllers
             var response = await _excelReaderService.ReadExcelFile(file);
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return View(response);
+                return Json(new { derscription = response.Description });
             }
 
                 return StatusCode(StatusCodes.Status500InternalServerError);

@@ -20,78 +20,14 @@ namespace AllAuto.Service.Implementations
             _sparePartRepository = sparePartRepository;
         }
 
+        /// <summary>
+        /// Добавление файла при старте по пути
+        /// </summary>
+        /// <returns></returns>
         public async Task ReadExcelFile()
         {
             List<SparePart> spareParts = Read(); //read data from excel<
-            await AddStartParts(spareParts);
-        }
-
-        public List<SparePart> Read()
-        {
-            List<SparePart> spareParts = new List<SparePart>();
-
-            WorkBook excelWorkBook = WorkBook.Load(testFilePath);
-            WorkSheet excelWorkSheet = excelWorkBook.GetWorkSheet(WorkSheetName);
-
-            for (int row = 2; row <= excelWorkSheet.RowCount; row++)
-            {
-                SparePart part = ReadPart(excelWorkSheet, row);
-
-                spareParts.Add(part);
-            }
-
-            return spareParts;
-        }
-
-        private static SparePart ReadPart(WorkSheet excelWorkSheet, int row)
-        {
-            SparePart part = new SparePart(); //create data
-            var cells = excelWorkSheet[$"A{row}:G{row}"].ToList();
-            part.Name = cells[0].Text;
-            part.Model = cells[1].Text;
-            part.Description = cells[2].Text;
-            part.Price = Convert.ToDecimal(cells[3].Text);
-            part.DateCreate = DateTime.ParseExact(cells[4].Text, "dd.MM.yyyy H:mm:ss", null);
-            part.TypeSparePart = (TypePart)Convert.ToInt32(cells[5].Text);
-            part.Amount = Convert.ToInt32(cells[6].Text);
-            part.Avatar = Array.Empty<byte>();
-            return part;
-        }
-
-        private async Task<BaseResponse<bool>> AddStartParts(List<SparePart> spareParts)
-        {
-
-            try
-            {
-                if(spareParts.Count == 0)
-                {
-                    return new BaseResponse<bool>()
-                    {
-                        StatusCode = StatusCode.CarNotFound,
-                        Description = "Пустой список",
-                    };
-                }
-
-                foreach (var part in spareParts)
-                {
-                    await _sparePartRepository.Create(part);
-                }
-
-                return new BaseResponse<bool>()
-                {
-                    StatusCode = Domain.Enum.StatusCode.OK,
-                    Description = "Записи добавлены",
-                };
-            }
-            catch (Exception ex)
-            {
-                return new BaseResponse<bool>()
-                {
-                    Description = ex.Message,
-                    StatusCode = Domain.Enum.StatusCode.InternalServerError
-                };
-            }
-
+            await AddPartsToDB(spareParts);
         }
 
         public async Task<BaseResponse<bool>> ReadExcelFile(IFormFile file)
@@ -110,14 +46,48 @@ namespace AllAuto.Service.Implementations
                     WorkSheet excelWorkSheet = excelWorkBook.GetWorkSheet(WorkSheetName);
 
                     for (int row = 2; row <= excelWorkSheet.RowCount; row++)
-                    {                        
+                    {
                         SparePart part = ReadPart(excelWorkSheet, row);
                         spareParts.Add(part);
                     }
-
                 }
 
-                return await AddStartParts(spareParts);
+                return await AddPartsToDB(spareParts);
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Description = ex.Message,
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError
+                };
+            }
+        }
+
+        private async Task<BaseResponse<bool>> AddPartsToDB(List<SparePart> spareParts)
+        {
+            try
+            {
+                if (spareParts.Count == 0)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        StatusCode = StatusCode.CarNotFound,
+                        Description = "Пустой список",
+                    };
+                }
+
+                foreach (var part in spareParts)
+                {
+                    //TODO: поиск товара в базе, если есть, то едит
+                    await _sparePartRepository.Create(part);
+                }
+
+                return new BaseResponse<bool>()
+                {
+                    StatusCode = Domain.Enum.StatusCode.OK,
+                    Description = "Записи добавлены",
+                };
             }
             catch (Exception ex)
             {
@@ -128,7 +98,38 @@ namespace AllAuto.Service.Implementations
                 };
             }
 
-            
+        }     
+
+        private List<SparePart> Read()
+        {
+            List<SparePart> spareParts = new List<SparePart>();
+
+            WorkBook excelWorkBook = WorkBook.Load(testFilePath);
+            WorkSheet excelWorkSheet = excelWorkBook.GetWorkSheet(WorkSheetName);
+
+            for (int row = 2; row <= excelWorkSheet.RowCount; row++)
+            {
+                SparePart part = ReadPart(excelWorkSheet, row);
+
+                spareParts.Add(part);
+            }
+
+            return spareParts;
+        }
+
+        private SparePart ReadPart(WorkSheet excelWorkSheet, int row)
+        {
+            SparePart part = new SparePart(); //create data
+            var cells = excelWorkSheet[$"A{row}:G{row}"].ToList();
+            part.Name = cells[0].Text;
+            part.Model = cells[1].Text;
+            part.Description = cells[2].Text;
+            part.Price = Convert.ToDecimal(cells[3].Text);
+            part.DateCreate = DateTime.ParseExact(cells[4].Text, "dd.MM.yyyy H:mm:ss", null);
+            part.TypeSparePart = (TypePart)Convert.ToInt32(cells[5].Text);
+            part.Amount = Convert.ToInt32(cells[6].Text);
+            part.Avatar = Array.Empty<byte>();
+            return part;
         }
     }
 }

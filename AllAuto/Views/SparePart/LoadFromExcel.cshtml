@@ -43,7 +43,7 @@
                 error: function (response) {
                     Swal.fire({
                         title: 'Информация',
-                        text: 'Ошибка валидации | Заполните все поля',
+                        text: response.description,
                         icon: 'error',
                         confirmButtonText: 'Окей'
                     })

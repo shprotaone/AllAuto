@@ -22,7 +22,7 @@
 
     @if (Model == null)
     {
-       <div class="card col-md-12">
+        <div class="card col-md-12">
             <div class="row g-0">
                 <div class="col-md-8">
                     <div class="card-body">
@@ -38,72 +38,72 @@
     else
     {
         <br />
-            @foreach (var sparePart in Model)
-            {
-                <div class="row">
-                    <div class="col">
-                        <div class="icon icon-container">
-                            @{
-                                string base64 = sparePart.Avatar != Array.Empty<byte>()
-                                ? Convert.ToBase64String(sparePart.Avatar)
-                                : string.Empty;
+        @foreach (var sparePart in Model)
+        {
+            <div class="row spare-part-card">
+                <div class="col">
+                    <div class="icon icon-container">
+                        @{
+                            string base64 = sparePart.Avatar != Array.Empty<byte>()
+                            ? Convert.ToBase64String(sparePart.Avatar)
+                            : string.Empty;
 
-                                var imgSrc = $"data:image/jpeg;base64,{base64}";
-                                if (base64 == string.Empty)
-                                {
-                                    imgSrc = "../images/no-image.jpeg";
-                                }
+                            var imgSrc = $"data:image/jpeg;base64,{base64}";
+                            if (base64 == string.Empty)
+                            {
+                                imgSrc = "../images/no-image.jpeg";
                             }
+                        }
 
-                            <img src="@imgSrc"
-                                 alt="@sparePart.Name" style="height: inherit; width: inherit">
-                        </div>
+                        <img src="@imgSrc"
+                             alt="@sparePart.Name" style="height: inherit; width: inherit">
                     </div>
+                </div>
 
-                    <div class="col">
-                    <a  href="#" class="stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
-                        data-toggle="ajax-modal" data-target="Modal">
-                    @sparePart.Name
+                <div class="col">
+                    <a href="#" class="stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
+                       data-toggle="ajax-modal" data-target="Modal">
+                        @sparePart.Name
                     </a>
-                    </div>
+                </div>
 
-                    <div class="col-3 align-self-center">
-                        <p class="card-text">@sparePart.Description</p>
-                    </div>
+                <div class="col-3 align-self-center">
+                    <p class="card-text">@sparePart.Description</p>
+                </div>
 
-                    <div class="col">
-                        Стоимость: @sparePart.Price ₽
-                    </div>
+                <div class="col">
+                    Стоимость: @sparePart.Price ₽
+                </div>
 
-                    <div class="col">
-                        @sparePart.TypeSparePart.GetDisplayName()
-                    </div>
+                <div class="col">
+                    @sparePart.TypeSparePart.GetDisplayName()
+                </div>
 
-                    <div class="col">
-                        <div class="counter @sparePart">
-                            <input id="amount @sparePart.Id" value="1" data-step="1" data-min="1" data-max="100" />
-                        </div>
+                <div class="col">
+                    <div class="counter @sparePart">
+                        <input id="amount @sparePart.Id" value="1" data-step="1" data-min="1" data-max="100" />
                     </div>
+                </div>
 
                 <div class="col">
                     <button data-partid="@sparePart.Id" class="add-part btn btn-light w-lg-100 ">Добавить</button>
                 </div>
 
 
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <div class="col">
-                            <button asp-controller="SparePart" asp-action="Delete" asp-route-id="@sparePart.Id" class="btn btn-danger">Удалить</button>
-                        </div>
-                    }
-                </div>
-                <br />               
-            }
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="col">
+                        <button asp-controller="SparePart" asp-action="Delete" asp-route-id="@sparePart.Id" class="btn btn-danger">Удалить</button>
+                    </div>
+                }
+            </div>
+            <br />
+        }
     }
 </div>
 
 
-@section pageScripts{
+@section pageScripts {
     <script src="~/js/modal.js"></script>
     <script>
         let modal = $('#modalWhButtons');
@@ -158,7 +158,7 @@
             $.ajax({
                 url: '/Order/CreateOrder',
                 type: 'GET',
-                data: { partId: model ,amountCount: amount},
+                data: { partId: model, amountCount: amount },
                 success: function (response) {
                     Swal.fire({
                         title: 'Товар добавлен',
