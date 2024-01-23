@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "_LayoutNoHeader";
+    ViewBag.Title = "Вход в аккаунт";
+}
+@* method="post" *@
+<div class="container">
+    <form class="main" enctype="multipart/form-data" id="dataFormId">
+        <div class="col">Изображение</div>
+        <input class="form-control" type="file" name="file" id="file" />
+
+    </form>
+
+    <button class="btn btn-primary" id="load-button-id">Загрузить</button>
+</div>
+
+@section pageScripts {
+    <script>
+        $('#load-button-id').on('click', function (e) {
+            e.preventDefault();
+            var formData = new FormData();
+            formData.append('file', $("#file")[0].files[0]);
+
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("LoadFromExcel", "SparePart")',
+                contentType: false,
+                processData: false,
+                data: formData,
+                dataType: 'json',
+
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Товар добавлен',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей',
+                        willClose: function () {
+                            location.reload();
+                        }
+                    });
+                },
+                error: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации | Заполните все поля',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'
+                    })
+                }
+            })
+
+        });
+
+    </script>
+}
+
+@* <button asp-controller="SparePart" asp-action="LoadFromExcel" class="btn btn-primary" id="load-button-id">Загрузить</button> *@

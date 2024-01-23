@@ -11,10 +11,13 @@ namespace AllAuto.Controllers
     public class SparePartController : Controller
     {
         private readonly ISparePartService _sparePartService;
+        private readonly IExcelReaderService<SparePart> _excelReaderService;
 
-        public SparePartController(ISparePartService carService)
+        public SparePartController(ISparePartService carService,
+            IExcelReaderService<SparePart> excelReaderService)
         {
             _sparePartService = carService;
+            _excelReaderService = excelReaderService;
         }
 
         [HttpGet]
@@ -112,7 +115,25 @@ namespace AllAuto.Controllers
                 }         
             }
             return RedirectToAction("GetAllParts");
+        }
 
+        [HttpGet]
+        public IActionResult LoadFromExcel()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> LoadFromExcel(IFormFile file)
+        {
+            var response = await _excelReaderService.ReadExcelFile(file);
+            if(response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response);
+            }
+
+                return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         [HttpPost]

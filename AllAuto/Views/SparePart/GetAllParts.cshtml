@@ -16,7 +16,7 @@
         @if (User.IsInRole("Admin"))
         {
             <button class='btn btn-success' id='addPartId'>Добавить</button>
-            <button class="btn btn-success" id="addPartsFromExcell">Добавить из файла</button>
+            <button class="btn btn-success" id="addPartsFromExcel">Добавить из файла</button>
         }
     </div>
 
@@ -129,6 +129,26 @@
                 }
             });
         });
+
+        $('#addPartsFromExcel').on('click', function () {
+            modal.modal('show')
+            $.ajax({
+                type: 'GET',
+                url: '/SparePart/LoadFromExcel',
+                success: function (response) {
+                    $('.modal-dialog').removeClass("modal-lg");
+                    modal.find(".modal-body").html(response);
+                    modal.modal('show')
+                },
+                failure: function () {
+                    modal.modal('hide')
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
         // /Order/CreateOrder
         $('.add-part').click(function (e) {
             e.preventDefault();
