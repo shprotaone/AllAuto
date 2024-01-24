@@ -8,12 +8,12 @@
     <title>ALLAuto - запчасти для всех</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/backImage.css" />
-    <link rel="stylesheet" href="~/css/menu.css" />
     <link rel="stylesheet" href="~/css/paragraph.css" />
     <link rel="stylesheet" href="~/css/label.css" />
-    <link rel="stylesheet" href="~/css/footer.css" />
+    <link rel="stylesheet" href="~/css/footer.css" type="text/css"/>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/header.css" />
+    <link rel="stylesheet" href="~/css/carousel.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 
@@ -126,15 +126,13 @@
     <a class="nav-link active text-white" asp-controller="User" asp-action="GetUsers">
 
     *@
-    <div class="site_width">
-        <div class="container">
+        <div class="container-fluid p-0">
             <main role="main">
                 @RenderBody()
             </main>
         </div>
-    </div>
 
-    <footer>
+    <footer class="footer-main">
         <p class="text-secondary text-center p-3">ALLAuto © 2024</p>
     </footer>
 

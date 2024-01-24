@@ -42,7 +42,7 @@ namespace AllAuto.Controllers
             var response = await _orderService.Delete(id);
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Detail","Basket");
             }
 
             return View("Error", $"{response.Description}");

@@ -1,3 +1,117 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
+<div class="black-rectangle">
+    <div id="myCarousel" class="carousel slide" data-interval="10000" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active ">
+                <div class="wrapper">
+                    <img class="image-placeholder" src="~/assets/pictures/wheels.svg" aria-hidden="true" />
+                </div>
+
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>Быстрый срок доставки</h1>
+                        <p>Войдите чтобы сделать заказ </p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Войти</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="wrapper">
+                    <img class="image-placeholder w-100" src="~/assets/pictures/handle-subaru-sti-s207-15.svg" aria-hidden="true" />
+                </div>
+
+
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Большой ассортимент товаров</h1>
+                        <p></p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Каталог</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="wrapper">
+                    <img class="image-placeholder w-100" src="~/assets/pictures/engine.svg" aria-hidden="true" />
+                </div>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>Низкая цена</h1>
+                        <p>Найдете дешевле, сделаем скидку</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Каталог</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующий</span>
+        </button>
+    </div>
+</div>
+
+<div class="row align-items-md-stretch p-3">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Новые поступления</h2>
+            <p>...</p>
+            <button class="btn btn-outline-light" type="button">Посмотреть</button>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Новости</h2>
+            <table class="table table-dark table-borderless">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="#" class="alert-link">В китае запустили производство для ВАЗ</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="alert-link">Инновации в мире автозапчастей: представлены новые экологически чистые материалы для производства автокомпонентов</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="alert-link">Передовые технологии в автомобильной промышленности: как 3D-печать может изменить рынок автозапчастей</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="alert-link">Борьба за качество: ведущие производители автозапчастей сотрудничают для улучшения контроля качества продукции</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="alert-link">Автозапчасти будущего: как развитие искусственного интеллекта может улучшить обслуживание и ремонт автомобилей</a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <button class="btn btn-outline-dark" type="button">Посмотреть</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+

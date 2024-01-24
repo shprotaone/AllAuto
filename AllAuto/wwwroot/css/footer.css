@@ -1,9 +1,4 @@
-﻿body {
-
-}
-
-main {
-    /* Чтобы занимал оставшееся пространство */
+﻿main {
     flex-grow: 1;
     margin: 0;
     display: flex;

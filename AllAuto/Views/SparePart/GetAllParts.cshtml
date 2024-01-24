@@ -60,14 +60,18 @@
                     </div>
                 </div>
 
-                <div class="col">
-                    <a href="#" class="stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
+                <div class="name col-3">
+                    <a href="#" class="text-start stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
                        data-toggle="ajax-modal" data-target="Modal">
                         @sparePart.Name
                     </a>
                 </div>
 
-                <div class="col-3 align-self-center">
+                <div class="manufacture col">
+                    <p class="card-text">@sparePart.Model</p>
+                </div>
+
+                <div class="desription col-1 align-self-center">
                     <p class="card-text">@sparePart.Description</p>
                 </div>
 
