@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AllAuto.Domain.ViewModels.Order.OrderViewModel>
+﻿@model IEnumerable<AllAuto.Domain.ViewModels.Order.ItemEntryViewModel>
 
 @{
     ViewBag.Title = "Корзина";
@@ -57,7 +57,7 @@ else
             </table>
 
             <div class="row col-4 justify-content-center">
-                <a asp-controller="Order" asp-action="CreateOrder" class="btn btn-primary">Оформить</a>
+                <a asp-controller="Basket" asp-action="CreateOrder" class="btn btn-primary">Оформить</a>
             </div>
         </div>
        

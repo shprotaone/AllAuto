@@ -22,7 +22,9 @@ namespace AllAuto.DAL
 
         public DbSet<Basket> Baskets { get; set; }
 
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<ItemEntry> ItemEntries { get; set; }
+
+        public DbSet<CompleteOrder> CompleteOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,15 +33,23 @@ namespace AllAuto.DAL
             ProfileMapping(modelBuilder);
             BasketMapping(modelBuilder);
             OrderMapping(modelBuilder);
+            CompleteOrdersMapping(modelBuilder);
+        }
+
+        private void CompleteOrdersMapping(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CompleteOrder>(modelBuilder =>
+            modelBuilder.ToTable("CompleteOrders").HasKey(x => x.Id)        
+            );
         }
 
         private void OrderMapping(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>(modelBuilder =>
+            modelBuilder.Entity<ItemEntry>(modelBuilder =>
             {
-                modelBuilder.ToTable("Orders").HasKey(x => x.Id);
+                modelBuilder.ToTable("ItemEntries").HasKey(x => x.Id);
                 modelBuilder.HasOne(r => r.Basket)
-                .WithMany(t => t.Orders)
+                .WithMany(t => t.ItemEntries)
                 .HasForeignKey(r => r.BasketId);
 
                 modelBuilder.Property(x => x.Id).ValueGeneratedOnAdd();

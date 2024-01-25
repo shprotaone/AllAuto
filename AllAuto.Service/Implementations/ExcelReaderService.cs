@@ -13,6 +13,7 @@ namespace AllAuto.Service.Implementations
     {
         private const string WorkSheetName = "SheetSpareParts";
         private readonly string testFilePath = @"E:\C#\AllAuto\TestData\DataSheet.xlsx";
+        private readonly string testFilePathNote = @"C:\Code\С#\AllAuto\TestData\DataSheet.xlsx";
         private readonly IBaseRepository<SparePart> _sparePartRepository;
 
         public ExcelReaderService(IBaseRepository<SparePart> sparePartRepository)
@@ -104,7 +105,7 @@ namespace AllAuto.Service.Implementations
         {
             List<SparePart> spareParts = new List<SparePart>();
 
-            WorkBook excelWorkBook = WorkBook.Load(testFilePath);
+            WorkBook excelWorkBook = WorkBook.Load(testFilePathNote);
             WorkSheet excelWorkSheet = excelWorkBook.GetWorkSheet(WorkSheetName);
 
             for (int row = 2; row <= excelWorkSheet.RowCount; row++)

@@ -153,14 +153,14 @@
             });
         });
 
-        // /Order/CreateOrder
+        // /Order/AddEntryItem
         $('.add-part').click(function (e) {
             e.preventDefault();
             const model = $(this).data('partid');
             const amount = document.getElementById('amount ' + model).value;
             console.log(amount);
             $.ajax({
-                url: '/Order/CreateOrder',
+                url: '/Order/AddEntryItem',
                 type: 'GET',
                 data: { partId: model, amountCount: amount },
                 success: function (response) {

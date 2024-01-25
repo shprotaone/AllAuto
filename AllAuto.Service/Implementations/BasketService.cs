@@ -1,12 +1,11 @@
 ﻿using AllAuto.DAL.Interfaces;
 using AllAuto.Domain.Entity;
+using AllAuto.Domain.Enum;
+using AllAuto.Domain.Extensions;
 using AllAuto.Domain.Response;
 using AllAuto.Domain.ViewModels.Order;
-using AllAuto.Domain.ViewModels.SparePart;
 using AllAuto.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Xml.Linq;
 
 namespace AllAuto.Service.Implementations
 {
@@ -22,7 +21,7 @@ namespace AllAuto.Service.Implementations
             _sparePartRepository = sparePartRepository;
         }
 
-        public async Task<BaseResponse<IEnumerable<OrderViewModel>>> GetItems(string name)
+        public async Task<BaseResponse<IEnumerable<ItemEntryViewModel>>> GetItems(string name)
         {
             try
             {
@@ -30,24 +29,24 @@ namespace AllAuto.Service.Implementations
 
                 if (user == null)
                 {
-                    return new BaseResponse<IEnumerable<OrderViewModel>>()
+                    return new BaseResponse<IEnumerable<ItemEntryViewModel>>()
                     {
                         Description = "Пользователь не найден",
                         StatusCode = Domain.Enum.StatusCode.UserNotFound
                     };
                 }
 
-                IEnumerable<OrderViewModel> orders = FindOrders(user);
+                IEnumerable <ItemEntryViewModel> entries = GetEntries(user);
 
-                return new BaseResponse<IEnumerable<OrderViewModel>>()
+                return new BaseResponse<IEnumerable<ItemEntryViewModel>>()
                 {
-                    Data = orders,
+                    Data = entries,
                     StatusCode = Domain.Enum.StatusCode.OK
                 };
             }
             catch (Exception ex)
             {
-                return new BaseResponse<IEnumerable<OrderViewModel>>()
+                return new BaseResponse<IEnumerable<ItemEntryViewModel>>()
                 {
                     Description = ex.Message,
                     StatusCode = Domain.Enum.StatusCode.InternalServerError
@@ -55,43 +54,66 @@ namespace AllAuto.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<OrderViewModel>> GetItem(string? name, long id)
+        private IEnumerable<ItemEntryViewModel> GetEntries(User user)
+        {
+            List<ItemEntryViewModel> entries = new List<ItemEntryViewModel>();
+
+            foreach (var item in user.Basket.ItemEntries)
+            {
+                item.SparePart = _sparePartRepository.GetAll()
+                    .FirstOrDefault(x => x.Id == item.SparePartId);
+
+                entries.Add(new ItemEntryViewModel
+                {
+                    Id = item.Id,
+                    Name = item.SparePart.Name,
+                    Manufactor = item.SparePart.Model,
+                    DateCreate = item.DateCreated.ToShortDateString(),
+                    Quantity = item.Quantity,
+                    Sum = item.Quantity * item.SparePart.Price
+                }) ;
+            }
+
+            return entries;
+        }
+
+        public async Task<BaseResponse<ItemEntryViewModel>> GetItem(string? name, long id)
         {
             try
             {
                 var user = await _userRepository.GetAll()
                     .Include(x => x.Basket) // ленивая загрузка, Lazy load
-                    .ThenInclude(x => x.Orders)
+                    .ThenInclude(x => x.ItemEntries)
                     .FirstOrDefaultAsync(x => x.Name == name);
 
                 if (user == null)
                 {
-                    return new BaseResponse<OrderViewModel>()
+                    return new BaseResponse<ItemEntryViewModel>()
                     {
                         Description = "Пользователь не найден",
                         StatusCode = Domain.Enum.StatusCode.UserNotFound
                     };
                 }
 
-                var orders = user.Basket?.Orders.Where(x => x.Id == id).ToList();
+                var orders = user.Basket?.ItemEntries.Where(x => x.Id == id).ToList();
                 if (orders == null || orders.Count == 0)
                 {
-                    return new BaseResponse<OrderViewModel>()
+                    return new BaseResponse<ItemEntryViewModel>()
                     {
                         Description = "Заказов нет",
                         StatusCode = Domain.Enum.StatusCode.OrderNotFound
                     };
                 }
 
-                return new BaseResponse<OrderViewModel>()
+                return new BaseResponse<ItemEntryViewModel>()
                 {
-                    Data = new OrderViewModel(),        //заглушка
+                    Data = new ItemEntryViewModel(),        //заглушка
                     StatusCode = Domain.Enum.StatusCode.OK
                 };
             }
             catch (Exception ex)
             {
-                return new BaseResponse<OrderViewModel>()
+                return new BaseResponse<ItemEntryViewModel>()
                 {
                     Description = ex.Message,
                     StatusCode = Domain.Enum.StatusCode.InternalServerError
@@ -99,7 +121,7 @@ namespace AllAuto.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<OrderViewModel>> AddItem(string userName, long id, int Amount)
+        public async Task<BaseResponse<ItemEntryViewModel>> AddItem(string userName, long id, int Amount)
         {
             try
             {
@@ -108,7 +130,7 @@ namespace AllAuto.Service.Implementations
 
                 if (user == null)
                 {
-                    return new BaseResponse<OrderViewModel>()
+                    return new BaseResponse<ItemEntryViewModel>()
                     {
                         Description = "Пользователь не найден",
                         StatusCode = Domain.Enum.StatusCode.UserNotFound
@@ -117,41 +139,64 @@ namespace AllAuto.Service.Implementations
 
                 //взять экземпляр корзины
                 Basket basket = FindBasket(user).Result;
-                Order order = FindOrder(user);
+                ItemEntry order = FindOrder(user);
 
             }
             catch (Exception ex)
             {
-                return new BaseResponse<OrderViewModel>()
+                return new BaseResponse<ItemEntryViewModel>()
                 {
                     Description = ex.Message,
                     StatusCode = Domain.Enum.StatusCode.InternalServerError
                 };
             }
 
-            return new BaseResponse<OrderViewModel>()
+            return new BaseResponse<ItemEntryViewModel>()
             {
                 Description = "Заглушка",
                 StatusCode = Domain.Enum.StatusCode.InternalServerError
             };
         }
 
+        public BaseResponse<Dictionary<int, string>> GetDeliveryTypes()
+        {
+            try
+            {
+                var types = ((DeliveryType[])Enum.GetValues(typeof(DeliveryType)))
+                    .ToDictionary(key => (int)key, type => type.GetDisplayName());
+
+                return new BaseResponse<Dictionary<int, string>>
+                {
+                    Data = types,
+                    StatusCode = StatusCode.OK,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<Dictionary<int, string>>
+                {
+                    Description = ex.Message,
+                    StatusCode = StatusCode.InternalServerError
+                };
+            }
+        }
+
         private async Task<User> FindUser(string name)
         {
             User? user = await _userRepository.GetAll()
                    .Include(x => x.Basket)
-                   .ThenInclude(x => x.Orders)
+                   .ThenInclude(x => x.ItemEntries)
                    .FirstOrDefaultAsync(x => x.Name == name);
 
             return user;
         }
 
-        private Order FindOrder(User user)
+        private ItemEntry FindOrder(User user)
         {
-            Order? order = user.Basket?.Orders.FirstOrDefault(x => !x.IsClosed);
+            ItemEntry? order = user.Basket?.ItemEntries.FirstOrDefault();
             if (order == null)
             {
-                order = new Order()
+                order = new ItemEntry()
                 {
                     DateCreated = DateTime.Now,
                 };
@@ -160,37 +205,9 @@ namespace AllAuto.Service.Implementations
             return order;
         }
 
-        private IEnumerable<OrderViewModel> FindOrders(User user)
-        {
-            List<OrderViewModel>? order = ConvertToOrderView(user.Basket?.Orders.ToList());
-                return order;
-        }
-
         private async Task<Basket> FindBasket(User user)
         {
             return user.Basket;
-        }
-
-        private List<OrderViewModel> ConvertToOrderView(List<Order> orders)
-        {
-            List<OrderViewModel> response = new List<OrderViewModel>();
-            foreach (var order in orders)
-            {
-                order.SparePart = _sparePartRepository.GetAll()
-                    .FirstOrDefault(x => x.Id == order.SparePartId);
-
-                response.Add(new OrderViewModel()
-                {
-                    Id = order.Id,
-                    Name = order.SparePart.Name,
-                    Manufactor = order.SparePart.Model,
-                    Sum = order.SparePart.Price * order.Quantity,
-                    DateCreate = order.SparePart.DateCreate.ToString(),
-                    Quantity = order.Quantity
-                });
-            }
-
-            return response;
         }
     }
 }

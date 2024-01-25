@@ -14,8 +14,9 @@ namespace AllAuto
             services.AddScoped<IBaseRepository<SparePart>,SparePartRepository>();
             services.AddScoped<IBaseRepository<User>, UserRepository>();
             services.AddScoped<IBaseRepository<Profile>, ProfileRepository>();
-            services.AddScoped<IBaseRepository<Order>, OrderRepository>();
+            services.AddScoped<IBaseRepository<ItemEntry>, ItemEntryRepository>();
             services.AddScoped<IBaseRepository<Basket>, BasketRepository>();
+            services.AddScoped<IBaseRepository<CompleteOrder>, CompleteOrderRepository>();
         }
 
         public static void InitializeServices(IServiceCollection services)

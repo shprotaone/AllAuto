@@ -26,17 +26,17 @@ namespace AllAuto
 
         private async static Task AddOrders(ApplicationDbContext context)
         {
-            var orders = new List<Order>()
+            var orders = new List<ItemEntry>()
             {
-                new Order{BasketId=1,SparePartId=9,IsClosed=false,Quantity=1},
-                new Order{BasketId=1,SparePartId=10,IsClosed=false,Quantity=1},
-                new Order{BasketId=1,SparePartId=11,IsClosed=false,Quantity = 1},
-                new Order{BasketId=2,SparePartId=1,IsClosed=false,Quantity=1},
-                new Order{BasketId=2,SparePartId=2,IsClosed=false,Quantity=1},
-                new Order{BasketId=2,SparePartId=3,IsClosed=false, Quantity = 1},
+                new ItemEntry{BasketId=1,SparePartId=9,Quantity=1},
+                new ItemEntry{BasketId=1,SparePartId=10,Quantity=1},
+                new ItemEntry{BasketId=1,SparePartId=11,Quantity = 1},
+                new ItemEntry{BasketId=2,SparePartId=1,Quantity=1},
+                new ItemEntry{BasketId=2,SparePartId=2,Quantity=1},
+                new ItemEntry{BasketId=2,SparePartId=3, Quantity = 1},
 
             };
-            context.Orders.AddRange(orders);
+            context.ItemEntries.AddRange(orders);
             await context.SaveChangesAsync();
         }
 

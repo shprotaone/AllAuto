@@ -20,6 +20,10 @@ namespace AllAuto.Controllers
             _excelReaderService = excelReaderService;
         }
 
+        /// <summary>
+        /// Общий поиск
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllParts()
         {
@@ -32,6 +36,11 @@ namespace AllAuto.Controllers
             return RedirectToAction("Error");
         }
 
+        /// <summary>
+        /// Поиск по типу
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetPartsToType(int type)
         {
@@ -122,7 +131,6 @@ namespace AllAuto.Controllers
         {
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> LoadFromExcel(IFormFile file)

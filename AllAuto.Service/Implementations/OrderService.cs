@@ -1,7 +1,6 @@
 ﻿using AllAuto.DAL.Interfaces;
 using AllAuto.Domain.Entity;
 using AllAuto.Domain.Response;
-using AllAuto.Domain.ViewModels.Order;
 using AllAuto.Service.Interfaces;
 using IronXL.Styles;
 using Microsoft.EntityFrameworkCore;
@@ -11,43 +10,36 @@ namespace AllAuto.Service.Implementations
     public class OrderService : IOrderService 
     {
         private readonly IBaseRepository<User> _userRepository;
-        private readonly IBaseRepository<Order> _orderRepository;
+        private readonly IBaseRepository<ItemEntry> _orderRepository;
 
-        public OrderService(IBaseRepository<User> userRepository, IBaseRepository<Order> orderRepository)
+        public OrderService(IBaseRepository<User> userRepository, IBaseRepository<ItemEntry> orderRepository)
         {
             _userRepository = userRepository;
             _orderRepository = orderRepository;
         }
 
-        public async Task<BaseResponse<Order>> Create(CreateOrderViewModel model)
+        public async Task<BaseResponse<ItemEntry>> Create(ItemEntry model)
         {
             try
             {
                 var user = await _userRepository.GetAll()
                     .Include(x => x.Basket)
-                    .FirstOrDefaultAsync(x => x.Name == model.LoginId);
+                    .FirstOrDefaultAsync(x => x.Basket.Id == model.Basket.Id);
 
                 if(user == null)
                 { 
-                    return new BaseResponse<Order>()
+                    return new BaseResponse<ItemEntry>()
                     {
                         Description = "Пользователь не найден",
                         StatusCode = Domain.Enum.StatusCode.UserNotFound
                     };
                 }
 
-                Order order = new Order()
-                {
-                    DateCreated = DateTime.Now,
-                    BasketId = user.Basket.Id,
-                    SparePartId = model.SparePartIdToAdd,        
-                    Quantity = model.Quantity
-                };
+                model.BasketId = user.Basket.Id;
 
+                await _orderRepository.Create(model);
 
-                await _orderRepository.Create(order);
-
-                return new BaseResponse<Order>()
+                return new BaseResponse<ItemEntry>()
                 {
                     Description = "Заказ создан",
                     StatusCode = Domain.Enum.StatusCode.OK
@@ -55,7 +47,7 @@ namespace AllAuto.Service.Implementations
             }
             catch (Exception ex)
             {
-                return new BaseResponse<Order>()
+                return new BaseResponse<ItemEntry>()
                 {
                     Description = ex.Message,
                     StatusCode = Domain.Enum.StatusCode.InternalServerError

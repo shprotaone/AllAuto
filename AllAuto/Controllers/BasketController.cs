@@ -1,4 +1,7 @@
-﻿using AllAuto.Service.Interfaces;
+﻿using AllAuto.Domain.Entity;
+using AllAuto.Domain.ViewModels.Basket;
+using AllAuto.Service.Implementations;
+using AllAuto.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AllAuto.Controllers
@@ -6,10 +9,12 @@ namespace AllAuto.Controllers
     public class BasketController  : Controller
     {
         private readonly IBasketService _basketService;
+        private readonly IUserService _userService;
 
-        public BasketController(IBasketService basketService)
+        public BasketController(IBasketService basketService,IUserService userService)
         {
             _basketService = basketService;
+            _userService = userService; 
         }
 
         public async Task<IActionResult> Detail()
@@ -28,16 +33,19 @@ namespace AllAuto.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        public async Task<IActionResult> AddItem(long id, int Amount)
+        [HttpGet]
+        public async Task<IActionResult> CreateOrder()
         {
-            var response = await _basketService.AddItem(User.Identity.Name, id,Amount);
+            var items = await _basketService.GetItems(User.Identity.Name);
+            var user = await _userService.GetUser(User.Identity.Name);
             
-            if(response.StatusCode == Domain.Enum.StatusCode.OK)
+            var basketView = new BasketViewModel()
             {
-                return View(response.Data);
-            }
+                Items = items.Data.ToList(),
+                UserId = user.Data.Id
+            };
 
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            return View(basketView);
         }
 
         [HttpGet]
@@ -51,6 +59,13 @@ namespace AllAuto.Controllers
 
             return RedirectToAction("Index", "Home");
 
+        }
+
+        [HttpPost]
+        public JsonResult GetDeliveryTypes()
+        {
+            var types = _basketService.GetDeliveryTypes();
+            return Json(types);
         }
     }
 }

@@ -12,14 +12,19 @@ namespace AllAuto.DAL.Repositories
             _context = context;
         }
 
-        public Task<bool> Create(Basket entity)
+        public async Task<bool> Create(Basket entity)
         {
-            throw new NotImplementedException();
+            await _context.Baskets.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> Delete(Basket entity)
+        public async Task<bool> Delete(Basket entity)
         {
-            throw new NotImplementedException();
+             _context.Baskets.Remove(entity);
+            await _context.SaveChangesAsync();
+            return true;
+
         }
 
         public IQueryable<Basket> GetAll()
@@ -27,9 +32,11 @@ namespace AllAuto.DAL.Repositories
             return _context.Baskets;
         }
 
-        public Task<Basket> Update(Basket entity)
+        public async Task<Basket> Update(Basket entity)
         {
-            throw new NotImplementedException();
+            _context.Baskets.Update(entity);
+            await _context.SaveChangesAsync();
+            return entity;
         }
     }
 }

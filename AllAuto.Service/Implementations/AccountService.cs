@@ -14,14 +14,17 @@ namespace AllAuto.Service.Implementations
     {
         private readonly IBaseRepository<User> _userRepository;
         private readonly IBaseRepository<Profile> _profileRepository;
+        private readonly IBaseRepository<Basket> _basketRepository;
         private readonly ILogger<AccountService> _logger;
 
         public AccountService(IBaseRepository<User> userRepository,
-            ILogger<AccountService> logger,IBaseRepository<Profile> profileRepository)
+            ILogger<AccountService> logger,IBaseRepository<Profile> profileRepository, 
+            IBaseRepository<Basket> basketRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
             _profileRepository = profileRepository;
+            _basketRepository = basketRepository;
         }
 
         public async Task<BaseResponse<ClaimsIdentity>> Register(RegisterViewModel model)
@@ -29,7 +32,8 @@ namespace AllAuto.Service.Implementations
             try
             {
                 var user = _userRepository.GetAll().FirstOrDefault(x => x.Name == model.Name);
-                if(user != null)
+                
+                if (user != null)
                 {
                     return new BaseResponse<ClaimsIdentity>()
                     {
@@ -37,24 +41,11 @@ namespace AllAuto.Service.Implementations
                     };
                 }
 
-                user = new User()
-                {
-                    Name = model.Name,
-                    Role = Domain.Enum.Role.User,
-                    Password = HashPasswordHelper.HasPassword(model.Password)
-                };
-
-                await _userRepository.Create(user);
-
-                var profile = new Profile()
-                {
-                    UserId = user.Id
-                };
-
-                await _profileRepository.Create(profile);
+                user = await CreateUser(model);
+                await CreateProfile(user);
+                await CreateBasket(user);
 
                 ClaimsIdentity result = Authenticate(user);
-
                 return new BaseResponse<ClaimsIdentity>()
                 {
                     Data = result,
@@ -71,6 +62,38 @@ namespace AllAuto.Service.Implementations
                     StatusCode = Domain.Enum.StatusCode.InternalServerError
                 };
             }
+        }
+
+        private async Task CreateBasket(User? user)
+        {
+            Basket basket = new Basket
+            {
+                UserId = user.Id
+
+            };
+            await _basketRepository.Create(basket);
+        }
+
+        private async Task CreateProfile(User? user)
+        {
+            var profile = new Profile()
+            {
+                UserId = user.Id
+            };
+
+            await _profileRepository.Create(profile);
+        }
+
+        private async Task<User?> CreateUser(RegisterViewModel model)
+        {
+            User? user = new User()
+            {
+                Name = model.Name,
+                Role = Domain.Enum.Role.User,
+                Password = HashPasswordHelper.HasPassword(model.Password)
+            };
+            await _userRepository.Create(user);
+            return user;
         }
 
         public async Task<BaseResponse<ClaimsIdentity>> Login(LoginViewModel model)
