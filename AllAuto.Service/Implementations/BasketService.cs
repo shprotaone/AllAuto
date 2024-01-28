@@ -1,4 +1,5 @@
 ﻿using AllAuto.DAL.Interfaces;
+using AllAuto.DAL.Repositories;
 using AllAuto.Domain.Entity;
 using AllAuto.Domain.Enum;
 using AllAuto.Domain.Extensions;
@@ -13,12 +14,57 @@ namespace AllAuto.Service.Implementations
     {
         private readonly IBaseRepository<User> _userRepository;
         private readonly IBaseRepository<SparePart> _sparePartRepository;
+        private readonly IBaseRepository<ItemEntry> _itemEntryRepository;
+        private readonly IBaseRepository<Basket> _basketRepository;
 
         public BasketService(IBaseRepository<User> userRepository, 
-            IBaseRepository<SparePart> sparePartRepository)
+            IBaseRepository<SparePart> sparePartRepository,
+            IBaseRepository<ItemEntry> itemEntryRepository,
+            IBaseRepository<Basket> basketRepository)
         {
             _userRepository = userRepository;
             _sparePartRepository = sparePartRepository;
+            _itemEntryRepository = itemEntryRepository;
+            _basketRepository = basketRepository;
+        }
+
+
+        public async Task<BaseResponse<bool>> ClearBasket(long userId)
+        {
+            try
+            {
+                User? user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Id == userId);
+                if (user == null)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Description = "Пользователь не найден",
+                        StatusCode = Domain.Enum.StatusCode.UserNotFound
+                    };
+                }
+
+                Basket? basket = await _basketRepository.GetAll().FirstOrDefaultAsync(x => x.UserId == userId);
+                var entries = _itemEntryRepository.GetAll().Where(x => x.BasketId == basket.Id).ToList();
+
+                foreach (var entry in entries)
+                {
+                    await _itemEntryRepository.Delete(entry);
+                }
+
+                return new BaseResponse<bool>()
+                {
+                    Data = true,
+                    StatusCode = StatusCode.OK
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Description = ex.Message,
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError
+                };
+            }
         }
 
         public async Task<BaseResponse<IEnumerable<ItemEntryViewModel>>> GetItems(string name)
@@ -209,5 +255,6 @@ namespace AllAuto.Service.Implementations
         {
             return user.Basket;
         }
+
     }
 }

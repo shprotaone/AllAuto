@@ -28,6 +28,7 @@ namespace AllAuto
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IBasketService, BasketService>();
             services.AddScoped<IExcelReaderService<SparePart>, ExcelReaderService>();
+            services.AddScoped<ICompleteOrderService, CompleteOrderService>();
         }
 
         public static void InitLogger(WebApplicationBuilder builder)

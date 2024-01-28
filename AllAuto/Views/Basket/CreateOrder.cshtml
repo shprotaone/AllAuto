@@ -1,4 +1,4 @@
-﻿@model AllAuto.Domain.ViewModels.Basket.BasketViewModel
+﻿@model AllAuto.Domain.ViewModels.Order.CompleteOrderViewModel
 
 @{
     Layout = "_Layout";
@@ -11,7 +11,7 @@
             <div class="card p-3">                               
                     <h4 class="text-center">Форма создания заказа</h4>
                     <div class="container px-4 py-4">
-                    @foreach (var item in Model.Items)
+                    @foreach (var item in Model.ItemEntries)
                     {                       
                             <div class="row gy-5">
                                 <div class="col text-secondary">@item.Name</div>
@@ -21,7 +21,7 @@
                     </div>
 
                     <h4 class="text-center">Заполните данные</h4>
-                <form id="orderFormId" enctype="multipart/form-data">
+                <form asp-action="SetOrderComplete" asp-controller="CompleteOrder" id="orderFormId" enctype="multipart/form-data">
                     <input asp-for="UserId" hidden />
                     <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
                     <ul class="list-group">

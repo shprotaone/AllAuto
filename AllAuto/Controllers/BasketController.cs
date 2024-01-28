@@ -1,6 +1,4 @@
-﻿using AllAuto.Domain.Entity;
-using AllAuto.Domain.ViewModels.Basket;
-using AllAuto.Service.Implementations;
+﻿using AllAuto.Domain.ViewModels.Order;
 using AllAuto.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,9 +37,9 @@ namespace AllAuto.Controllers
             var items = await _basketService.GetItems(User.Identity.Name);
             var user = await _userService.GetUser(User.Identity.Name);
             
-            var basketView = new BasketViewModel()
+            var basketView = new CompleteOrderViewModel()
             {
-                Items = items.Data.ToList(),
+                ItemEntries = items.Data.ToList(),
                 UserId = user.Data.Id
             };
 

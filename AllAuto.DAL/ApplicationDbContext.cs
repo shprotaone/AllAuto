@@ -1,6 +1,6 @@
 ﻿using AllAuto.Domain.Entity;
 using AllAuto.Domain.Enum;
-using AllAuto.Domain.Helpers;
+using AllAuto.Domain.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllAuto.DAL
@@ -32,7 +32,7 @@ namespace AllAuto.DAL
             UserMapping(modelBuilder);
             ProfileMapping(modelBuilder);
             BasketMapping(modelBuilder);
-            OrderMapping(modelBuilder);
+            ItemEntriesMapping(modelBuilder);
             CompleteOrdersMapping(modelBuilder);
         }
 
@@ -43,7 +43,7 @@ namespace AllAuto.DAL
             );
         }
 
-        private void OrderMapping(ModelBuilder modelBuilder)
+        private void ItemEntriesMapping(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ItemEntry>(modelBuilder =>
             {

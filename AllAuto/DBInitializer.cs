@@ -1,6 +1,6 @@
 ﻿using AllAuto.DAL;
 using AllAuto.Domain.Entity;
-using AllAuto.Domain.Helpers;
+using AllAuto.Domain.Extensions;
 using AllAuto.Service.Interfaces;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 

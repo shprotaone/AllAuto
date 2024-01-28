@@ -20,6 +20,7 @@ namespace AllAuto.Service.Interfaces
         Task<IBaseResponse<SparePart>> Edit(int id,SparePartViewModel model);
 
         BaseResponse<Dictionary<int, string>> GetTypes();
+
         Task<BaseResponse<IEnumerable<SparePart>>> GetPartsToType(TypePart type);
     }
 }

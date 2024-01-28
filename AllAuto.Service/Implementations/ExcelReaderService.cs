@@ -21,10 +21,6 @@ namespace AllAuto.Service.Implementations
             _sparePartRepository = sparePartRepository;
         }
 
-        /// <summary>
-        /// Добавление файла при старте по пути
-        /// </summary>
-        /// <returns></returns>
         public async Task ReadExcelFile()
         {
             List<SparePart> spareParts = Read(); //read data from excel<
@@ -105,7 +101,7 @@ namespace AllAuto.Service.Implementations
         {
             List<SparePart> spareParts = new List<SparePart>();
 
-            WorkBook excelWorkBook = WorkBook.Load(testFilePathNote);
+            WorkBook excelWorkBook = WorkBook.Load(testFilePath);
             WorkSheet excelWorkSheet = excelWorkBook.GetWorkSheet(WorkSheetName);
 
             for (int row = 2; row <= excelWorkSheet.RowCount; row++)

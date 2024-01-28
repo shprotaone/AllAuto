@@ -1,6 +1,6 @@
 ﻿using AllAuto.DAL.Interfaces;
 using AllAuto.Domain.Entity;
-using AllAuto.Domain.Helpers;
+using AllAuto.Domain.Extensions;
 using AllAuto.Domain.Response;
 using AllAuto.Domain.ViewModels.Account;
 using AllAuto.Service.Interfaces;

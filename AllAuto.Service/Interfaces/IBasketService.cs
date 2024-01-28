@@ -12,5 +12,7 @@ namespace AllAuto.Service.Interfaces
         Task<BaseResponse<ItemEntryViewModel>> AddItem(string userName,long id, int Amount);
         
         BaseResponse <Dictionary<int,string>> GetDeliveryTypes();
+
+        Task<BaseResponse<bool>> ClearBasket(long userId);
     }
 }
