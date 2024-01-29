@@ -30,7 +30,22 @@ namespace AllAuto.Controllers
             var response = await _sparePartService.GetParts();
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return View(response.Data);
+                List<SparePartShortView> query = new List<SparePartShortView>();
+                foreach (var item in response.Data)
+                {
+                    query.Add(new SparePartShortView
+                    {
+                        Id = item.Id,
+                        Name = item.Name,                     
+                        Description = item.Description,
+                        Model = item.Model,
+                        Price = item.Price,
+                        TypeSparePart = item.TypeSparePart,
+                        Avatar = item.Avatar,
+
+                    }); 
+                }
+                    return View(query.AsQueryable());
             }
 
             return RedirectToAction("Error");
@@ -47,7 +62,22 @@ namespace AllAuto.Controllers
             var response = await _sparePartService.GetPartsToType((TypePart)type);           
             if (response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return View("GetAllParts",response.Data);
+                List<SparePartShortView> query = new List<SparePartShortView>();
+                foreach (var item in response.Data)
+                {
+                    query.Add(new SparePartShortView
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Description = item.Description,
+                        Model = item.Model,
+                        Price = item.Price,
+                        TypeSparePart = item.TypeSparePart,
+                        Avatar = item.Avatar,
+
+                    });
+                }
+                return View("GetAllParts",query.AsQueryable());
             }
 
             return RedirectToAction("Error");

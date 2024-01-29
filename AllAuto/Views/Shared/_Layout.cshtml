@@ -89,10 +89,8 @@
                                     </button>
                                 </div>
                             }
-                        </div>
-
-                        @if (User.Identity.IsAuthenticated)
-                        {
+                            else
+                            {
                                 <div class="row d-flex align-items-center">
                                     <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
                                         <input type="search" class="form-control" placeholder="Поиск..." aria-label="Search">
@@ -105,7 +103,7 @@
                                             Корзина
                                         </a>
                                     </div>
-                   
+
                                     <div class="username-text col ">
                                         <a class="text-secondary align-middle" asp-controller="Profile" asp-action="Detail">@User.Identity.Name</a>
                                     </div>
@@ -116,18 +114,14 @@
                                         </form>
                                     </div>
                                 </div>
-                        }
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    @*<header>
-
-    <a class="nav-link active text-white" asp-controller="User" asp-action="GetUsers">
-
-    *@
         <div class="container-fluid p-0">
             <main role="main">
                 @RenderBody()
