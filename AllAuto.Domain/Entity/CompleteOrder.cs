@@ -15,6 +15,8 @@ namespace AllAuto.Domain.Entity
 
         public string Address { get; set; }
 
+        public decimal Sum { get; set; }
+
         public DateTime DateTime { get; set; }
 
         public DeliveryType DeliveryType { get; set; }

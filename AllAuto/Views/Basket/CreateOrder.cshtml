@@ -7,9 +7,9 @@
 
 <div class="site_width">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 p-3">
             <div class="card p-3">                               
-                    <h4 class="text-center">Форма создания заказа</h4>
+                    <h4 class="text-center">Итого заказано</h4>
                     <div class="container px-4 py-4">
                     @foreach (var item in Model.ItemEntries)
                     {                       
@@ -20,7 +20,7 @@
                     }
                     </div>
 
-                    <h4 class="text-center">Заполните данные</h4>
+                    <h4 class="text-center">Данные для доставки</h4>
                 <form asp-action="SetOrderComplete" asp-controller="CompleteOrder" id="orderFormId" enctype="multipart/form-data">
                     <input asp-for="UserId" hidden />
                     <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
@@ -53,16 +53,17 @@
             </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 p-3">
             <div class="card">
+                <h4 class="card-title text-center">Порядок получения заказа</h4>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">○ Делаете заказ</li>
-                    <li class="list-group-item">○ Мы звоним и уточняем у вас информацию</li>
-                    <li class="list-group-item">○ Вы приезжаете на место</li>
+                    <li class="list-group-item">> Оформляете заказ</li>
+                    <li class="list-group-item">> Ожидаете звонка для уточнения заказа</li>
+                    <li class="list-group-item">> Происходит доставка/ самовывоз</li>
+                    <li class="list-group-item">> Оплата заказа наличными при получении</li>
                 </ul>
                 <div class="card-body">
-                    <a asp-controller="Home" asp-action="Index" class="card-link">Главная</a>
-                    <a asp-controller="Car" asp-action="GetCars" class="card-link">Автомобили</a>
+                    <a asp-controller="Home" asp-action="Index" class="card-link">Главная</a>                   
                 </div>
             </div>
         </div>

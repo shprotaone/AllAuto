@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AllAuto.Domain.Entity;
+using AllAuto.Domain.ViewModels.Order;
+using System.ComponentModel.DataAnnotations;
 
 namespace AllAuto.Domain.ViewModels.Profile
 {
@@ -18,5 +20,7 @@ namespace AllAuto.Domain.ViewModels.Profile
         public string UserName { get; set; }
 
         public string NewPassword { get; set; }
+
+        public List<CompleteOrderView> CompleteOrders { get; set; }
     }
 }

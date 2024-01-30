@@ -95,7 +95,8 @@ namespace AllAuto.Controllers
             return PartialView("GetSparePart",response.Data);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var response = await _sparePartService.DeleteCar(id);
@@ -105,7 +106,7 @@ namespace AllAuto.Controllers
                 return RedirectToAction("GetAllParts");
             }
 
-            return RedirectToAction("Error");
+            return RedirectToAction("GetAllParts");
         }
 
         [HttpGet]

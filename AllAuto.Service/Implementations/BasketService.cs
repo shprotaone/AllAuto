@@ -7,6 +7,7 @@ using AllAuto.Domain.Response;
 using AllAuto.Domain.ViewModels.Order;
 using AllAuto.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace AllAuto.Service.Implementations
 {
@@ -83,6 +84,42 @@ namespace AllAuto.Service.Implementations
                 }
 
                 IEnumerable <ItemEntryViewModel> entries = GetEntries(user);
+
+                return new BaseResponse<IEnumerable<ItemEntryViewModel>>()
+                {
+                    Data = entries,
+                    StatusCode = Domain.Enum.StatusCode.OK
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<IEnumerable<ItemEntryViewModel>>()
+                {
+                    Description = ex.Message,
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError
+                };
+            }
+        }
+
+        public async Task<BaseResponse<IEnumerable<ItemEntryViewModel>>> GetItems(long userId)
+        {
+            try
+            {
+                User? user = await _userRepository.GetAll()
+                   .Include(x => x.Basket)
+                   .ThenInclude(x => x.ItemEntries)
+                   .FirstOrDefaultAsync(x => x.Id == userId);
+
+                if (user == null)
+                {
+                    return new BaseResponse<IEnumerable<ItemEntryViewModel>>()
+                    {
+                        Description = "Пользователь не найден",
+                        StatusCode = Domain.Enum.StatusCode.UserNotFound
+                    };
+                }
+
+                IEnumerable<ItemEntryViewModel> entries = GetEntries(user);
 
                 return new BaseResponse<IEnumerable<ItemEntryViewModel>>()
                 {
@@ -256,5 +293,6 @@ namespace AllAuto.Service.Implementations
             return user.Basket;
         }
 
+        
     }
 }
