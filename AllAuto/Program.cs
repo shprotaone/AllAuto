@@ -1,12 +1,12 @@
 using AllAuto;
 using AllAuto.DAL;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
-
 
 services.AddControllersWithViews();
 services.AddDbContext<ApplicationDbContext>(options =>
@@ -25,6 +25,15 @@ StartupInit.InitializeServices(services);
 StartupInit.InitLogger(builder);
 
 var app = builder.Build();
+
+// Configure the Unity Data
+var provider = new FileExtensionContentTypeProvider();
+provider.Mappings[".data"] = "application/octet-stream";
+provider.Mappings[".wasm"] = "application/wasm";
+app.UseStaticFiles(new StaticFileOptions()
+{
+    ContentTypeProvider = provider,
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
