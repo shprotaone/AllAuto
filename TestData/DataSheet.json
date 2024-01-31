@@ -1,0 +1,191 @@
+[
+ {
+  "Name": "Свеча зажигания",
+  "Model": "SUZUKI",
+  "Description": "Оригинал",
+  "Price": 100,
+  "DateCreate": "10\/10\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Свеча зажигания",
+  "Model": "BMW",
+  "Description": "Оригинал",
+  "Price": 200,
+  "DateCreate": "10\/11\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Свеча зажигания",
+  "Model": "NISSAN",
+  "Description": "Оригинал",
+  "Price": 300,
+  "DateCreate": "10\/12\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Фильтр воздушный",
+  "Model": "SUZUKI",
+  "Description": "Оригинал",
+  "Price": 400,
+  "DateCreate": "10\/13\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Фильтр воздушный",
+  "Model": "BMW",
+  "Description": "Оригинал",
+  "Price": 500,
+  "DateCreate": "10\/14\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Фильтр воздушный",
+  "Model": "NISSAN",
+  "Description": "Оригинал",
+  "Price": 600,
+  "DateCreate": "10\/15\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Фильтр топливный",
+  "Model": "SUZUKI",
+  "Description": "Оригинал",
+  "Price": 700,
+  "DateCreate": "10\/16\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Фильтр топливный",
+  "Model": "BMW",
+  "Description": "Оригинал",
+  "Price": 800,
+  "DateCreate": "10\/17\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Фильтр топливный",
+  "Model": "NISSAN",
+  "Description": "Оригинал",
+  "Price": 900,
+  "DateCreate": "10\/18\/2020",
+  "TypeSparePart": 0,
+  "Amount": 100
+ },
+ {
+  "Name": "Амортизатор",
+  "Model": "SUZUKI",
+  "Description": "Оригинал",
+  "Price": 100,
+  "DateCreate": "10\/10\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Амортизатор",
+  "Model": "BMW",
+  "Description": "Оригинал",
+  "Price": 200,
+  "DateCreate": "10\/11\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Амортизатор",
+  "Model": "NISSAN",
+  "Description": "Оригинал",
+  "Price": 300,
+  "DateCreate": "10\/12\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Подшипник ступицы передний",
+  "Model": "SUZUKI",
+  "Description": "Оригинал",
+  "Price": 400,
+  "DateCreate": "10\/13\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Подшипник ступицы передний",
+  "Model": "BMW",
+  "Description": "Оригинал",
+  "Price": 500,
+  "DateCreate": "10\/14\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Подшипник ступицы передний",
+  "Model": "NISSAN",
+  "Description": "Оригинал",
+  "Price": 600,
+  "DateCreate": "10\/15\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Подшипник ступицы задний",
+  "Model": "SUZUKI",
+  "Description": "Оригинал",
+  "Price": 700,
+  "DateCreate": "10\/16\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Подшипник ступицы задний",
+  "Model": "BMW",
+  "Description": "Оригинал",
+  "Price": 800,
+  "DateCreate": "10\/17\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Подшипник ступицы задний",
+  "Model": "NISSAN",
+  "Description": "Оригинал",
+  "Price": 900,
+  "DateCreate": "10\/18\/2020",
+  "TypeSparePart": 1,
+  "Amount": 100
+ },
+ {
+  "Name": "Масло трансмиссионное",
+  "Model": "SUZUKI",
+  "Description": "Оригинал",
+  "Price": 900,
+  "DateCreate": "10\/18\/2020",
+  "TypeSparePart": 2,
+  "Amount": 100
+ },
+ {
+  "Name": "Масло трансмиссионное",
+  "Model": "BMW",
+  "Description": "Оригинал",
+  "Price": 900,
+  "DateCreate": "10\/18\/2020",
+  "TypeSparePart": 2,
+  "Amount": 100
+ },
+ {
+  "Name": "Масло трансмиссионное",
+  "Model": "NISSAN",
+  "Description": "Оригинал",
+  "Price": 900,
+  "DateCreate": "10\/18\/2020",
+  "TypeSparePart": 2,
+  "Amount": 100
+ }
+]

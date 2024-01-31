@@ -8,5 +8,6 @@ namespace AllAuto.Service.Interfaces
     {
         Task ReadExcelFile();
         Task<BaseResponse<bool>> ReadExcelFile(IFormFile file);
+        Task<BaseResponse<bool>> ReadJsonFile(IFormFile file);
     }
 }

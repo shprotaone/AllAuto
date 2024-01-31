@@ -1,0 +1,212 @@
+[
+    {
+        "Name": "Свеча зажигания",
+        "Model": "SUZUKI",
+        "Description": "Оригинал",
+        "Price": 100,
+        "DateCreate": "10.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Свеча зажигания",
+        "Model": "BMW",
+        "Description": "Оригинал",
+        "Price": 200,
+        "DateCreate": "11.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Свеча зажигания",
+        "Model": "NISSAN",
+        "Description": "Оригинал",
+        "Price": 300,
+        "DateCreate": "12.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Фильтр воздушный",
+        "Model": "SUZUKI",
+        "Description": "Оригинал",
+        "Price": 400,
+        "DateCreate": "13.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Фильтр воздушный",
+        "Model": "BMW",
+        "Description": "Оригинал",
+        "Price": 500,
+        "DateCreate": "14.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Фильтр воздушный",
+        "Model": "NISSAN",
+        "Description": "Оригинал",
+        "Price": 600,
+        "DateCreate": "15.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Фильтр топливный",
+        "Model": "SUZUKI",
+        "Description": "Оригинал",
+        "Price": 700,
+        "DateCreate": "16.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Фильтр топливный",
+        "Model": "BMW",
+        "Description": "Оригинал",
+        "Price": 800,
+        "DateCreate": "17.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Фильтр топливный",
+        "Model": "NISSAN",
+        "Description": "Оригинал",
+        "Price": 900,
+        "DateCreate": "18.10.2020",
+        "TypeSparePart": 0,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Амортизатор",
+        "Model": "SUZUKI",
+        "Description": "Оригинал",
+        "Price": 100,
+        "DateCreate": "10.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Амортизатор",
+        "Model": "BMW",
+        "Description": "Оригинал",
+        "Price": 200,
+        "DateCreate": "11.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Амортизатор",
+        "Model": "NISSAN",
+        "Description": "Оригинал",
+        "Price": 300,
+        "DateCreate": "12.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Подшипник ступицы передний",
+        "Model": "SUZUKI",
+        "Description": "Оригинал",
+        "Price": 400,
+        "DateCreate": "13.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Подшипник ступицы передний",
+        "Model": "BMW",
+        "Description": "Оригинал",
+        "Price": 500,
+        "DateCreate": "14.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Подшипник ступицы передний",
+        "Model": "NISSAN",
+        "Description": "Оригинал",
+        "Price": 600,
+        "DateCreate": "15.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Подшипник ступицы задний",
+        "Model": "SUZUKI",
+        "Description": "Оригинал",
+        "Price": 700,
+        "DateCreate": "16.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Подшипник ступицы задний",
+        "Model": "BMW",
+        "Description": "Оригинал",
+        "Price": 800,
+        "DateCreate": "17.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Подшипник ступицы задний",
+        "Model": "NISSAN",
+        "Description": "Оригинал",
+        "Price": 900,
+        "DateCreate": "18.10.2020",
+        "TypeSparePart": 1,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Масло трансмиссионное",
+        "Model": "SUZUKI",
+        "Description": "Оригинал",
+        "Price": 900,
+        "DateCreate": "18.10.2020",
+        "TypeSparePart": 2,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Масло трансмиссионное",
+        "Model": "BMW",
+        "Description": "Оригинал",
+        "Price": 900,
+        "DateCreate": "18.10.2020",
+        "TypeSparePart": 2,
+        "Amount": 100,
+        "Avatar": null
+    },
+    {
+        "Name": "Масло трансмиссионное",
+        "Model": "NISSAN",
+        "Description": "Оригинал",
+        "Price": 900,
+        "DateCreate": "18.10.2020",
+        "TypeSparePart": 2,
+        "Amount": 100,
+        "Avatar": null
+    }
+]
