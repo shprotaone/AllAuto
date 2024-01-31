@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="IronXL.Excel" Version="2024.1.21" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog.Extensions.Logging" Version="5.3.8" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.8" />
   </ItemGroup>

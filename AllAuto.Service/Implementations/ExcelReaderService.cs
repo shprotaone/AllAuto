@@ -5,6 +5,9 @@ using AllAuto.Domain.Response;
 using AllAuto.Service.Interfaces;
 using IronXL;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
 namespace AllAuto.Service.Implementations
@@ -50,6 +53,45 @@ namespace AllAuto.Service.Implementations
                 }
 
                 return await AddPartsToDB(spareParts);
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Description = ex.Message,
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError
+                };
+            }
+        }
+
+        public async Task<BaseResponse<bool>> ReadJsonFile(IFormFile file)
+        {
+            try
+            {
+                List<SparePart> spareParts = new List<SparePart>();
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                using (Stream stream = file.OpenReadStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        using (JsonTextReader jsonReader = new JsonTextReader(reader))
+                        {
+
+                            JToken token = JToken.Load(jsonReader);
+                            if(token.Type == JTokenType.Array)
+                            {
+                                spareParts = token.ToObject<List<SparePart>>();
+                            }
+                            foreach (var item in spareParts)
+                            {
+                                item.Avatar = Array.Empty<byte>();
+                            }
+                        }
+                    }
+                }
+
+                    return await AddPartsToDB(spareParts);
             }
             catch (Exception ex)
             {

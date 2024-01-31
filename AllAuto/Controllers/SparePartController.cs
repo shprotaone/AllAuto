@@ -166,7 +166,8 @@ namespace AllAuto.Controllers
         [HttpPost]
         public async Task<IActionResult> LoadFromExcel(IFormFile file)
         {
-            var response = await _excelReaderService.ReadExcelFile(file);
+            var response = await _excelReaderService.ReadJsonFile(file);
+
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
                 return Json(new { derscription = response.Description });
