@@ -11,32 +11,73 @@ namespace AllAuto.Controllers
     public class SparePartController : Controller
     {
         private readonly ISparePartService _sparePartService;
+        private readonly IExcelReaderService<SparePart> _excelReaderService;
 
-        public SparePartController(ISparePartService carService)
+        public SparePartController(ISparePartService carService,
+            IExcelReaderService<SparePart> excelReaderService)
         {
             _sparePartService = carService;
+            _excelReaderService = excelReaderService;
         }
 
+        /// <summary>
+        /// Общий поиск
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllParts()
         {
             var response = await _sparePartService.GetParts();
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return View(response.Data);
+                List<SparePartShortView> query = new List<SparePartShortView>();
+                foreach (var item in response.Data)
+                {
+                    query.Add(new SparePartShortView
+                    {
+                        Id = item.Id,
+                        Name = item.Name,                     
+                        Description = item.Description,
+                        Model = item.Model,
+                        Price = item.Price,
+                        TypeSparePart = item.TypeSparePart,
+                        Avatar = item.Avatar,
+
+                    }); 
+                }
+                    return View(query.AsQueryable());
             }
 
             return RedirectToAction("Error");
         }
 
+        /// <summary>
+        /// Поиск по типу
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetPartsToType(TypePart type)
+        public async Task<IActionResult> GetPartsToType(int type)
         {
-            var response = await _sparePartService.GetPartsToType(type);           
-            Console.WriteLine(type + " is called");
+            var response = await _sparePartService.GetPartsToType((TypePart)type);           
             if (response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return View(response.Data);
+                List<SparePartShortView> query = new List<SparePartShortView>();
+                foreach (var item in response.Data)
+                {
+                    query.Add(new SparePartShortView
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Description = item.Description,
+                        Model = item.Model,
+                        Price = item.Price,
+                        TypeSparePart = item.TypeSparePart,
+                        Avatar = item.Avatar,
+
+                    });
+                }
+                return View("GetAllParts",query.AsQueryable());
             }
 
             return RedirectToAction("Error");
@@ -54,7 +95,8 @@ namespace AllAuto.Controllers
             return PartialView("GetSparePart",response.Data);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var response = await _sparePartService.DeleteCar(id);
@@ -64,7 +106,7 @@ namespace AllAuto.Controllers
                 return RedirectToAction("GetAllParts");
             }
 
-            return RedirectToAction("Error");
+            return RedirectToAction("GetAllParts");
         }
 
         [HttpGet]
@@ -113,7 +155,24 @@ namespace AllAuto.Controllers
                 }         
             }
             return RedirectToAction("GetAllParts");
+        }
 
+        [HttpGet]
+        public IActionResult LoadFromExcel()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LoadFromExcel(IFormFile file)
+        {
+            var response = await _excelReaderService.ReadExcelFile(file);
+            if(response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return Json(new { derscription = response.Description });
+            }
+
+                return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         [HttpPost]

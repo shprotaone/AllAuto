@@ -2,7 +2,6 @@
 using AllAuto.Domain.Entity;
 using AllAuto.Domain.Enum;
 using AllAuto.Domain.Extensions;
-using AllAuto.Domain.Helpers;
 using AllAuto.Domain.Response;
 using AllAuto.Domain.ViewModels.User;
 using AllAuto.Service.Interfaces;
@@ -134,6 +133,32 @@ namespace AllAuto.Service.Implementations
             }
         }
 
+        public async Task<BaseResponse<User>> GetUser(string name)
+        {
+            try
+            {
+                var user = await _userRepository.GetAll()
+                    .Include(x => x.Basket)
+                    .FirstOrDefaultAsync(x => x.Name == name);
+
+                return new BaseResponse<User>()
+                {
+                    Data = user,
+                    StatusCode = StatusCode.OK,
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"[UserService.GetUser] error {ex.Message}");
+
+                return new BaseResponse<User>()
+                {
+                    StatusCode = StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
+
         public async Task<BaseResponse<IEnumerable<UserViewModel>>> GetUsers()
         {
             try
@@ -155,7 +180,7 @@ namespace AllAuto.Service.Implementations
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"[UserService.GetUser] error {ex.Message}");
+                _logger.LogError(ex, $"[UserService.GetUsers] error {ex.Message}");
 
                 return new BaseResponse<IEnumerable<UserViewModel>>()
                 {

@@ -1,24 +1,13 @@
-﻿.footerWrap {
-    width:100%;
-    position: fixed;
-    bottom: 0px;
+﻿main {
+    flex-grow: 1;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 154px);
 }
 
-.footer {
+footer {
+    height: 80px;
     width: 100%;
-    margin: auto;
-}
-
-.footerContent{
-    float: left;
-    width: 100%;
-    background-color:#555;
-    padding:20px 0;
-}
-
-.footer p{
-    float: left;
-    width:100%;
-    text-align: center;
-    color:azure;
+    background: #212529;
 }

@@ -5,74 +5,91 @@
     Layout = "_Layout";
 }
 <br />
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <form id="profileFormId">
-                    <input asp-for="Id" hidden="hidden" />
-                    <h5 class="card-title">Данные профиля</h5>
-                    <div class="mb-3">
-                        <label class="form-label text-black-50">Возраст</label>
-                        <input type="text" class="form-control" asp-for="Age">
-                        <div class="form-text">Возраст должен быть указан от 0 до 150 лет.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-black-50">Адрес</label>
-                        <textarea class="form-control" asp-for="Address" rows="3"></textarea>
-                        <div class="form-text">Длина адреса должна быть от 5 до 200 символов.</div>
-                    </div>
-                    <div class="card-buttons-group">
-                        <button class='btn btn-primary' id='saveProfileId'>Сохранить</button>
-                    </div>
-                </form>
+<div class="site_width">
+    <div class="row">
+        <div class="col-sm-6 p-3">
+            <div class="card">
+                <div class="card-body">
+                    <form id="profileFormId">
+                        <input asp-for="Id" hidden="hidden" />
+                        <h5 class="card-title">Данные профиля</h5>
+                        <div class="mb-3">
+                            <label class="form-label text-black-50">Возраст</label>
+                            <input type="text" class="form-control" asp-for="Age">
+                            <div class="form-text">Возраст должен быть указан от 0 до 150 лет.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-black-50">Адрес</label>
+                            <textarea class="form-control" asp-for="Address" rows="3"></textarea>
+                            <div class="form-text">Длина адреса должна быть от 5 до 200 символов.</div>
+                        </div>
+                        <div class="card-buttons-group">
+                            <button class='btn btn-primary' id='saveProfileId'>Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 p-3">
+            <div class="card">
+                <div class="card-body">
+                    <form id="accountFormId">
+                        <h5 class="card-title">Данные аккаунта</h5>
+                        <div class="mb-3">
+                            <label class="form-label text-black-50">Логин</label>
+                            <input type="text" class="form-control" asp-for="UserName" disabled="disabled">
+                            <div class="form-text">Длина логина должна быть от 3 до 20 символов.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-black-50">Новый пароль</label>
+                            <input name="NewPassword" class="form-control textbox-dg font-weight-bold text-center" type="password">
+                        </div>
+                        <div class="card-buttons-group">
+                            <button class='btn btn-primary' id='saveAccountId'>Сохранить</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <form id="accountFormId">
-                    <h5 class="card-title">Данные аккаунта</h5>
-                    <div class="mb-3">
-                        <label class="form-label text-black-50">Логин</label>
-                        <input type="text" class="form-control" asp-for="UserName" disabled="disabled">
-                        <div class="form-text">Длина логина должна быть от 3 до 20 символов.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-black-50">Новый пароль</label>
-                        <input name="NewPassword" class="form-control textbox-dg font-weight-bold text-center" type="password">
-                    </div>
-                    <div class="card-buttons-group">
-                        <button class='btn btn-primary' id='saveAccountId'>Сохранить</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <br />
+
+    <div class="card">
+        <h4 class="text-black">Предыдущие заказы</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Номер</th>
+                    <th scope="col">Адрес</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Тип доставки</th>
+                    <th scope="col">Сумма</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var order in Model.CompleteOrders)
+                {
+                    <tr>
+                        <td>@order.Id</td>                        
+
+                        <td>@order.Address  </td>
+
+                        <td>@order.DateTime</td>
+
+                        <td>@order.DeliveryType</td>
+
+                        <td>@order.Sum</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>   
+
     </div>
 </div>
-<br />
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="@Url.Action("Index", "Home")">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("GetCars", "Car")">Автомобили</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 @section pageScripts
 {

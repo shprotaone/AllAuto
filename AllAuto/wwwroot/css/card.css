@@ -52,25 +52,11 @@ input {
     text-align: center;
 }
 
-/*.counter button[data-add="1"] {
-    top: 0;
-    height: 25px;
-    width: 30px;
-    border-radius: 0;
-}
-
-.counter button[data-add="-1"] {
-    bottom: 0;
-    height: 25px;
-    width: 30px;
-    border-radius: 0;
-}*/
-
 .col {
     align-self: center;
 }
 
-.row {
+.row.spare-part-card {
     min-height: 90px;
     border: 0.5px solid #d6d6e4;
 }

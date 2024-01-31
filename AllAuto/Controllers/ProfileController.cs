@@ -8,10 +8,12 @@ namespace AllAuto.Controllers
     public class ProfileController : Controller
     {
         private readonly IProfileService _profileService;
+        private readonly ICompleteOrderService _completeOrderService;
 
-        public ProfileController(IProfileService profileService)
+        public ProfileController(IProfileService profileService, ICompleteOrderService completeOrderService)
         {
             _profileService = profileService;
+            _completeOrderService = completeOrderService;
         }
 
         [HttpPost]
@@ -36,8 +38,9 @@ namespace AllAuto.Controllers
         {
             string username = User.Identity.Name;
             BaseResponse<ProfileViewModel> response = await _profileService.GetProfile(username);
+            response.Data.CompleteOrders =  _completeOrderService.GetCompleteOrders(response.Data.Id).Data;
 
-            if(response.StatusCode == Domain.Enum.StatusCode.OK)
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
             {
                 return View(response.Data);
             }

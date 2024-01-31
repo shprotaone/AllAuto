@@ -1,0 +1,128 @@
+﻿@model AllAuto.Domain.ViewModels.Order.CompleteOrderViewModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Оформление";
+}
+
+<div class="site_width">
+    <div class="row">
+        <div class="col-sm-6 p-3">
+            <div class="card p-3">                               
+                    <h4 class="text-center">Итого заказано</h4>
+                    <div class="container px-4 py-4">
+                    @foreach (var item in Model.ItemEntries)
+                    {                       
+                            <div class="row gy-5">
+                                <div class="col text-secondary">@item.Name</div>
+                                <div class="col text-secondary">@item.Quantity</div>
+                            </div>                      
+                    }
+                    </div>
+
+                    <h4 class="text-center">Данные для доставки</h4>
+                <form asp-action="SetOrderComplete" asp-controller="CompleteOrder" id="orderFormId" enctype="multipart/form-data">
+                    <input asp-for="UserId" hidden />
+                    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <label class="col-form-label text-black">ФИО получателя</label>
+                            <input asp-for="@Model.FullName" placeholder="ФИО" class="form-control textbox-dg font-weight-bold text-center" type="text" />
+                        </li>
+
+                        <li class="list-group-item">
+                            <label class="col-form-label text-black">Адрес доставки</label>
+                            <input asp-for="@Model.Address" placeholder="Адрес" class="form-control textbox-dg font-weight-bold text-center" type="text" />
+                        </li>
+
+                        <li class="list-group-item">
+                            <label asp-for="@Model.DeliveryType"  class="col-form-label text-black">Тип доставки</label>
+                            <select asp-for="@Model.DeliveryType" class="form-control" id="deliveryTypeId"></select>
+                        </li>
+
+                        <li class="list-group-item">
+                            <label class="col-form-label text-black">Дата доставки</label>
+                            <input asp-for="@Model.DateTime" class="form-control" asp-format="{0:yyyy-MM-dd}" />
+
+                        </li>
+                    </ul>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-success" id="createOrderId">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-sm-6 p-3">
+            <div class="card">
+                <h4 class="card-title text-center">Порядок получения заказа</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">> Оформляете заказ</li>
+                    <li class="list-group-item">> Ожидаете звонка для уточнения заказа</li>
+                    <li class="list-group-item">> Происходит доставка/ самовывоз</li>
+                    <li class="list-group-item">> Оплата заказа наличными при получении</li>
+                </ul>
+                <div class="card-body">
+                    <a asp-controller="Home" asp-action="Index" class="card-link">Главная</a>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('#deliveryTypeId').select2({
+        dropdownParent: $("#orderFormId"),
+        placeholder: "Выберите тип",
+        minimumInputLength: 0,
+        allowClear: true,
+        ajax: {
+            type: "POST",
+            url: "@Url.Action("GetDeliveryTypes", "Basket")",
+            dataType: "json",
+            processResults: function (result) {
+                return {
+                    results: $.map(result.data, function (val, index) {
+                        return {
+                            id: index,
+                            text: val
+                        };
+                    }),
+                };
+            }
+        }
+    });
+</script>
+
+@* @section pageScripts
+{
+    <script>
+        $('#createOrderId').on('click', function (e) {
+            e.preventDefault();
+            const model = $('#orderFormId').serialize();
+            $.ajax({
+                url: '@Url.Action("CreateOrder")',
+                type: 'POST',
+                data: model,
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей',
+                    })
+                },
+                error: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации | Заполните все поля',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'
+                    })
+                }
+            })
+        });
+    </script>
+} *@

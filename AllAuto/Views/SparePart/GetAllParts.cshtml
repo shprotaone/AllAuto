@@ -1,4 +1,4 @@
-﻿@model IQueryable<AllAuto.Domain.Entity.SparePart>
+﻿@model IQueryable<AllAuto.Domain.ViewModels.SparePart.SparePartShortView>
 @using AllAuto.Domain.Extensions
 
 @{
@@ -16,132 +16,212 @@
         @if (User.IsInRole("Admin"))
         {
             <button class='btn btn-success' id='addPartId'>Добавить</button>
-            <button class="btn btn-success" id="addPartsFromExcell">Добавить из файла</button>
+            <button class="btn btn-success" id="addPartsFromExcel">Добавить из файла</button>
         }
     </div>
 
     @if (Model == null)
     {
-       @*  <div class="card col-md-12">
+        <div class="card col-md-12">
             <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="https://images.wallpaperscraft.ru/image/single/bmw_fary_podsvetka_137326_1280x720.jpg"
-                         class="img-fluid rounded-start rounded">
-                </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Список машин пуст :(</h5>
+                        <h5 class="card-title text-center">Список запчастей пуст :(</h5>
                         <p class="card-text">
-                            Список пополниться позже, не расстраивайтесь
+                            Список доступных запчастей пополниться позже
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div style="padding: 10px;"></div>
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-        </div> *@
     }
     else
     {
         <br />
-            @foreach (var sparePart in Model)
-            {
-                <div class="row">
-                    <div class="col">
-                        <div class="icon icon-container">
-                            @{
-                                string base64 = sparePart.Avatar != Array.Empty<byte>()
-                                ? Convert.ToBase64String(sparePart.Avatar)
-                                : string.Empty;
+        <div class=" d-flex align-self-stretch row justify-content-center">
+            <div class="col-lg-auto table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Изображение</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Модель</th>
+                            <th scope="col">Описание</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Тип</th>
+                            <th scope="col">Количество</th>
+                            <th scope="col"></th>
 
-                                var imgSrc = $"data:image/jpeg;base64,{base64}";
-                                if (base64 == string.Empty)
-                                {
-                                    imgSrc = "../images/no-image.jpeg";
-                                }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <th scope="col"></th>
                             }
 
-                            <img src="@imgSrc"
-                                 alt="@sparePart.Name" style="height: inherit; width: inherit">
-                        </div>
-                    </div>
+                        </tr>
+                    </thead>
 
-                    <div class="col">
-                    <a  href="#" class="stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
-                        data-toggle="ajax-modal" data-target="Modal">
-                    @sparePart.Name
-                    </a>
-                    </div>
+                    <tbody>
+                        @foreach (var sparePart in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="icon icon-container">
+                                        @{
+                                            string base64 = sparePart.Avatar != Array.Empty<byte>()
+                                            ? Convert.ToBase64String(sparePart.Avatar)
+                                            : string.Empty;
 
-                    <div class="col-3 align-self-center">
-                        <p class="card-text">@sparePart.Description</p>
-                    </div>
+                                            var imgSrc = $"data:image/jpeg;base64,{base64}";
+                                            if (base64 == string.Empty)
+                                            {
+                                                imgSrc = "../images/no-image.jpeg";
+                                            }
+                                        }
 
-                    <div class="col">
-                        Стоимость: @sparePart.Price ₽
-                    </div>
+                                        <img src="@imgSrc"
+                                             alt="@sparePart.Name" style="height: inherit; width: inherit">
+                                    </div>
+                                </td>
 
-                    <div class="col">
-                        @sparePart.TypeSparePart.GetDisplayName()
-                    </div>
+                                <td>
+                                    <div class="card border-0">
+                                        <a href="#" class="text-start stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
+                                           data-toggle="ajax-modal" data-target="Modal">
+                                            @sparePart.Name
+                                        </a>
+                                    </div>
 
-                    <div class="col">
-                        <div class="counter">
-                            <input asp-for=@sparePart.Amount name="count" value="1" data-step="1" data-min="1" data-max="100" />
-                        </div>
-                    </div>
+                                </td>
 
-                <div class="col">
-                    <button class="add-position btn btn-light w-lg-100" 
-                        onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
-                            data-toggle="ajax-modal" data-target="Modal">Добавить
-                    </button>
-                </div>
+                                <td>
+                                    <p class="card-text">@sparePart.Model</p>
+                                </td>
+
+                                <td>
+                                    <p class="card-text">@sparePart.Description</p>
+                                </td>
+
+                                <td>
+                                    @sparePart.Price ₽
+                                </td>
+
+                                <td>
+                                    @sparePart.TypeSparePart.GetDisplayName()
+                                </td>
+
+                                <td>
+                                    <div class="counter @sparePart">
+                                        <input id="amount @sparePart.Id" value="1" data-step="1" data-min="1" data-max="100" />
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <button data-partid="@sparePart.Id" class="add-part btn btn-light w-lg-100 ">Добавить</button>
+                                </td>
+
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <div class="card">
+                                            <form>
+                                                <button asp-controller="SparePart" asp-action="Delete" asp-route-id="@sparePart.Id" class="btn btn-danger">Удалить</button>
+                                            </form>
+                                            
+                                        </div>
+                                        
+                                    </td>
+                                }
+                            </tr>
+                        }
 
 
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <div class="col">
-                            <button asp-controller="SparePart" asp-action="Delete" asp-route-id="@sparePart.Id" class="btn btn-danger">Удалить</button>
-                        </div>
-                    }
-                </div>
-                <br />               
-            }
+
+                    </tbody>
+
+
+
+                </table>
+
+            </div>
+
+
+
+        </div>
+
+
+        @*    @foreach (var sparePart in Model)
+    {
+    <div class="row spare-part-card">
+    <div class="col">
+    <div class="icon icon-container">
+    @{
+    string base64 = sparePart.Avatar != Array.Empty<byte>()
+    ? Convert.ToBase64String(sparePart.Avatar)
+    : string.Empty;
+
+    var imgSrc = $"data:image/jpeg;base64,{base64}";
+    if (base64 == string.Empty)
+    {
+    imgSrc = "../images/no-image.jpeg";
+    }
+    }
+
+    <img src="@imgSrc"
+    alt="@sparePart.Name" style="height: inherit; width: inherit">
+    </div>
+    </div>
+
+    <div class="name col-3">
+    <a href="#" class="text-start stretched-link" onclick="openModal({url: '/SparePart/GetSparePart', data: '@sparePart.Id' })"
+    data-toggle="ajax-modal" data-target="Modal">
+    @sparePart.Name
+    </a>
+    </div>
+
+    <div class="manufacture col">
+    <p class="card-text">@sparePart.Model</p>
+    </div>
+
+    <div class="desription col-1 align-self-center">
+    <p class="card-text">@sparePart.Description</p>
+    </div>
+
+    <div class="col">
+    Стоимость:
+    </div>
+
+    <div class="col">
+    @sparePart.TypeSparePart.GetDisplayName()
+    </div>
+
+    <div class="col">
+    <div class="counter @sparePart">
+    <input id="amount @sparePart.Id" value="1" data-step="1" data-min="1" data-max="100" />
+    </div>
+    </div>
+
+    <div class="col">
+    <button data-partid="@sparePart.Id" class="add-part btn btn-light w-lg-100 ">Добавить</button>
+    </div>
+
+
+    @if (User.IsInRole("Admin"))
+    {
+    <div class="col">
+    <button asp-controller="SparePart" asp-action="Delete" asp-route-id="@sparePart.Id" class="btn btn-danger">Удалить</button>
+    </div>
+    }
+    </div>
+    <br />
+    } *@
     }
 </div>
 
 
-@section pageScripts{
+@section pageScripts {
     <script src="~/js/modal.js"></script>
     <script>
         let modal = $('#modalWhButtons');
-
-        $('#compareBtnId').on('click', function () {
-            $.ajax({
-                type: 'GET',
-                url: '@Url.Action("Compare")',
-                success: function (response) {
-                    $('.modal-dialog').addClass("modal-lg");
-                    modal.find(".modal-body").html(response);
-                    modal.modal('show')
-                }
-            });
-        });
 
         $(".btn-close").click(function () {
             modal.modal('hide');
@@ -161,6 +241,57 @@
                 },
                 error: function (response) {
                     alert(response.responseText);
+                }
+            });
+        });
+
+        $('#addPartsFromExcel').on('click', function () {
+            modal.modal('show')
+            $.ajax({
+                type: 'GET',
+                url: '/SparePart/LoadFromExcel',
+                success: function (response) {
+                    $('.modal-dialog').removeClass("modal-lg");
+                    modal.find(".modal-body").html(response);
+                    modal.modal('show')
+                },
+                failure: function () {
+                    modal.modal('hide')
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
+        // /Order/AddEntryItem
+        $('.add-part').click(function (e) {
+            e.preventDefault();
+            const model = $(this).data('partid');
+            const amount = document.getElementById('amount ' + model).value;
+            console.log(amount);
+            $.ajax({
+                url: '/Order/AddEntryItem',
+                type: 'GET',
+                data: { partId: model, amountCount: amount },
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Товар добавлен',
+                        text: response.description,
+                        icon: 'success',
+                        confirmButtonText: 'Окей',
+                        willClose: function () {
+                            location.reload();
+                        }
+                    });
+                },
+                error: function (response) {
+                    Swal.fire({
+                        title: 'Информация',
+                        text: 'Ошибка валидации | Заполните все поля',
+                        icon: 'error',
+                        confirmButtonText: 'Окей'
+                    })
                 }
             });
         });
