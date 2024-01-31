@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2024-01-31T07:56:19.6801735Z;True|2024-01-31T10:47:03.6598812+03:00;True|2024-01-31T08:59:04.4361374+03:00;False|2024-01-31T08:55:04.6025201+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=SQL6031.site4now.net%3bInitial Catalog=db_aa4b5c_allauto%3bUser Id=db_aa4b5c_allauto_admin%3bPassword=Jumpjet1853</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="AllAuto.DAL.ApplicationDbContext">
+      <Value>Data Source=SQL6031.site4now.net%3bInitial Catalog=db_aa4b5c_allauto%3bUser Id=db_aa4b5c_allauto_admin%3bPassword=Jumpjet1853</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
