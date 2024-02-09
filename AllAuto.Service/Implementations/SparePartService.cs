@@ -196,6 +196,7 @@ namespace AllAuto.Service.Implementations
         {
             var baseResponse = new BaseResponse<IEnumerable<SparePart>>();
 
+            _logger.LogError($"[Login]: Message");
             try
             {
                 var parts = _carRepository.GetAll();

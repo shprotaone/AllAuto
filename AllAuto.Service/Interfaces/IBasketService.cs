@@ -10,8 +10,6 @@ namespace AllAuto.Service.Interfaces
         Task<BaseResponse<IEnumerable<ItemEntryViewModel>>> GetItems(string userName);
 
         Task<BaseResponse<IEnumerable<ItemEntryViewModel>>> GetItems(long userId);
-
-        Task<BaseResponse<ItemEntryViewModel>> AddItem(string userName,long id, int Amount);
         
         BaseResponse <Dictionary<int,string>> GetDeliveryTypes();
 

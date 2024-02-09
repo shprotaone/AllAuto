@@ -1,0 +1,870 @@
+2024-02-09 18:57:41.6264|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2024-02-09 18:57:42.3388|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ItemEntry.CompleteOrderId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-02-09 18:57:42.3707|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Sum' on entity type 'CompleteOrder'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. 
+2024-02-09 18:57:42.3707|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. 
+2024-02-09 18:57:42.5122|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: MigrationsAssembly=AllAuto.DAL  
+2024-02-09 18:57:42.5530|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.7774|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.7861|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-02-09 18:57:42.7861|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (6ms). 
+2024-02-09 18:57:42.8010|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-02-09 18:57:42.8311|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-02-09 18:57:42.8311|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.8438|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.8438|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteScalar'. 
+2024-02-09 18:57:42.8438|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteScalar' (0ms). 
+2024-02-09 18:57:42.8438|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.8438|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.8438|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+2024-02-09 18:57:42.8871|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+2024-02-09 18:57:42.8871|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.8871|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:42.8953|10004|DEBUG|Microsoft.EntityFrameworkCore.Update|SaveChanges starting for 'ApplicationDbContext'. 
+2024-02-09 18:57:42.8953|10800|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|DetectChanges starting for 'ApplicationDbContext'. 
+2024-02-09 18:57:42.8953|10801|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|DetectChanges completed for 'ApplicationDbContext'. 
+2024-02-09 18:57:42.9113|10005|DEBUG|Microsoft.EntityFrameworkCore.Update|SaveChanges completed for 'ApplicationDbContext' with 0 entities written to the database. 
+2024-02-09 18:57:42.9113|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/About/AboutView.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Account/Login.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Account/Register.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Basket/CreateOrder.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Basket/Detail.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Basket/GetItem.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Profile/Detail.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/_LayoutNoHeader.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/SparePart/Compare.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/SparePart/GetAllParts.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/SparePart/GetSparePart.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/SparePart/LoadFromExcel.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/SparePart/Save.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/User/GetUsers.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/User/Save.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'. 
+2024-02-09 18:57:42.9368|3|DEBUG|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'. 
+2024-02-09 18:57:42.9368|12|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory|Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider 
+2024-02-09 18:57:42.9988|1|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting 
+2024-02-09 18:57:43.0181|63|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\shpro\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2024-02-09 18:57:43.0181|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\shpro\AppData\Local\ASP.NET\DataProtection-Keys\key-bad942f5-8ac3-4e20-9ba8-2acea4360154.xml'. 
+2024-02-09 18:57:43.0181|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {bad942f5-8ac3-4e20-9ba8-2acea4360154}. 
+2024-02-09 18:57:43.0341|13|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Considering key {bad942f5-8ac3-4e20-9ba8-2acea4360154} with expiration date 2024-03-05 06:52:02Z as default key. 
+2024-02-09 18:57:43.0341|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2024-02-09 18:57:43.0341|51|DEBUG|Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor|Decrypting secret element using Windows DPAPI. 
+2024-02-09 18:57:43.0341|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2024-02-09 18:57:43.0341|4|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2024-02-09 18:57:43.0341|3|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2024-02-09 18:57:43.0341|2|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider|Using key {bad942f5-8ac3-4e20-9ba8-2acea4360154} as the default key. 
+2024-02-09 18:57:43.0341|65|DEBUG|Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService|Key ring with default key {bad942f5-8ac3-4e20-9ba8-2acea4360154} was loaded during application startup. 
+2024-02-09 18:57:43.1092|0|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer|Using development certificate: CN=localhost (Thumbprint: C83A7665437C42353BDE6ADB11DC3E8DB1712B7C) 
+2024-02-09 18:57:43.1374|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 
+2024-02-09 18:57:43.1422|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 
+2024-02-09 18:57:43.1422|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly AllAuto 
+2024-02-09 18:57:43.1422|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh 
+2024-02-09 18:57:43.1422|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net 
+2024-02-09 18:57:43.1422|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2024-02-09 18:57:43.1422|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2024-02-09 18:57:43.1422|0|INFO|Microsoft.Hosting.Lifetime|Content root path: E:\C#\AllAuto\AllAuto\ 
+2024-02-09 18:57:43.1422|2|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting started 
+2024-02-09 18:57:43.5540|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPA" accepted. 
+2024-02-09 18:57:43.5540|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPA" started. 
+2024-02-09 18:57:43.5540|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPA" received FIN. 
+2024-02-09 18:57:43.5659|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Failed to authenticate HTTPS connection. System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, Boolean isApm, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-02-09 18:57:43.5846|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPA" stopped. 
+2024-02-09 18:57:43.5846|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPA" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-02-09 18:57:45.8579|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPB" accepted. 
+2024-02-09 18:57:45.8579|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPB" started. 
+2024-02-09 18:57:45.8887|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HN19GVD0UBPB established using the following protocol: Tls13 
+2024-02-09 18:57:45.9026|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending SETTINGS frame for stream ID 0 with length 18 and flags NONE. 
+2024-02-09 18:57:45.9026|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-02-09 18:57:45.9026|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" received SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2024-02-09 18:57:45.9026|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2024-02-09 18:57:45.9026|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-02-09 18:57:45.9026|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" received HEADERS frame for stream ID 1 with length 452 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:57:45.9198|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" received SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2024-02-09 18:57:45.9282|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/ - - 
+2024-02-09 18:57:46.0151|0|DEBUG|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|Wildcard detected, all requests with hosts will be allowed. 
+2024-02-09 18:57:46.0151|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-02-09 18:57:46.0166|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path / does not match a supported file type 
+2024-02-09 18:57:46.0380|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/' 
+2024-02-09 18:57:46.0380|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AllAuto.Controllers.HomeController.Index (AllAuto)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/' 
+2024-02-09 18:57:46.0380|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AllAuto.Controllers.HomeController.Index (AllAuto)' 
+2024-02-09 18:57:46.0502|9|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was not authenticated. 
+2024-02-09 18:57:46.0502|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AllAuto.Controllers.HomeController.Index (AllAuto)' 
+2024-02-09 18:57:46.0502|3|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller AllAuto.Controllers.HomeController (AllAuto). 
+2024-02-09 18:57:46.0502|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2024-02-09 18:57:46.0502|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2024-02-09 18:57:46.0502|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000) 
+2024-02-09 18:57:46.0502|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-02-09 18:57:46.0502|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2024-02-09 18:57:46.0502|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.0502|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.0502|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AllAuto.Controllers.HomeController (AllAuto) 
+2024-02-09 18:57:46.0502|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AllAuto.Controllers.HomeController (AllAuto) 
+2024-02-09 18:57:46.0502|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2024-02-09 18:57:46.0502|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:46.0502|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:46.0648|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AllAuto.Controllers.HomeController.Index (AllAuto) - Validation state: Valid 
+2024-02-09 18:57:46.0648|2|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AllAuto.Controllers.HomeController.Index (AllAuto), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.1852ms. 
+2024-02-09 18:57:46.0648|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:46.0648|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:46.0648|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2024-02-09 18:57:46.0648|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.0648|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.0648|4|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2024-02-09 18:57:46.0648|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view 'Index' in controller 'Home'. 
+2024-02-09 18:57:46.0648|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Located compiled view for view at path '/Views/Home/Index.cshtml'. 
+2024-02-09 18:57:46.0864|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Could not find a file for view at path '/Views/Home/_ViewStart.cshtml'. 
+2024-02-09 18:57:46.0864|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Located compiled view for view at path '/Views/_ViewStart.cshtml'. 
+2024-02-09 18:57:46.0864|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Could not find a file for view at path '/_ViewStart.cshtml'. 
+2024-02-09 18:57:46.0864|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view Index. 
+2024-02-09 18:57:46.0864|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/Home/Index.cshtml' was found in 16.0432ms. 
+2024-02-09 18:57:46.1149|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view '_Layout' in controller 'Home'. 
+2024-02-09 18:57:46.1149|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Could not find a file for view at path '/Views/Home/_Layout.cshtml'. 
+2024-02-09 18:57:46.1149|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Located compiled view for view at path '/Views/Shared/_Layout.cshtml'. 
+2024-02-09 18:57:46.1317|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:46.1317|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and  
+2024-02-09 18:57:46.1317|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result / 
+2024-02-09 18:57:46.1412|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:46.1412|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetAllParts and  
+2024-02-09 18:57:46.1412|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetAllParts 
+2024-02-09 18:57:46.1412|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:46.1412|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=0 
+2024-02-09 18:57:46.1412|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=0 
+2024-02-09 18:57:46.1412|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:46.1412|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=1 
+2024-02-09 18:57:46.1412|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=1 
+2024-02-09 18:57:46.1412|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:46.1412|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=2 
+2024-02-09 18:57:46.1412|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=2 
+2024-02-09 18:57:46.1412|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:46.1412|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/About and  
+2024-02-09 18:57:46.1412|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /Home/About 
+2024-02-09 18:57:46.1412|1|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup is scheduled to include browser refresh script injection. 
+2024-02-09 18:57:46.1596|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending HEADERS frame for stream ID 1 with length 67 and flags END_HEADERS. 
+2024-02-09 18:57:46.1596|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 1 with length 13462 and flags NONE. 
+2024-02-09 18:57:46.1596|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 1 with length 357 and flags NONE. 
+2024-02-09 18:57:46.1596|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 1 with length 65 and flags NONE. 
+2024-02-09 18:57:46.1596|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 1 with length 20 and flags NONE. 
+2024-02-09 18:57:46.1596|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view Index executed in 89.6534ms. 
+2024-02-09 18:57:46.1596|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2024-02-09 18:57:46.1596|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.1596|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.1596|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.1596|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:46.1596|2|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AllAuto.Controllers.HomeController.Index (AllAuto) in 102.9661ms 
+2024-02-09 18:57:46.1596|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AllAuto.Controllers.HomeController.Index (AllAuto)' 
+2024-02-09 18:57:46.1596|2|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup was updated to include browser refresh script injection. 
+2024-02-09 18:57:46.1596|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 1 with length 0 and flags END_STREAM. 
+2024-02-09 18:57:46.1596|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/ - - - 200 - text/html;+charset=utf-8 241.3059ms 
+2024-02-09 18:57:46.2291|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" received HEADERS frame for stream ID 3 with length 96 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:57:46.2291|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/_framework/aspnetcore-browser-refresh.js - - 
+2024-02-09 18:57:46.2346|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending HEADERS frame for stream ID 3 with length 60 and flags END_HEADERS. 
+2024-02-09 18:57:46.2346|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 3 with length 11984 and flags NONE. 
+2024-02-09 18:57:46.2346|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 3 with length 0 and flags END_STREAM. 
+2024-02-09 18:57:46.2346|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 2.9522ms 
+2024-02-09 18:57:46.2346|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" received HEADERS frame for stream ID 5 with length 57 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:57:46.2346|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/_vs/browserLink - - 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending HEADERS frame for stream ID 5 with length 119 and flags END_HEADERS. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 9986 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 160 and flags NONE. 
+2024-02-09 18:57:46.2745|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" sending DATA frame for stream ID 5 with length 0 and flags END_STREAM. 
+2024-02-09 18:57:46.2745|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.9993ms 
+2024-02-09 18:57:46.5892|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPC" accepted. 
+2024-02-09 18:57:46.5892|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPC" started. 
+2024-02-09 18:57:46.5892|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HN19GVD0UBPC established using the following protocol: Tls13 
+2024-02-09 18:57:46.6016|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7185/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - - 
+2024-02-09 18:57:46.6016|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-02-09 18:57:46.6016|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2024-02-09 18:57:46.6228|2|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'E:\C#\AllAuto\AllAuto\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map' 
+2024-02-09 18:57:46.6228|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7185/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - - - 200 311949 text/plain 21.9506ms 
+2024-02-09 18:57:46.6228|10|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPC" disconnecting. 
+2024-02-09 18:57:46.6250|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPC" stopped. 
+2024-02-09 18:57:46.6250|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPC" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-02-09 18:57:52.3931|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPB" received FIN. 
+2024-02-09 18:57:52.3931|48|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPB" is closed. The last processed stream ID was 5. 
+2024-02-09 18:57:52.3931|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPB" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-02-09 18:57:52.3931|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPB" stopped. 
+2024-02-09 18:57:56.4884|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPD" accepted. 
+2024-02-09 18:57:56.4884|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPD" started. 
+2024-02-09 18:57:56.4884|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HN19GVD0UBPD established using the following protocol: Tls13 
+2024-02-09 18:57:56.5894|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending SETTINGS frame for stream ID 0 with length 18 and flags NONE. 
+2024-02-09 18:57:56.5894|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-02-09 18:57:56.5894|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2024-02-09 18:57:56.5894|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2024-02-09 18:57:56.5894|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-02-09 18:57:56.5894|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received HEADERS frame for stream ID 1 with length 493 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:57:56.5894|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2024-02-09 18:57:56.5894|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/SparePart/GetAllParts - - 
+2024-02-09 18:57:56.5930|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-02-09 18:57:56.5930|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path /SparePart/GetAllParts does not match a supported file type 
+2024-02-09 18:57:56.5930|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/SparePart/GetAllParts' 
+2024-02-09 18:57:56.5930|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/SparePart/GetAllParts' 
+2024-02-09 18:57:56.5930|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' 
+2024-02-09 18:57:56.5930|9|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was not authenticated. 
+2024-02-09 18:57:56.5930|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' 
+2024-02-09 18:57:56.5930|3|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetAllParts", controller = "SparePart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllParts() on controller AllAuto.Controllers.SparePartController (AllAuto). 
+2024-02-09 18:57:56.5930|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2024-02-09 18:57:56.5930|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2024-02-09 18:57:56.5930|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000) 
+2024-02-09 18:57:56.5930|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-02-09 18:57:56.5930|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2024-02-09 18:57:56.5930|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:56.5930|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:56.5930|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AllAuto.Controllers.SparePartController (AllAuto) 
+2024-02-09 18:57:56.6102|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: MigrationsAssembly=AllAuto.DAL  
+2024-02-09 18:57:56.6102|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-02-09 18:57:56.6102|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2024-02-09 18:57:56.6102|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-02-09 18:57:56.6102|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-02-09 18:57:56.6102|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteScalar'. 
+2024-02-09 18:57:56.6102|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteScalar' (0ms). 
+2024-02-09 18:57:56.6102|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+2024-02-09 18:57:56.6102|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+2024-02-09 18:57:56.6102|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.6102|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AllAuto.Controllers.SparePartController (AllAuto) 
+2024-02-09 18:57:56.6102|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2024-02-09 18:57:56.6102|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:56.6102|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:56.6102|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AllAuto.Controllers.SparePartController.GetAllParts (AllAuto) - Validation state: Valid 
+2024-02-09 18:57:56.6316|0|ERROR|AllAuto.Service.Implementations.SparePartService|[Login]: Message 
+2024-02-09 18:57:56.7343|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<SparePart>()
+    .Count()' 
+2024-02-09 18:57:56.9475|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<int>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT COUNT(*)
+        FROM SpareParts AS s), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+    AllAuto.DAL.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()' 
+2024-02-09 18:57:56.9757|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-02-09 18:57:56.9757|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-02-09 18:57:56.9757|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.9757|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.9757|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SpareParts] AS [s] 
+2024-02-09 18:57:56.9843|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SpareParts] AS [s] 
+2024-02-09 18:57:56.9843|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader was disposed. 
+2024-02-09 18:57:56.9843|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.9843|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:56.9843|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<SparePart>()' 
+2024-02-09 18:57:57.0192|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<SparePart>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: SparePart.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: SparePart.Amount (int) Required, 1], [Property: SparePart.Avatar (byte[]), 2], [Property: SparePart.DateCreate (DateTime) Required, 3], [Property: SparePart.Description (string) Required, 4], [Property: SparePart.Model (string) Required, 5], [Property: SparePart.Name (string) Required, 6], [Property: SparePart.Price (decimal) Required, 7], [Property: SparePart.TypeSparePart (TypePart) Required, 8] }
+        SELECT s.Id, s.Amount, s.Avatar, s.DateCreate, s.Description, s.Model, s.Name, s.Price, s.TypeSparePart
+        FROM SpareParts AS s), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, SparePart>, 
+    AllAuto.DAL.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)' 
+2024-02-09 18:57:57.0192|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-02-09 18:57:57.0192|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-02-09 18:57:57.0192|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:57.0192|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:57.0192|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[Amount], [s].[Avatar], [s].[DateCreate], [s].[Description], [s].[Model], [s].[Name], [s].[Price], [s].[TypeSparePart]
+FROM [SpareParts] AS [s] 
+2024-02-09 18:57:57.0192|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[Amount], [s].[Avatar], [s].[DateCreate], [s].[Description], [s].[Model], [s].[Name], [s].[Price], [s].[TypeSparePart]
+FROM [SpareParts] AS [s] 
+2024-02-09 18:57:57.0471|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:57:57.0755|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader was disposed. 
+2024-02-09 18:57:57.0755|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:57.0755|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:57:57.0799|2|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AllAuto.Controllers.SparePartController.GetAllParts (AllAuto), returned result Microsoft.AspNetCore.Mvc.ViewResult in 459.7666ms. 
+2024-02-09 18:57:57.0799|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:57.0799|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:57:57.0799|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2024-02-09 18:57:57.0799|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:57.0799|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:57.0799|4|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2024-02-09 18:57:57.0799|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view 'GetAllParts' in controller 'SparePart'. 
+2024-02-09 18:57:57.0799|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Located compiled view for view at path '/Views/SparePart/GetAllParts.cshtml'. 
+2024-02-09 18:57:57.0799|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Could not find a file for view at path '/Views/SparePart/_ViewStart.cshtml'. 
+2024-02-09 18:57:57.0799|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Located compiled view for view at path '/Views/_ViewStart.cshtml'. 
+2024-02-09 18:57:57.0799|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Could not find a file for view at path '/_ViewStart.cshtml'. 
+2024-02-09 18:57:57.0799|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view GetAllParts. 
+2024-02-09 18:57:57.0799|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/SparePart/GetAllParts.cshtml' was found in 0.602ms. 
+2024-02-09 18:57:57.1416|1|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache miss for view '_Layout' in controller 'SparePart'. 
+2024-02-09 18:57:57.1416|7|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Could not find a file for view at path '/Views/SparePart/_Layout.cshtml'. 
+2024-02-09 18:57:57.1416|5|TRACE|Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler|Located compiled view for view at path '/Views/Shared/_Layout.cshtml'. 
+2024-02-09 18:57:57.1416|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:57.1416|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and  
+2024-02-09 18:57:57.1416|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result / 
+2024-02-09 18:57:57.1416|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:57.1416|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetAllParts and  
+2024-02-09 18:57:57.1416|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetAllParts 
+2024-02-09 18:57:57.1416|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:57.1416|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=0 
+2024-02-09 18:57:57.1416|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=0 
+2024-02-09 18:57:57.1416|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:57.1416|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=1 
+2024-02-09 18:57:57.1416|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=1 
+2024-02-09 18:57:57.1416|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:57.1416|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=2 
+2024-02-09 18:57:57.1416|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=2 
+2024-02-09 18:57:57.1416|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:57:57.1416|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/About and  
+2024-02-09 18:57:57.1416|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /Home/About 
+2024-02-09 18:57:57.1416|1|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup is scheduled to include browser refresh script injection. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending HEADERS frame for stream ID 1 with length 67 and flags END_HEADERS. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 173 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 70 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 68 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 70 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 62 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 68 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 70 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 60 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 62 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 70 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 68 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 16384 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 70 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 9405 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 357 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 65 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 20 and flags NONE. 
+2024-02-09 18:57:57.1416|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view GetAllParts executed in 64.8257ms. 
+2024-02-09 18:57:57.1416|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2024-02-09 18:57:57.1416|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:57.1416|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:57.1416|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:57.1416|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:57:57.1416|2|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AllAuto.Controllers.SparePartController.GetAllParts (AllAuto) in 545.9388ms 
+2024-02-09 18:57:57.1416|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' 
+2024-02-09 18:57:57.1416|2|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup was updated to include browser refresh script injection. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 1 with length 0 and flags END_STREAM. 
+2024-02-09 18:57:57.1416|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2024-02-09 18:57:57.1416|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/SparePart/GetAllParts - - - 200 - text/html;+charset=utf-8 559.1597ms 
+2024-02-09 18:57:57.1416|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received HEADERS frame for stream ID 3 with length 101 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:57:57.1416|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received HEADERS frame for stream ID 5 with length 57 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:57:57.1416|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/_framework/aspnetcore-browser-refresh.js - - 
+2024-02-09 18:57:57.1416|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/_vs/browserLink - - 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending HEADERS frame for stream ID 3 with length 60 and flags END_HEADERS. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 3 with length 11984 and flags NONE. 
+2024-02-09 18:57:57.1416|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 3 with length 0 and flags END_STREAM. 
+2024-02-09 18:57:57.1416|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 0.5413ms 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending HEADERS frame for stream ID 5 with length 119 and flags END_HEADERS. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 9986 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 160 and flags NONE. 
+2024-02-09 18:57:57.1632|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 5 with length 0 and flags END_STREAM. 
+2024-02-09 18:57:57.1632|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.6467ms 
+2024-02-09 18:57:57.3858|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPE" accepted. 
+2024-02-09 18:57:57.3858|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPE" started. 
+2024-02-09 18:57:57.3858|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HN19GVD0UBPE established using the following protocol: Tls13 
+2024-02-09 18:57:57.3858|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7185/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - - 
+2024-02-09 18:57:57.3858|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-02-09 18:57:57.3858|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2024-02-09 18:57:57.3858|2|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'E:\C#\AllAuto\AllAuto\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map' 
+2024-02-09 18:57:57.3858|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7185/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - - - 200 311949 text/plain 1.6947ms 
+2024-02-09 18:57:57.3858|10|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPE" disconnecting. 
+2024-02-09 18:57:57.3858|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPE" stopped. 
+2024-02-09 18:57:57.3858|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPE" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-02-09 18:58:21.2905|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received HEADERS frame for stream ID 7 with length 39 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:58:21.2905|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2024-02-09 18:58:21.2905|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/SparePart/GetAllParts - - 
+2024-02-09 18:58:21.2905|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2024-02-09 18:58:21.2905|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-02-09 18:58:21.2905|4|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|The request path /SparePart/GetAllParts does not match a supported file type 
+2024-02-09 18:58:21.2966|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/SparePart/GetAllParts' 
+2024-02-09 18:58:21.2966|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/SparePart/GetAllParts' 
+2024-02-09 18:58:21.2966|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' 
+2024-02-09 18:58:21.2966|9|DEBUG|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|AuthenticationScheme: Cookies was not authenticated. 
+2024-02-09 18:58:21.2966|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' 
+2024-02-09 18:58:21.2966|3|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "GetAllParts", controller = "SparePart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllParts() on controller AllAuto.Controllers.SparePartController (AllAuto). 
+2024-02-09 18:58:21.2966|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2024-02-09 18:58:21.2966|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2024-02-09 18:58:21.2966|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000) 
+2024-02-09 18:58:21.2966|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-02-09 18:58:21.2966|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter 
+2024-02-09 18:58:21.2966|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.2966|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.2966|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller AllAuto.Controllers.SparePartController (AllAuto) 
+2024-02-09 18:58:21.3307|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 6.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: MigrationsAssembly=AllAuto.DAL  
+2024-02-09 18:58:21.3307|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3307|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3307|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-02-09 18:58:21.3307|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2024-02-09 18:58:21.3307|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-02-09 18:58:21.3307|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-02-09 18:58:21.3307|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3307|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3307|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteScalar'. 
+2024-02-09 18:58:21.3307|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteScalar' (0ms). 
+2024-02-09 18:58:21.3307|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3307|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3307|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+2024-02-09 18:58:21.3444|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+2024-02-09 18:58:21.3444|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller AllAuto.Controllers.SparePartController (AllAuto) 
+2024-02-09 18:58:21.3444|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2024-02-09 18:58:21.3444|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:58:21.3444|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:58:21.3444|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method AllAuto.Controllers.SparePartController.GetAllParts (AllAuto) - Validation state: Valid 
+2024-02-09 18:58:21.3444|0|ERROR|AllAuto.Service.Implementations.SparePartService|[Login]: Message 
+2024-02-09 18:58:21.3444|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-02-09 18:58:21.3444|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-02-09 18:58:21.3444|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SpareParts] AS [s] 
+2024-02-09 18:58:21.3444|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [SpareParts] AS [s] 
+2024-02-09 18:58:21.3444|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader was disposed. 
+2024-02-09 18:58:21.3444|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-02-09 18:58:21.3444|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-02-09 18:58:21.3444|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[Amount], [s].[Avatar], [s].[DateCreate], [s].[Description], [s].[Model], [s].[Name], [s].[Price], [s].[TypeSparePart]
+FROM [SpareParts] AS [s] 
+2024-02-09 18:58:21.3444|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[Amount], [s].[Avatar], [s].[DateCreate], [s].[Description], [s].[Model], [s].[Name], [s].[Price], [s].[TypeSparePart]
+FROM [SpareParts] AS [s] 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'ApplicationDbContext' started tracking 'SparePart' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2024-02-09 18:58:21.3444|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader was disposed. 
+2024-02-09 18:58:21.3444|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'AllAutoCars' on server 'SH1DESK\SQLEXPRESS'. 
+2024-02-09 18:58:21.3444|2|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method AllAuto.Controllers.SparePartController.GetAllParts (AllAuto), returned result Microsoft.AspNetCore.Mvc.ViewResult in 4.3733ms. 
+2024-02-09 18:58:21.3444|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:58:21.3444|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-02-09 18:58:21.3444|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter. 
+2024-02-09 18:58:21.3444|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.3444|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.3444|4|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2024-02-09 18:58:21.3444|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache hit for view 'GetAllParts' in controller 'SparePart'. 
+2024-02-09 18:58:21.3444|1|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executing ViewResult, running view GetAllParts. 
+2024-02-09 18:58:21.3444|2|DEBUG|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|The view path '/Views/SparePart/GetAllParts.cshtml' was found in 0.0722ms. 
+2024-02-09 18:58:21.3444|2|DEBUG|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|View lookup cache hit for view '_Layout' in controller 'SparePart'. 
+2024-02-09 18:58:21.3444|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:58:21.3444|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and  
+2024-02-09 18:58:21.3444|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result / 
+2024-02-09 18:58:21.3444|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:58:21.3444|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetAllParts and  
+2024-02-09 18:58:21.3444|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetAllParts 
+2024-02-09 18:58:21.3444|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:58:21.3444|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=0 
+2024-02-09 18:58:21.3444|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=0 
+2024-02-09 18:58:21.3444|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:58:21.3444|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=1 
+2024-02-09 18:58:21.3444|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=1 
+2024-02-09 18:58:21.3444|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:58:21.3444|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /SparePart/GetPartsToType and ?type=2 
+2024-02-09 18:58:21.3444|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /SparePart/GetPartsToType?type=2 
+2024-02-09 18:58:21.3444|100|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Found the endpoints Route: {controller=Home}/{action=Index}/{id?} for address Microsoft.AspNetCore.Routing.RouteValuesAddress 
+2024-02-09 18:58:21.3444|102|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/About and  
+2024-02-09 18:58:21.3444|105|DEBUG|Microsoft.AspNetCore.Routing.DefaultLinkGenerator|Link generation succeeded for endpoints Route: {controller=Home}/{action=Index}/{id?} with result /Home/About 
+2024-02-09 18:58:21.3444|1|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup is scheduled to include browser refresh script injection. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending HEADERS frame for stream ID 7 with length 34 and flags END_HEADERS. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 173 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 70 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 68 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 70 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 62 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 68 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 70 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 60 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 62 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 70 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 68 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 70 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 9405 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 357 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 65 and flags NONE. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 20 and flags NONE. 
+2024-02-09 18:58:21.3444|4|INFO|Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor|Executed ViewResult - view GetAllParts executed in 2.2558ms. 
+2024-02-09 18:58:21.3444|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.ViewResult. 
+2024-02-09 18:58:21.3444|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.3444|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.3444|2|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.3444|3|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter. 
+2024-02-09 18:58:21.3444|2|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action AllAuto.Controllers.SparePartController.GetAllParts (AllAuto) in 53.5761ms 
+2024-02-09 18:58:21.3444|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'AllAuto.Controllers.SparePartController.GetAllParts (AllAuto)' 
+2024-02-09 18:58:21.3444|2|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup was updated to include browser refresh script injection. 
+2024-02-09 18:58:21.3444|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 7 with length 0 and flags END_STREAM. 
+2024-02-09 18:58:21.3444|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'ApplicationDbContext' disposed. 
+2024-02-09 18:58:21.3444|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/SparePart/GetAllParts - - - 200 - text/html;+charset=utf-8 61.3617ms 
+2024-02-09 18:58:21.3444|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-02-09 18:58:21.3444|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received HEADERS frame for stream ID 9 with length 51 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:58:21.3590|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" received HEADERS frame for stream ID 11 with length 57 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-02-09 18:58:21.3590|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/_framework/aspnetcore-browser-refresh.js - - 
+2024-02-09 18:58:21.3590|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7185/_vs/browserLink - - 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending HEADERS frame for stream ID 9 with length 13 and flags END_HEADERS. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 9 with length 11984 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 9 with length 0 and flags END_STREAM. 
+2024-02-09 18:58:21.3590|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 0.3777ms 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending HEADERS frame for stream ID 11 with length 96 and flags END_HEADERS. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 9986 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 10240 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 160 and flags NONE. 
+2024-02-09 18:58:21.3590|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" sending DATA frame for stream ID 11 with length 0 and flags END_STREAM. 
+2024-02-09 18:58:21.3590|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7185/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 4.5478ms 
+2024-02-09 18:58:21.5101|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPF" accepted. 
+2024-02-09 18:58:21.5101|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPF" started. 
+2024-02-09 18:58:21.5101|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HN19GVD0UBPF established using the following protocol: Tls13 
+2024-02-09 18:58:21.5101|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET https://localhost:7185/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - - 
+2024-02-09 18:58:21.5101|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-02-09 18:58:21.5101|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2024-02-09 18:58:21.5101|2|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'E:\C#\AllAuto\AllAuto\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map' 
+2024-02-09 18:58:21.5101|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET https://localhost:7185/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - - - 200 311949 text/plain 1.3275ms 
+2024-02-09 18:58:21.5101|10|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPF" disconnecting. 
+2024-02-09 18:58:21.5101|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPF" stopped. 
+2024-02-09 18:58:21.5101|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPF" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-02-09 18:58:25.1887|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPD" received FIN. 
+2024-02-09 18:58:25.1887|48|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN19GVD0UBPD" is closed. The last processed stream ID was 11. 
+2024-02-09 18:58:25.1887|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN19GVD0UBPD" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-02-09 18:58:25.1887|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN19GVD0UBPD" stopped. 

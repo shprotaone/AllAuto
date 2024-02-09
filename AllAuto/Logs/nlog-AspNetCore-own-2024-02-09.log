@@ -1,0 +1,9 @@
+2024-02-09 18:57:42.3707|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Sum' on entity type 'CompleteOrder'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-02-09 18:57:42.3707|30000|WARN|Microsoft.EntityFrameworkCore.Model.Validation|No store type was specified for the decimal property 'Price' on entity type 'SparePart'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'. |url: |action: 
+2024-02-09 18:57:43.1374|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7185 |url: |action: 
+2024-02-09 18:57:43.1422|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5280 |url: |action: 
+2024-02-09 18:57:43.1422|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: 
+2024-02-09 18:57:43.1422|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: 
+2024-02-09 18:57:43.1422|0|INFO|Microsoft.Hosting.Lifetime|Content root path: E:\C#\AllAuto\AllAuto\ |url: |action: 
+2024-02-09 18:57:56.6316|0|ERROR|AllAuto.Service.Implementations.SparePartService|[Login]: Message |url: https://localhost/SparePart/GetAllParts|action: GetAllParts
+2024-02-09 18:58:21.3444|0|ERROR|AllAuto.Service.Implementations.SparePartService|[Login]: Message |url: https://localhost/SparePart/GetAllParts|action: GetAllParts
