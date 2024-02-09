@@ -60,7 +60,7 @@ namespace AllAuto.Service.Implementations
                     .FirstOrDefaultAsync(x => x.Id == model.Id);
 
                 profile.Address = model.Address;
-                profile.Age = model.Age;
+                profile.Age = (byte)model.Age;
                 await _profileRepository.Update(profile);
 
                 return new BaseResponse<Profile>()

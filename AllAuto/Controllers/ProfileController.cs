@@ -22,6 +22,7 @@ namespace AllAuto.Controllers
             ModelState.Remove("Id");
             ModelState.Remove("UserName");
             ModelState.Remove("NewPassword");
+            ModelState.Remove("CompleteOrders");
             if (ModelState.IsValid)
             {
                 var response = await _profileService.Save(model);
@@ -31,7 +32,8 @@ namespace AllAuto.Controllers
                 }
             }
 
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            var modelError = ModelState.Values.SelectMany(x => x.Errors);
+            return StatusCode(StatusCodes.Status500InternalServerError, new { description = modelError.FirstOrDefault().ErrorMessage });
         }
 
         public async Task<IActionResult> Detail() 
