@@ -1,0 +1,79 @@
+﻿@model AllAuto.Domain.ViewModels.SparePart.SparePartViewModel
+@{
+    var textTitle = "Изменение данных";
+    Layout = null;
+}
+
+<form asp-action="Edit" enctype="multipart/form-data" id="formSaveCar">
+    <input asp-for="Id" hidden />
+    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
+
+    <ul class="list-group">
+
+        <li class="list-group-item">
+            <label asp-for="@Model.Name" class="col-form-label"></label>
+            <input type="text" class="form-control" asp-for="@Model.Name">
+        </li>
+        <li class="list-group-item">
+            <label asp-for="@Model.Manufacture" class="col-form-label"></label>
+            <input class="form-control" asp-for="@Model.Manufacture" />
+        </li>
+        <li class="list-group-item">
+            <label asp-for="@Model.Price" class="col-form-label"></label>
+            <input type="text" class="form-control" asp-for="@Model.Price" />
+        </li>
+        <li class="list-group-item">
+            <label asp-for="@Model.ShortDesription" class="col-form-label"></label>
+            <textarea type="text" class="form-control" asp-for="@Model.ShortDesription"></textarea>
+        </li>
+        <li class="list-group-item">
+            <label asp-for="@Model.TypeSparePart" class="col-form-label"></label>
+            <input type="text" class="form-control" asp-for="@Model.TypeSparePart" disabled="disabled">
+        </li>
+        <li class="list-group-item">
+            <label class="col-form-label">Изображение</label>
+            <input asp-for="@Model.Avatar" class="form-control" type="file">
+        </li>
+
+        <li class="list-group-item">
+            <label asp-for="@Model.Amount" class="col-form-label"></label>
+            <input type="text" class="form-control" asp-for="@Model.Amount" />
+        </li>
+
+    </ul>
+
+    <button class="btn btn-primary">Отправить</button>
+</form>
+
+<script src="~/lib/select2/js/select2.full.min.js"></script>
+
+<script>
+    $('#sparePartTypeId').select2({
+        dropdownParent: $("#formSaveCar"),
+        placeholder: "Выберите тип",
+        minimumInputLength: 0,
+        allowClear: true,
+        select2nClose: true,
+        ajax: {
+            type: "POST",
+            url: "@Url.Action("GetTypes", "SparePart")",
+            dataType: "json",
+            processResults: function (result) {
+                return {
+                    results: $.map(result.data, function (val, index) {
+                        return {
+                            id: index,
+                            text: val
+                        };
+                    }),
+                };
+            }
+        }
+    });
+</script>
+
+<style>
+    label {
+        color: black;
+    }
+</style>

@@ -1,9 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="black-rectangle">
-    <div id="myCarousel" class="carousel slide" data-interval="10000" data-bs-ride="carousel">
+    //ViewData["Title"] = "Home Page";
+} 
+<div class="bd-example ">
+    <div id="myCarousel" class="carousel carousel-fade" data-interval="10000" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
@@ -12,42 +11,27 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active ">
-                <div class="wrapper">
-                    <img class="image-placeholder" src="~/assets/pictures/wheels.svg" aria-hidden="true" />
-                </div>
-
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>Быстрый срок доставки</h1>
-                        <p>Войдите чтобы сделать заказ </p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Войти</a></p>
-                    </div>
+                <img class="image-placeholder " src="~/assets/pictures/wheels.svg" aria-hidden="true" />
+                <div class="carousel-caption text-end">
+                    <h1>Быстрый срок доставки</h1>
+                    <p>Войдите чтобы сделать заказ </p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Войти</a></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="wrapper">
-                    <img class="image-placeholder w-100" src="~/assets/pictures/handle-subaru-sti-s207-15.svg" aria-hidden="true" />
-                </div>
-
-
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Большой ассортимент товаров</h1>
-                        <p></p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Каталог</a></p>
-                    </div>
+                <img class="image-placeholder " src="~/assets/pictures/handle-subaru-sti-s207-15.svg" aria-hidden="true" />
+                <div class="carousel-caption">
+                    <h1>Большой ассортимент товаров</h1>
+                    <p></p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Каталог</a></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="wrapper">
-                    <img class="image-placeholder w-100" src="~/assets/pictures/engine.svg" aria-hidden="true" />
-                </div>
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>Низкая цена</h1>
-                        <p>Найдете дешевле, сделаем скидку</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Каталог</a></p>
-                    </div>
+                <img class="image-placeholder" src="~/assets/pictures/engine.svg" aria-hidden="true" />
+                <div class="carousel-caption text-start">
+                    <h1>Низкая цена</h1>
+                    <p>Найдете дешевле, сделаем скидку</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Каталог</a></p>
                 </div>
             </div>
         </div>

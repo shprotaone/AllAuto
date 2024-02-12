@@ -86,7 +86,7 @@ namespace AllAuto.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSparePart(int id,bool isJson)
         {
-            BaseResponse<SparePartOverviewViewModel> response = await _sparePartService.GetCar(id);
+            BaseResponse<SparePartOverviewViewModel> response = await _sparePartService.GetPart(id);
             if(isJson)
             {
                 return View(response.Data);
@@ -99,7 +99,7 @@ namespace AllAuto.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var response = await _sparePartService.DeleteCar(id);
+            var response = await _sparePartService.Delete(id);
 
             if (response.Data)
             {
@@ -115,7 +115,7 @@ namespace AllAuto.Controllers
             if (id == 0)
                 return View();
 
-            var response = await _sparePartService.GetCar(id);
+            var response = await _sparePartService.GetPart(id);
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
                 return View(response.Data);
@@ -133,26 +133,9 @@ namespace AllAuto.Controllers
             //Модальное окно добавить
             if (ModelState.IsValid)
             {
-                if (model.Id == 0)
-                {
-                    byte[] imageData;
+                byte[] imageData = ConvertImage(model);
 
-                    if (model.Avatar == null)
-                        imageData = Array.Empty<byte>();
-                    else
-                    {
-                        using (var binaryReader = new BinaryReader(model.Avatar.OpenReadStream()))
-                        {
-                            imageData = binaryReader.ReadBytes((int)model.Avatar.Length);
-                        }
-                    }
-
-                    await _sparePartService.CreatePart(model,imageData);//создание
-                }
-                else
-                {
-                    await _sparePartService.Edit(model.Id,model);
-                }         
+                await _sparePartService.CreatePart(model, imageData);//создание
             }
             return RedirectToAction("GetAllParts");
         }
@@ -181,6 +164,48 @@ namespace AllAuto.Controllers
         {
             var types = _sparePartService.GetTypes();
             return Json(types);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            if (id == 0)
+                return View();
+
+            var response = await _sparePartService.GetPartForEdit(id);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Data);
+            }
+
+            return RedirectToAction("Error");
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(SparePartViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                byte[] imageData = ConvertImage(model);
+                await _sparePartService.Edit(model.Id, model,imageData);
+            }
+            return RedirectToAction("GetAllParts");
+        }
+
+        private byte[] ConvertImage(SparePartViewModel model)
+        {
+            byte[] imageData;
+            if (model.Avatar == null)
+                imageData = Array.Empty<byte>();
+            else
+            {
+                using (var binaryReader = new BinaryReader(model.Avatar.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)model.Avatar.Length);
+                }
+            }
+
+            return imageData;
         }
     }
 }

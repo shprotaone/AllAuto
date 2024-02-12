@@ -9,15 +9,15 @@ namespace AllAuto.Service.Interfaces
     {
         Task<BaseResponse<IEnumerable<SparePart>>> GetParts();
 
-        Task<BaseResponse<SparePartOverviewViewModel>> GetCar(int id);
-
+        Task<BaseResponse<SparePartOverviewViewModel>> GetPart(int id);
+        Task<BaseResponse<SparePartViewModel>> GetPartForEdit(int id);
         Task<BaseResponse<SparePart>> GetCarByName(string name);
 
-        Task<BaseResponse<SparePartViewModel>> CreatePart(SparePartViewModel carViewModel, byte[] imageData);
+        Task<BaseResponse<SparePartViewModel>> CreatePart(SparePartViewModel spareViewModel, byte[] imageData);
 
-        Task<IBaseResponse<bool>> DeleteCar(int id);
+        Task<IBaseResponse<bool>> Delete(int id);
 
-        Task<IBaseResponse<SparePart>> Edit(int id,SparePartViewModel model);
+        Task<IBaseResponse<SparePart>> Edit(int id,SparePartViewModel model, byte[] image);
 
         BaseResponse<Dictionary<int, string>> GetTypes();
 

@@ -19,12 +19,12 @@ namespace AllAuto.Service.Implementations
         private const string CarNotFoundMessage = "Car not found";
         private const string ZeroCarsMessage = "Найдено 0 элементов";
 
-        private readonly IBaseRepository<SparePart> _carRepository;
+        private readonly IBaseRepository<SparePart> _partRepository;
         private readonly ILogger<SparePartService> _logger;
 
         public SparePartService(IBaseRepository<SparePart> carRepository,ILogger<SparePartService> logger)
         {
-            _carRepository = carRepository;
+            _partRepository = carRepository;
             _logger = logger;
         }
 
@@ -45,7 +45,7 @@ namespace AllAuto.Service.Implementations
                     TypeSparePart = (TypePart)Convert.ToInt32(sparePartViewModel.TypeSparePart)
                 };
 
-                await _carRepository.Create(car);
+                await _partRepository.Create(car);
             }
             catch (Exception ex)
             {
@@ -58,13 +58,13 @@ namespace AllAuto.Service.Implementations
             return baseResponse;
         }
 
-        public async Task<IBaseResponse<bool>> DeleteCar(int id)
+        public async Task<IBaseResponse<bool>> Delete(int id)
         {
             var baseResponse = new BaseResponse<bool>();
 
             try
             {
-                var car = await _carRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
+                var car = await _partRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
 
                 if (car == null)
                 {
@@ -74,7 +74,7 @@ namespace AllAuto.Service.Implementations
                     return baseResponse;
                 }
 
-                await _carRepository.Delete(car);
+                await _partRepository.Delete(car);
                 return baseResponse;
             }
             catch (Exception ex)
@@ -86,26 +86,27 @@ namespace AllAuto.Service.Implementations
             }
         }
 
-        public async Task<IBaseResponse<SparePart>> Edit(int id, SparePartViewModel model)
+        public async Task<IBaseResponse<SparePart>> Edit(int id, SparePartViewModel model, byte[] image)
         {
             var baseResponse = new BaseResponse<SparePart>();
 
             try
             {
-                var car = await _carRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
-                if(car == null)
+                var part = await _partRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
+                if(part == null)
                 {
                     baseResponse.StatusCode = StatusCode.CarNotFound;
                     baseResponse.Description = CarNotFoundMessage;
                     return baseResponse;
                 }
 
-                car.Description = model.ShortDesription;
-                car.Model = model.Manufacture;
-                car.Price = model.Price;
-                car.Name = model.Name;
+                part.Description = model.ShortDesription;
+                part.Model = model.Manufacture;
+                part.Price = model.Price;
+                part.Name = model.Name;
+                part.Avatar = image;
 
-                await _carRepository.Update(car);
+                await _partRepository.Update(part);
 
                 return baseResponse;
                 //TypeCar
@@ -120,13 +121,13 @@ namespace AllAuto.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<SparePartOverviewViewModel>> GetCar(int id)
+        public async Task<BaseResponse<SparePartOverviewViewModel>> GetPart(int id)
         {
             var baseResponse = new BaseResponse<SparePartOverviewViewModel>();
 
             try
             {
-                var car = await _carRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
+                var car = await _partRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
 
                 if (car == null)
                 {
@@ -149,6 +150,8 @@ namespace AllAuto.Service.Implementations
                 };
 
                 baseResponse.Data = viewModel;
+                baseResponse.StatusCode = StatusCode.OK;
+
                 return baseResponse;
 
 
@@ -161,6 +164,48 @@ namespace AllAuto.Service.Implementations
                 };
             }
         }
+        public async Task<BaseResponse<SparePartViewModel>> GetPartForEdit(int id)
+        {
+            var baseResponse = new BaseResponse<SparePartViewModel>();
+
+            try
+            {
+                var part = await _partRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
+
+                if (part == null)
+                {
+                    baseResponse.Description = CarNotFoundMessage;
+                    baseResponse.StatusCode = StatusCode.CarNotFound;
+
+                    return baseResponse;
+                }
+
+                var viewModel = new SparePartViewModel
+                {
+                    Name = part.Name,
+                    ShortDesription = part.Description,
+                    Manufacture = part.Model,
+                    Price = part.Price,
+                    Amount = part.Amount,
+                    TypeSparePart = part.TypeSparePart.GetDisplayName(),
+                    Avatar = null,
+                };
+
+                baseResponse.Data = viewModel;
+                baseResponse.StatusCode = StatusCode.OK;
+
+                return baseResponse;
+
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<SparePartViewModel>()
+                {
+                    Description = $"[GetCar] : {ex.Message}"
+                };
+            }
+        }
 
         public async Task<BaseResponse<SparePart>> GetCarByName(string name)
         {
@@ -168,7 +213,7 @@ namespace AllAuto.Service.Implementations
 
             try
             {
-                var part = await _carRepository.GetAll().FirstOrDefaultAsync(x => x.Name == name);
+                var part = await _partRepository.GetAll().FirstOrDefaultAsync(x => x.Name == name);
 
                 if (part == null)
                 {
@@ -199,7 +244,7 @@ namespace AllAuto.Service.Implementations
             _logger.LogError($"[Login]: Message");
             try
             {
-                var parts = _carRepository.GetAll();
+                var parts = _partRepository.GetAll();
                 
                 if(parts.Count() == 0)
                 {
@@ -227,7 +272,7 @@ namespace AllAuto.Service.Implementations
 
             try
             {
-                var parts = _carRepository.GetAll().Where(x => x.TypeSparePart == type);
+                var parts = _partRepository.GetAll().Where(x => x.TypeSparePart == type);
 
                 if (parts.Count() == 0)
                 {
