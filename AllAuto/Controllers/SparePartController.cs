@@ -31,25 +31,14 @@ namespace AllAuto.Controllers
             if(response.StatusCode == Domain.Enum.StatusCode.OK)
             {
                 List<SparePartShortView> query = new List<SparePartShortView>();
-                foreach (var item in response.Data)
-                {
-                    query.Add(new SparePartShortView
-                    {
-                        Id = item.Id,
-                        Name = item.Name,                     
-                        Description = item.Description,
-                        Model = item.Model,
-                        Price = item.Price,
-                        TypeSparePart = item.TypeSparePart,
-                        Avatar = item.Avatar,
-
-                    }); 
-                }
-                    return View(query.AsQueryable());
+                ConvertToShortView(response, query);
+                return View(query.AsQueryable());
             }
 
             return RedirectToAction("Error");
         }
+
+       
 
         /// <summary>
         /// Поиск по типу
@@ -63,20 +52,7 @@ namespace AllAuto.Controllers
             if (response.StatusCode == Domain.Enum.StatusCode.OK)
             {
                 List<SparePartShortView> query = new List<SparePartShortView>();
-                foreach (var item in response.Data)
-                {
-                    query.Add(new SparePartShortView
-                    {
-                        Id = item.Id,
-                        Name = item.Name,
-                        Description = item.Description,
-                        Model = item.Model,
-                        Price = item.Price,
-                        TypeSparePart = item.TypeSparePart,
-                        Avatar = item.Avatar,
-
-                    });
-                }
+                ConvertToShortView(response, query);
                 return View("GetAllParts",query.AsQueryable());
             }
 
@@ -93,6 +69,20 @@ namespace AllAuto.Controllers
             }
 
             return PartialView("GetSparePart",response.Data);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetPartsToName(string name)
+        {
+            var response = await _sparePartService.GetPartByName(name);
+
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                List<SparePartShortView> query = new List<SparePartShortView>();
+                ConvertToShortView(response, query);
+                return View("GetAllParts", query.AsQueryable());
+            }
+
+            return PartialView("GetSparePart", response.Data);
         }
 
         //[Authorize(Roles = "Admin")]
@@ -206,6 +196,24 @@ namespace AllAuto.Controllers
             }
 
             return imageData;
+        }
+
+        private void ConvertToShortView(BaseResponse<IEnumerable<SparePart>> response, List<SparePartShortView> query)
+        {
+            foreach (var item in response.Data)
+            {
+                query.Add(new SparePartShortView
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Description = item.Description,
+                    Model = item.Model,
+                    Price = item.Price,
+                    TypeSparePart = item.TypeSparePart,
+                    Avatar = item.Avatar,
+
+                });
+            }
         }
     }
 }

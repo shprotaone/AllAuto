@@ -96,8 +96,8 @@
                             else
                             {
                                 <div class="row d-flex align-items-center justify-content-center">
-                                    <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-                                        <input type="search" class="form-control" placeholder="Поиск..." aria-label="Search">
+                                    <form action="/SparePart/GetPartsToName" method="GET" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+                                        <input type="search" name="name" class="form-control" placeholder="Поиск..." aria-label="Search"/>
                                     </form>
                                     <div class="basket-button d-flex col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto justify-content-center">
                                         <a class="basketIcon nav-link text-secondary" asp-controller="Basket" asp-action="Detail">
