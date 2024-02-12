@@ -17,7 +17,7 @@ namespace AllAuto.Service.Implementations
     public class SparePartService : ISparePartService
     {
         private const string CarNotFoundMessage = "Car not found";
-        private const string ZeroCarsMessage = "Найдено 0 элементов";
+        private const string ZeroPartsMessage = "Найдено 0 элементов";
 
         private readonly IBaseRepository<SparePart> _partRepository;
         private readonly ILogger<SparePartService> _logger;
@@ -164,6 +164,7 @@ namespace AllAuto.Service.Implementations
                 };
             }
         }
+
         public async Task<BaseResponse<SparePartViewModel>> GetPartForEdit(int id)
         {
             var baseResponse = new BaseResponse<SparePartViewModel>();
@@ -207,32 +208,30 @@ namespace AllAuto.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<SparePart>> GetCarByName(string name)
+        public async Task<BaseResponse<IEnumerable<SparePart>>> GetPartByName(string name)
         {
-            var baseResponse = new BaseResponse<SparePart>();
+            var baseResponse = new BaseResponse<IEnumerable<SparePart>>();
 
             try
             {
-                var part = await _partRepository.GetAll().FirstOrDefaultAsync(x => x.Name == name);
+                var parts = _partRepository.GetAll().Where(x => x.Name.Contains(name));
 
-                if (part == null)
+                if (parts.Count() == 0)
                 {
-                    baseResponse.Description = CarNotFoundMessage;
-                    baseResponse.StatusCode = StatusCode.CarNotFound;
-
-                    return baseResponse;
+                    baseResponse.Description = ZeroPartsMessage;
+                    baseResponse.StatusCode = StatusCode.OK;
                 }
 
-                baseResponse.Data = part;
+                baseResponse.Data = parts;
+                baseResponse.StatusCode = StatusCode.OK;
+
                 return baseResponse;
-
-
             }
             catch (Exception ex)
             {
-                return new BaseResponse<SparePart>()
+                return new BaseResponse<IEnumerable<SparePart>>()
                 {
-                    Description = $"[GetCar] : {ex.Message}"
+                    Description = $"[GetCars] : {ex.Message}"
                 };
             }
         }
@@ -248,7 +247,7 @@ namespace AllAuto.Service.Implementations
                 
                 if(parts.Count() == 0)
                 {
-                    baseResponse.Description = ZeroCarsMessage;
+                    baseResponse.Description = ZeroPartsMessage;
                     baseResponse.StatusCode = StatusCode.OK;
                 }
 
@@ -276,7 +275,7 @@ namespace AllAuto.Service.Implementations
 
                 if (parts.Count() == 0)
                 {
-                    baseResponse.Description = ZeroCarsMessage;
+                    baseResponse.Description = ZeroPartsMessage;
                     baseResponse.StatusCode = StatusCode.OK;
                 }
 
