@@ -1,6 +1,5 @@
 ﻿@model AllAuto.Domain.ViewModels.SparePart.SparePartViewModel
 @{
-    var textTitle = Model?.Id == 0 ? "Изменение данных" : "Добавление данных";
     Layout = "";
 }
 
@@ -48,6 +47,7 @@
 <script src="~/lib/select2/js/select2.full.min.js"></script>
 
 <script>
+
     $('#sparePartTypeId').select2({
         dropdownParent: $("#formSaveCar"),
         placeholder: "Выберите тип",

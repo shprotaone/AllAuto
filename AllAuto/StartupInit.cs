@@ -3,6 +3,7 @@ using AllAuto.DAL.Repositories;
 using AllAuto.Domain.Entity;
 using AllAuto.Service.Implementations;
 using AllAuto.Service.Interfaces;
+using NLog;
 using NLog.Web;
 
 namespace AllAuto
@@ -36,8 +37,10 @@ namespace AllAuto
             builder.Host.ConfigureLogging(logging =>
             {
                 logging.ClearProviders();
-                logging.SetMinimumLevel(LogLevel.Trace);
-            }).UseNLog();          
+                logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+            }).UseNLog();
+
+            LogManager.Configuration.Variables["myDir"] = builder.Environment.ContentRootPath + "/Logs";
         }
     }
 }

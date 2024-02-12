@@ -204,43 +204,6 @@ namespace AllAuto.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<ItemEntryViewModel>> AddItem(string userName, long id, int Amount)
-        {
-            try
-            {
-                //найти юзера
-                User user = FindUser(userName).Result;
-
-                if (user == null)
-                {
-                    return new BaseResponse<ItemEntryViewModel>()
-                    {
-                        Description = "Пользователь не найден",
-                        StatusCode = Domain.Enum.StatusCode.UserNotFound
-                    };
-                }
-
-                //взять экземпляр корзины
-                Basket basket = FindBasket(user).Result;
-                ItemEntry order = FindOrder(user);
-
-            }
-            catch (Exception ex)
-            {
-                return new BaseResponse<ItemEntryViewModel>()
-                {
-                    Description = ex.Message,
-                    StatusCode = Domain.Enum.StatusCode.InternalServerError
-                };
-            }
-
-            return new BaseResponse<ItemEntryViewModel>()
-            {
-                Description = "Заглушка",
-                StatusCode = Domain.Enum.StatusCode.InternalServerError
-            };
-        }
-
         public BaseResponse<Dictionary<int, string>> GetDeliveryTypes()
         {
             try

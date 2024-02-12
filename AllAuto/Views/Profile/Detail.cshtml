@@ -15,7 +15,7 @@
                         <h5 class="card-title">Данные профиля</h5>
                         <div class="mb-3">
                             <label class="form-label text-black-50">Возраст</label>
-                            <input type="text" class="form-control" asp-for="Age">
+                            <input type="number" class="form-control" asp-for="Age">
                             <div class="form-text">Возраст должен быть указан от 0 до 150 лет.</div>
                         </div>
                         <div class="mb-3">
@@ -109,10 +109,10 @@
                         confirmButtonText: 'Окей'
                     })
                 },
-                error: function (data) {
+                error: function (response) {
                     Swal.fire({
-                        title: 'Информация',
-                        text: 'Ошибка валидации',
+                        title: 'Ошибка',
+                        text: response.responseJSON.description,
                         icon: 'error',
                         confirmButtonText: 'Окей'
                     })

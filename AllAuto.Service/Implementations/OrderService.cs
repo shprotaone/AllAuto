@@ -2,7 +2,6 @@
 using AllAuto.Domain.Entity;
 using AllAuto.Domain.Response;
 using AllAuto.Service.Interfaces;
-using IronXL.Styles;
 using Microsoft.EntityFrameworkCore;
 
 namespace AllAuto.Service.Implementations
@@ -10,12 +9,39 @@ namespace AllAuto.Service.Implementations
     public class OrderService : IOrderService 
     {
         private readonly IBaseRepository<User> _userRepository;
-        private readonly IBaseRepository<ItemEntry> _orderRepository;
+        private readonly IBaseRepository<ItemEntry> _itemEntryRepository;
 
         public OrderService(IBaseRepository<User> userRepository, IBaseRepository<ItemEntry> orderRepository)
         {
             _userRepository = userRepository;
-            _orderRepository = orderRepository;
+            _itemEntryRepository = orderRepository;
+        }
+
+        public async Task<BaseResponse<ItemEntry>> AddEntry(long basketId, long partId, int amountCount)
+        {
+            try
+            {
+                var entry = await _itemEntryRepository.GetAll()
+                    .Where(x => x.BasketId == basketId && x.SparePartId == partId).FirstOrDefaultAsync();
+
+                entry.Quantity += amountCount;
+
+                await _itemEntryRepository.Update(entry);
+
+                return new BaseResponse<ItemEntry>()
+                {
+                    Description = "Заказ добавлен",
+                    StatusCode = Domain.Enum.StatusCode.OK
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<ItemEntry>()
+                {
+                    Description = ex.Message,
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError
+                };
+            }
         }
 
         public async Task<BaseResponse<ItemEntry>> Create(ItemEntry model)
@@ -37,7 +63,7 @@ namespace AllAuto.Service.Implementations
 
                 model.BasketId = user.Basket.Id;
 
-                await _orderRepository.Create(model);
+                await _itemEntryRepository.Create(model);
 
                 return new BaseResponse<ItemEntry>()
                 {
@@ -59,7 +85,7 @@ namespace AllAuto.Service.Implementations
         {
             try
             {
-                var order = _orderRepository.GetAll()
+                var order = _itemEntryRepository.GetAll()
                     .Include(x => x.Basket)
                     .FirstOrDefault(x => x.Id == id);
 
@@ -72,7 +98,7 @@ namespace AllAuto.Service.Implementations
                     };
                 }
 
-                await _orderRepository.Delete(order);
+                await _itemEntryRepository.Delete(order);
 
                 return new BaseResponse<bool>()
                 {
@@ -88,6 +114,17 @@ namespace AllAuto.Service.Implementations
                     StatusCode = Domain.Enum.StatusCode.InternalServerError
                 };
             }
+        }
+
+        public async Task<bool> FindEntryInBasket(long basketId, long partId)
+        {
+            var entry = await _itemEntryRepository.GetAll()
+                    .Where(x => x.BasketId == basketId && x.SparePartId == partId).FirstOrDefaultAsync();
+
+            if (entry == null) 
+                return false;
+
+            else return true;
         }
     }
 }
