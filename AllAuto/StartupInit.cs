@@ -5,6 +5,8 @@ using AllAuto.Service.Implementations;
 using AllAuto.Service.Interfaces;
 using NLog;
 using NLog.Web;
+using PRTelegramBot.Extensions;
+using PRTelegramBot.Utils;
 
 namespace AllAuto
 {
@@ -21,7 +23,7 @@ namespace AllAuto
         }
 
         public static void InitializeServices(IServiceCollection services)
-        {
+        {           
             services.AddScoped<ISparePartService, SparePartService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IUserService, UserService>();
@@ -30,6 +32,7 @@ namespace AllAuto
             services.AddScoped<IBasketService, BasketService>();
             services.AddScoped<IExcelReaderService<SparePart>, ExcelReaderService>();
             services.AddScoped<ICompleteOrderService, CompleteOrderService>();
+            services.AddScoped<TelegramNotificationService>();
         }
 
         public static void InitLogger(WebApplicationBuilder builder)

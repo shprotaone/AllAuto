@@ -8,5 +8,6 @@ namespace AllAuto.Service.Interfaces
     {
         Task<BaseResponse<CompleteOrderViewModel>> CreateCompleteOrder(CompleteOrderViewModel model);
         BaseResponse<List<CompleteOrderView>> GetCompleteOrders(long id);
+        Task<string> GetLastCompleteOrder(int name);
     }
 }
