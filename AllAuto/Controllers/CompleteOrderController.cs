@@ -18,7 +18,6 @@ namespace AllAuto.Controllers
         [HttpPost]
         public async Task<IActionResult> SetOrderComplete(CompleteOrderViewModel model)
         {
-            Console.WriteLine("Correct call");
             ModelState.Remove("Id");
             ModelState.Remove("UserId");
             ModelState.Remove("User");

@@ -5,8 +5,8 @@ using AllAuto.Domain.Extensions;
 using AllAuto.Domain.Response;
 using AllAuto.Domain.ViewModels.Order;
 using AllAuto.Service.Interfaces;
-using Microsoft.Extensions.Logging;
-using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace AllAuto.Service.Implementations
 {
@@ -14,14 +14,12 @@ namespace AllAuto.Service.Implementations
     {
         private readonly IBaseRepository<CompleteOrder> _completeOrderRepository;
         private readonly IBasketService _basketService;
-        private readonly ILogger<CompleteOrderService> _logger;
 
-        public CompleteOrderService(IBaseRepository<CompleteOrder> completeOrderRepository,ILogger<CompleteOrderService> logger,
+        public CompleteOrderService(IBaseRepository<CompleteOrder> completeOrderRepository,
             IBasketService basketService)
         {
             _completeOrderRepository = completeOrderRepository;
             _basketService = basketService;
-            _logger = logger;
         }
 
         public async Task<BaseResponse<CompleteOrderViewModel>> CreateCompleteOrder(CompleteOrderViewModel model)
@@ -89,6 +87,35 @@ namespace AllAuto.Service.Implementations
                     StatusCode = StatusCode.InternalServerError
                 };
             }
+        }
+
+        public async Task<string> GetLastCompleteOrder(int count)
+        {
+            string result = "";
+            try
+            {
+                var orders = await _completeOrderRepository.GetAll().ToListAsync();
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < orders.Count; i++)
+                {
+                    if (i <= count)
+                    {
+                        
+                        sb.AppendLine($"Заказчик: {orders[i].FullName}");
+                        sb.AppendLine($"Адрес доставки: {orders[i].Address}");
+                        sb.AppendLine($"Дата и время доставки : {orders[i].DateTime}");
+                        sb.AppendLine($"Сумма: {orders[i].Sum}");
+                        sb.AppendLine();
+                        result = sb.ToString();
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return $"[GetLastCompleteOrder] : {ex.Message}";
+            }            
         }
     }
 }
